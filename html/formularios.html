@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Formularios</title>
+</head>
+<body>
+    <section>
+        <h1>Formularios</h1>
+        <p>
+            LOS FORMULARIOS SIRVEN PARA ENVIAR DATA DE PARTE DEL USUARIO, PARA HACER UN FORMULARIO SE USA LA ETIQUETA form, ESTA CUENTA CON LOS ATRIBUTOS:
+            <br>
+            action: INDICA QUE ARCHIVO VA A PROCES ESTE FORMULARIO.
+            <br>
+            method: INDICA LA MANERA EN COMO SE ENVIARAN LOS DATOS (POST O GET)
+            <br>
+            LOS FOMULARIOS ESTÁN COMPUESTOS POR CAMPOS, PARA PINTAR UN CAMPO SE USA LA ETIQUETA input ESTA TIENE VARIOS ATRIBUTOS, ENTRE LOS MAS USADOS ESTAN:.
+            <br>
+            type: INDICA EL TIPO DE CAMPO, PUEDE SER text, number, password, hidden, button, email, date, submit, check, radio, select etc.
+            <br>
+            name: INDICA EL NOMBRE DEL CAMPO, ESTE ATRIBUTO ES INDISPENSABLE YA QUE PERMITIRÁ RECIBIR LOS DATOS EN EL ARCHIVO QUE TENGAMOS COMO ACTION.
+            <br>
+            value: INDICA EL VALOR POR DEFECTO DEL CAMPO, EN CASO DE SER DE type BUTTON EL VALUE SERÁ EL TEXTO QUE APARECERÁ EN EL BOTÓN.
+            <br>
+            placeholder: MUESTRA UN TEXTO DENTRO DEL CAMPO, ESTE TEXTO AUTOMATICAMENTE SE BORRA CUANDO EL USUARIO COMIENZA A ESCRIBIR.
+            <br>
+            required: OBLIGA AL USUARIO A LLENAR EL CAMPO DE TEXTO CON LA INFORMACIÓN.
+            <br>
+            readonly: MUESTRA UN VALOR POR DEFECTO EN UN CAMPO, ESTE NO PUEDE SER MODIFICADO POR EL USUARIO.
+        </p>
+        <div>
+            <p>CODIGO FUENTE DE UN FORMULARIO BÁSICO PARA LOGUEO</p>
+            <pre>
+                <span><</span>form action="archivo.php" method="POST"<span>></span>
+                <span>  <</span>label for="user"<span>>Usuario</span><span><</span>label<span>></span>
+                <span>  <</span>input type="text" name="user" id="user"<span>></span>
+                <span>  <</span>label for="pass"<span>>Contraseña</span><span><</span>label<span>></span>
+                <span>  <</span>input type="password" name="pass" id="pass"<span>></span>
+                <span>  <</span>input type="submit" name="send" value="Login"<span>></span>
+                <span><</span>/form<span>></span>
+            </pre>
+        </div>
+        <p>EJEMPLO DE UN FORMULARIO BÁSICO PARA LOGUEO</p>
+        <form action="archivo.php" method="POST">
+            <label for="user">Usuario</label>
+            <input type="text" name="user" id="user" required>
+            <label for="pass">Contraseña</label>
+            <input type="password" name="pass" id="pass">
+            <input type="submit" name="send" value="Login">
+        </form>
+    </section>
+    <section>
+        <h1>Tipos de inputs</h1>
+        <p>
+            AUNQUE HTML5 OFRECE EL NUEVO ATRIBUTO required PARA LOS TIPOS DE INPUTS QUE ES UTIL HASTA CIERTO PUNTO PARA VALIDAR QUE EL USUARIO INGRESE DATOS CORRECTOS ESTE ES
+            DEMASIADO FACIL DE BURLAR.
+            <br>
+            EJEMPLO: TENEMOS UN INPUT DE TIPO MAIL Y SI EL USUARIO PONE UN TEXTO CUALQUIERA, AL MOMENTO DE TRATAR DE ENVIAR LA INFORMACIÓN EL NAVEGADOR MOSTRARÁ UN MENSAJE
+            DE QUE LOS DATOS DEL CAMPO NO ES UNA DIRECCIÓN DE CORREO VALIDA Y LO MISMO PASARA CON LOS DEMÁS TIPOS DE INPUT SIEMPRE Y CUANDO USEMOS EL ATRIBUTO required.
+        </p>
+        <div>
+            <p>CODIGO FUENTE DE UN FORMULARIO USANDO EL ATRIBUTO required PARA LOGUEO</p>
+            <pre>
+                <span><</span>form action="archivo.php" method="POST"<span>></span>
+                <span>  <</span>label for="user"<span>>Usuario</span><span><</span>label<span>></span>
+                <span>  <</span>input type="text" name="user" id="user" required<span>></span>
+                <span>  <</span>label for="pass"<span>>Contraseña</span><span><</span>label<span>></span>
+                <span>  <</span>input type="password" name="pass" id="pass" required<span>></span>
+                <span>  <</span>input type="submit" name="send" value="Login"<span>></span>
+                <span><</span>/form<span>></span>
+            </pre>
+        </div>
+        <p>EJEMPLO DE UN FORMULARIO USANDO EL ATRIBUTO required PARA LOGUEO</p>
+        <form action="archivo.php" method="POST">
+            <label for="user">Usuario</label>
+            <input type="text" name="user" id="user" required>
+            <label for="pass">Contraseña</label>
+            <input type="password" name="pass" id="pass" required>
+            <input type="submit" name="send" value="Login">
+        </form>
+        <p>
+            OTRS TIPOS DE INPUTS QUE SON MUY USADOS SON LOS checkbox y radio, LOS CHECK SIRVEN PARA QUE EL USUARIO PUEDA ELEGIR MULTIPLES OPCIONES, Y EL radio SIRVE PARA SOLO
+            ELEGIR UNA.
+        </p>
+        <div>
+            <span>EJEMPLO DE CÓDIGO FUENTE DE INPUTS checkbox Y radio</span>
+            <pre>
+                <span><</span>form action="archivo.php" method="POST"<span>></span>
+                <span>  <</span>span<span>>Pasatiempos</span><span><</span>/span<span>></span>
+                <span>  <</span><span>label</span><span>></span>
+                <span>    <</span>input type="checkbox"<span>></span>
+                    Futbol
+                <span>  <</span>/label<span>></span>
+                <span>  <</span><span>label</span><span>></span>
+                <span>    <</span>input type="checkbox"<span>></span>
+                    Cine
+                <span>  <</span>/label<span>></span>
+                <span>  <</span><span>label</span><span>></span>
+                <span>    <</span>input type="checkbox"<span>></span>
+                    Leer
+                <span>  <</span>/label<span>></span>
+                <span>  <</span><span>label</span><span>></span>
+                <span>    <</span>input type="checkbox"<span>></span>
+                    Cocinar
+                <span>  <</span>/label<span>></span>
+                <span>  <</span>span<span>>Genero</span><span><</span>/span<span>></span>
+                <span>  <</span><span>label</span><span>></span>
+                <span>    <</span>input type="radio" name="gender"<span>></span>
+                    Masculino
+                <span>  <</span>/label<span>></span>
+                <span>  <</span><span>label</span><span>></span>
+                <span>    <</span>input type="radio" name="gender"<span>></span>
+                    Femenino
+                <span>  <</span>/label<span>></span>
+                <span>  <</span><span>label</span><span>></span>
+                <span>    <</span>input type="radio" name="gender"<span>></span>
+                    Prefiero no decir
+                <span>  <</span>/label<span>></span>
+                <span>  <</span>input type="submit" name="send" value="Login"<span>></span>
+                <span><</span>/form<span>></span>
+            </pre>
+            <span>EJEMPLO DE INPUTS checkbox Y radio</span>
+            <form action="">
+                <span>Pasatiempos</span>
+                <br>
+                <label><input type="checkbox">Futbol</label>
+                <label><input type="checkbox">Cine</label>
+                <label><input type="checkbox">Leer</label>
+                <label><input type="checkbox">Cocinar</label>
+                <br>
+                <span>Genero</span>
+                <br>
+                <label><input type="radio" name="gender">Masculino</label>
+                <label><input type="radio" name="gender">Femenino</label>
+                <label><input type="radio" name="gender">Prefiero no decir</label>                
+            </form>
+            <strong>NOTA:</strong> <em>PARA QUE UN RADIO FUNCIONE DE MANERA CORRECTA, TODOS LOS ELEMENTOS DE ESE TIPO DEBEN TENER EN EL ATRIBUTO name EL MISMO NOMBRE</em>
+        </div>
+    </section>
+    <section>
+        <h1>Campos de selección y atributos</h1>
+        <p>
+            AL MOMENTO DE DISEÑAR UN FORMULARIO TENEMOS QUE PENSAR EN LA EXPERIENCIE DEL USUARIO (UX), NO DEBEMOS PONER DEMASIADOS CAMPOS QUE LO ABRUMEN Y ESTE DEJE DE
+            VISITAR NUESTRA PAGINA O DEJE DE USAR NUESTRA APP.            
+        </p>
+        <p>EJEMPLO DE UN FORMULARIO CON MUCHOS CAMPOS</p>
+        <form action="">
+            <input type="text" placeholder="Nombre">
+            <input type="text" placeholder="Apellido Paterno">
+            <input type="text" placeholder="Apellido Materno">
+            <input type="text" placeholder="Edad">
+            <input type="text" placeholder="Direccion">
+            <br>
+            <input type="text" placeholder="Telefono Casa">            
+            <input type="text" placeholder="Telefono Oficina">
+            <input type="text" placeholder="Celular">
+            <input type="text" placeholder="Correo">
+            <br>
+            <input type="text" placeholder="Nombre de usuario">
+            <input type="text" placeholder="Contraseña">
+            <input type="text" placeholder="Repite Contraseña">
+            <input type="submit" name="send" value="Registrarse">
+        </form>
+        <p>
+            VER UN FORMULARIO COMO ESTE A MAS DE UNO LE DARÍA FLOJERA LLENARLO Y PROBABLEMENTE NO SE REGISTRARÍA, ENTONCES PARA EVITAR ESTE TIPO DE SITUACIONES DEBIDO A QUE
+            AVECES ES NECESARIO TENER MUCHOS CAMPOS DE TEXTOS, EXISTE UN ELEMENTO LLAMADO fieldset, ESTE PERMITE METER VARIOS CAMPOS EN UNA ESPECIE DE CONTENEDOR.
+        </p>
+        <p>CÓDIGO FUENRE DE EJEMPLO DE ELEMENTO fieldset</p>
+        <pre>
+            <span><</span>fieldset<span>></span>
+            <span> <</span>legend<span>></span>Titulo del fieldset<span><</span>/legend<span>></span>
+            <span><</span>/fieldset<span>></span>
+        </pre>        
+        <p>EJEMPLO DE FORMULARIO CON MUCHOS CAMPOS USANDO fieldset</p>
+        <form action="">
+            <fieldset>
+                <legend>Datos Personales</legend>
+                <input type="text" placeholder="Nombre">
+                <input type="text" placeholder="Apellido Paterno">
+                <input type="text" placeholder="Apellido Materno">
+                <input type="text" placeholder="Edad">
+                <input type="text" placeholder="Direccion">
+            </fieldset>
+            <fieldset>
+                <legend>Datos de Contacto</legend>
+                <input type="text" placeholder="Telefono Casa">
+                <input type="text" placeholder="Telefono Oficina">
+                <input type="text" placeholder="Celular">
+                <input type="text" placeholder="Correo">
+            </fieldset>
+            <fieldset>
+                <legend>Datos en la Plataforma</legend>
+                <input type="text" placeholder="Nombre de usuario">            
+                <input type="text" placeholder="Contraseña">            
+                <input type="text" placeholder="Repite Contraseña">
+            </fieldset>
+            <input type="submit" name="send" value="Registrarse">
+        </form>
+        <p>
+            OTRO ELEMENTO QUE TENEMOS PARA AGRUPAR CONTENIDO ES EL select, ESTE MUESTRA LAS OPCIONES EN FORMA DE MENÚ O LISTA
+        </p>
+        <p>CODIGO FUENTE DEL USO DEL ELEMENTO select</p>
+        <pre>
+            <span><</span>form action="archivo.php" method="POST"<span>></span>
+            <span>  <</span>label for="country"<span>>Selecciona tu país</span><span><</span>label<span>></span>
+            <span>  <</span>select name="country" id="country"<span>></span>
+            <span>    <</span>option value="mx"<span>>México</span><span><</span>/option<span>></span>
+            <span>    <</span>option value="pe"<span>>Perú</span><span><</span>/option<span>></span>
+            <span>    <</span>option value="cr"<span>>Costa Rica</span><span><</span>/option<span>></span>
+            <span>    <</span>option value="gu"<span>>Guatemala</span><span><</span>/option<span>></span>
+            <span>    <</span>option value="ca"<span>>Canadá</span><span><</span>/option<span>></span>
+            <span>  <</span>/select<span>></span>
+            <span><</span>/form<span>></span>
+        </pre>
+        <span>EJEMPLO DEL USO DEL ELEMENTO select</span>
+        <form action="">
+            <label for="country">Slecciona tu país</label>
+            <select name="" id="country">
+                <option value="0"></option>
+                <option value="Mexico">México</option>
+                <option value="Peru">Perú</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Canada">Canadá</option>
+            </select>
+        </form>
+        <p>
+            EN CASO DE QUE LA LISTA DE OPCIONES SEA DEMASIADO GRANDE O SI QUEREMOS DIVIDIRLA EN "SECCIONES", PODEMOS USAR EL ELEMENTO optgroup
+        </p>
+        <span>EJEMPLO DEL USO DEL ELEMENTO select USANDO EL ELEMENTO optgroup</span>
+        <form action="">
+            <label for="country">Slecciona tu país</label>
+            <select name="" id="country">
+                <option value="0"></option>
+                <optgroup label="America">                    
+                    <option value="Mexico">México</option>
+                    <option value="Peru">Perú</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Canada">Canadá</option>
+                </optgroup>
+                <optgroup label="Europa">                    
+                    <option value="it">Italia</option>
+                    <option value="eng">Inglaterra</option>
+                    <option value="su">Suecia</option>                    
+                </optgroup>
+            </select>
+        </form>
+        <p>CODIGO FUENTE DEL USO DEL ELEMENTO select USANDO EL ELEMENTO optgroup</p>
+        <pre>
+            <span><</span>form action="archivo.php" method="POST"<span>></span>
+            <span>  <</span>label for="country"<span>>Selecciona tu país</span><span><</span>label<span>></span>
+            <span>  <</span>select name="country" id="country"<span>></span>
+            <span>    <</span>option value="0"<span>></span><span><</span>/option<span>></span>
+            <span>    <</span>optgroup label="America"<span>></span>
+            <span>      <</span>option value="mx"<span>>México</span><span><</span>/option<span>></span>
+            <span>      <</span>option value="pe"<span>>Perú</span><span><</span>/option<span>></span>
+            <span>      <</span>option value="cr"<span>>Costa Rica</span><span><</span>/option<span>></span>
+            <span>      <</span>option value="gu"<span>>Guatemala</span><span><</span>/option<span>></span>
+            <span>      <</span>option value="ca"<span>>Canadá</span><span><</span>/option<span>></span>
+            <span>    <</span>/optgroup<span>></span>
+            <span>    <</span>optgroup label="Europa"<span>></span>
+            <span>      <</span>option value="it"<span>>Italia</span><span><</span>/option<span>></span>
+            <span>      <</span>option value="eng"<span>>Inglaterra</span><span><</span>/option<span>></span>
+            <span>      <</span>option value="su"<span>>Suecia</span><span><</span>/option<span>></span>
+            <span>    <</span>/optgroup<span>></span>
+            <span>  <</span>/select<span>></span>
+            <span><</span>/form<span>></span>
+        </pre>
+        <P>
+            EN CASO DE NECESITAR UN CAMPO PARA MUCHO TEXTO TENEMOS EL ELEMENOT textarea
+        </P>
+        <span>EJEMPLO DE TEXTAREA</span>
+        <br>
+        <span>Cuentanos de ti</span>
+        <form action="">            
+            <textarea name="texto" id="me" cols="60" rows="10"></textarea>
+        </form>
+    </section>
+    <script>
+        document.getElementById('user').addEventListener('keyup', e => {
+            console.log(e.target.value);
+        });
+    </script>
+</body>
+</html>

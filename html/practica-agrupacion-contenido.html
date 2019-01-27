@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Práctica de agrupacion de contenido</title>
+</head>
+<body>
+    <p>Mis comidas favoritas son:</p><!-- SIEMPRE SE DEBE ENCERRAR UN TEXTO ENTRE ETIQUETAS, NUNCA SE DEBE DEJAR UN TEXTO HUERFANO -->
+
+    <ol><!-- LISTA ORDENADA -->
+        <li>
+            Mole
+            <ul><!-- LISTA DESORDENADA -->
+                <li>Pollo</li>
+                <li>Mole</li>
+            </ul>
+        </li>
+        <li>
+            Barbacoa
+            <ul>
+                <li>Chivo</li>
+                <li>Chile rojo</li>
+            </ul>
+        </li>
+        <li>
+            Tacos
+            <ul>
+                <li>Carne</li>
+                <li>Verdura</li>
+            </ul>
+        </li>        
+    </ol>
+
+    <p>Lista de capitales LA</p>
+    <dl><!-- LISTA DE DEFINICION -->
+        <dt><!-- DEFINITION TERM -->
+            Perú
+            <dd>Lima</dd><!-- DEFINITION DESCRIPTION -->
+        </dt>
+        <dt>
+            Colombia
+            <dd>Bogotá</dd>
+        </dt>
+    </dl>
+
+    <figure id="code-js">
+        <pre><!-- RESPETA SALTOS DE LINEA Y ESPACIOS, MUESTRA EL TEXTO TAL Y COMO ESTÁ ESCRITO -->
+            <code>
+                function hola() {
+                    return "Hola";
+                }
+            </code>
+        </pre>
+        <figcaption>
+            Declaracion de una funcion JS
+        </figcaption>
+    </figure>
+</body>
+</html>

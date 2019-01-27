@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multimedia</title>
+</head>
+<body>
+    <section>
+        <h1>Reproducción de video HTML5</h1>
+        <p>
+            ANTES DE HTML5 EL CONTENIDO MULTIMEDIA (AUDIO Y VÍDEO) DE UNA PAGINA SOLO PODÍA REPRODUCIRSE USANDO FLASH, ACTUALMENTE HTML5 PERMITE REPRODUCIR ESTE CONTENIDO DE
+            MANERA DIRECTA, PARA REPRODUCIR UN VIDEO SE USA LA ETIQUETA video ENTRE LOS ATRIBUTOS DE ESTE ELEMENTO PODEMOS ENCONTRAR:
+            <br>
+            <b>src:</b> INDICA LA RUTA DEL ARCHIVO DE VIDEO QUE SE CARGARÁ O INSERTARÁ EN LA PAGINA.
+            <br>
+            <b>width:</b> INDICA LA ANCHURA DEL ÁREA DE VISUALIZACIÓN DEL VIDEO EN PIXELES. <em>ESTA PROPIEDAD ES PREFERIBLE QUE SE DEFINA MEDIANTE CSS</em>
+            <br>
+            <b>height:</b> INDICA LA ALTURA DEL ÁREA DE VISUALIZACIÓN DEL VIDEO EN PIXELES. <em>ESTA PROPIEDAD ES PREFERIBLE QUE SE DEFINA MEDIANTE CSS</em>
+            <br>
+            <b>autoplay:</b> INDICA SI EL VIDEO COMENZARÁ A REPRODUCIRSE DE FORMA AUTOMATICA TAN PRONTO COMO SEA POSIBLE, SIN DETENERSE PARA TERMINAR LA CARGA DE LOS DATOS.
+                        <em>NO ES RECOMENDABLE USAR ESTA OPCIÓN A MENOS QUE EL VIDEO SEA EL UNICO ELEMENTO EN LA PÁGINA.</em>
+            <br>
+            <b>controls:</b> INDICA SE SE PRESENTARÁN CONTROLES (VOLUMEN, BÚSQUEDA, PAUSAR Y REANUDAR) PARA LA REPRODUCCIÓN DEL VIDEO AL USUARIO.
+            <br>
+            <b>poster:</b> PERMITE DEFINIR UN POSTER INICIAL PARA EL VIDEO.
+        </p>
+        <span>EJEMPO DEL USO DE LA ETIQUETA video</span>
+        <br>
+        <video src="./media/cinema-4D.mp4" controls></video>
+        <div>
+            <span>CODIGO FUENTE DEL USO DE LA ETIQUETA video</span>
+            <pre>
+                <span><</span>video src="./media/cinema-4D.mp4" controls<span><</span>/video<span>></span>
+            </pre>
+        </div>
+        <p>
+            TAMBIEN SE PUEDEN PONER LOS CONTROLES DE PLAY Y PAUSE AL VIDEO MEDIANTE EL USUO DE JS.
+        </p>
+        <span>EJEMPLO DE REPRODUCTOR DE VIDEO USANDO JS</span>
+        <br>
+        <video src="./media/cinema-4D.mp4" id="video"></video>
+        <br>
+        <button id="play">Play</button>
+        <button id="pause">Pausa</button>
+        <div>
+            <span>CODIGO FUENTE DE JS PARA EL REPRODUCTOR DE VIDEO</span>
+            <code>
+                <pre>
+                    <span><</span>script<span>></span>
+                        const VIDEO = document.getElementById('video');
+                        const PLAY = document.getElementById('play');
+                        const PAUSA = document.getElementById('pause');
+                        PLAY.addEventListener('click', () => {
+                            VIDEO.play();
+                        });
+                        PAUSA.addEventListener('click', () => {
+                            VIDEO.pause();
+                        });
+                    <span><</span>/script<span>></span>
+                </pre>
+            </code>
+        </div>
+    </section>
+    <section>
+        <h1>Reproducción de audio HTML5</h1>
+        <p>
+            PARA REPRODUCIR AUDIO EN HTML5 SE USA LA ETIQUETA audio, ENTRE SUS ATRIBUTOS PODEMOS DESTACAR LAS SIGUIENTES:
+            <br>
+            <b>src:</b> INDICA LA RUTA DEL ARCHIVO DE AUDIO QUE SE CARGARÁ O INSERTARÁ EN LA PAGINA.
+            <br>
+            <b>autoplay:</b> INDICA SI EL AUDIO COMENZARÁ A REPRODUCIRSE DE FORMA AUTOMATICA TAN PRONTO COMO SEA POSIBLE, SIN DETENERSE PARA TERMINAR LA CARGA DE LOS DATOS.
+                        <em>NO ES RECOMENDABLE USAR ESTA OPCIÓN A MENOS QUE EL AUDIO SEA EL UNICO ELEMENTO EN LA PÁGINA.</em>
+            <br>
+            <b>controls:</b> INDICA SE SE PRESENTARÁN CONTROLES (VOLUMEN, BÚSQUEDA, PAUSAR Y REANUDAR) PARA LA REPRODUCCIÓN DEL AUDIO AL USUARIO.
+            <br>
+            <b>loop:</b> INDICA SI EL AUDIO SE REPETIRA DE NUEVO UNA VEZ QUE LA REPRODUCCIÓN TERMINE.
+        </p>
+        <span>EJEMPLO DEL USO DEL ELEMENTO audio</span>
+        <br>
+        <audio src="./media/alone-Alan Walker.mp3" controls></audio>
+        <div>
+            <span>CODIGO FUENTE DEL USO DE LA ETIQUETA audio</span>
+            <pre>
+                <span><</span>audio src="./media/alone-Alan Walker.mp3" controls<span><</span>/audio<span>></span>
+            </pre>
+        </div>
+        <p>
+            <strong>NOTA:</strong> <em>AL IGUAL QUE EL ELEMENTO video PODEMOS CREAR UN SCRIPT JS PARA LOS CONTROLES DEL audio, EL CODIGO JS PRACTICAMENTE ES EL MISMO </em>
+        </p>
+    </section>
+    <script>
+        const VIDEO = document.getElementById('video');
+        const PLAY = document.getElementById('play');
+        const PAUSA = document.getElementById('pause');
+        PLAY.addEventListener('click', () => {
+            VIDEO.play();
+        });
+        PAUSA.addEventListener('click', () => {
+            VIDEO.pause();
+        });
+        /**** SI EN LA CONSOLA DE JS ESCRIBIMOS console.dir($0) MOSTRARÁ TODAS LAS PROPIEDADES Y METODOS DEL ELEMENTO QUE EN ESE MOMENTO ESTÉ SELECCIONADO
+        $0 HACE REFERENCIA AL ELEMENTO QUE TENGAMOS SELECCIONADO ****/
+    </script>
+</body>
+</html>

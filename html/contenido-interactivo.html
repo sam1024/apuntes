@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contenido interactivo en HTML</title>
+</head>
+<body>
+    <section>
+        <h1>Contenido interactivo en HTML</h1>
+        <p>
+            EL CONTENIDO INTERACTIVO ES AQUEL QUE REACCIONA DE ALGUNA MANERA EN RESPUESTA A ALGO QUE EL USUARIO A HECHO EN LA PÁGINA (CLICK EN BOTON, DESLIZAR LA PANTALLA,
+            ETC.), EN HTML5 TENEMOS 3 ELEMENTOS PARA LA INTERACTIVIDAD CON LA PÁGINA.
+            <br>
+            <b>details:</b> PERMITE CREAR UN ACORDEON SI USAR JS, ESTO FACILITA MUCHO EL DESARROLLO DE NUESTRA PÁGINA.
+            <br>
+            <b>dialog:</b> PERMITE CREAR UN CUADRO DE DIALOGO DE TIPO MODAL, PARA QUE ESTE FUNCIONE DE LA MANERA DESEADA DEBE AGREGARSELE EL ATRIBUTO open Y SI QUEREMOS QUE
+                           SEMUESTRE AL MOMENTO DE CARGAR ABRIR LAPAGINA SE RECOMIENDA QUE ESTE SE SITUE EN LA PARTE DE ARRIBA, DE PREFERENCIA ANTES DEL BODY.
+        </p>
+        <span>EJEMPLO DE USO DEL ELEMENTO details</span>
+        <details>
+            <summary>Requerimientos</summary>
+            <p>
+                Requires a computer running an operating system. The computer
+                must have some memory and ideally some kind of long-term storage.
+                An input device as well as some form of output device is
+                recommended.
+            </p>
+        </details>
+        <div>
+            <span>CODIGO FUENTE DEL ELEMENTO details</span>
+            <br>
+            <pre>
+                <span><</span>details<span>></span>
+                <span>  <</span>summary<span>></span>Requerimientos<span><</span>/summary<span>></span>
+                <span>  <</span>p<span>></span>
+                    Requires a computer running an operating system. The computer
+                    must have some memory and ideally some kind of long-term storage.
+                    An input device as well as some form of output device is
+                    recommended.
+                <span>  <</span>/p<span>></span>
+                <span><</span>/details<span>></span>
+            </pre>
+        </div>
+        <p>EJEMPLO DE USO DEL ELEMENTO dialog, DEBIDO A QUE TIENE EL ATRIBUTO open ESTE SE MOSTRARÁ UNA VEZ QUE SE CARGUE LA PÁGINA</p>
+        <dialog open>
+            <h2>Curso de HTML5</h2>
+            <p>Precio $30</p>
+            <p>Profesor Samuel</p>
+        </dialog>
+        <div>
+            <span>CÓDIGO FUENTE DEL USO DEL ELEMENTO dialog CON LA PROPIEDAD open</span>
+            <br>
+            <pre>
+                <span><</span>dialog open<span>></span>                
+                <span>  <</span>h2<span>>Curso HTML5</span><span><</span>/h2<span>></span>
+                <span>  <</span>p<span>></span>
+                    Precio $30
+                <span>  <</span>/p<span>></span>
+                <span>  <</span>p<span>></span>
+                    Profesor Samuel
+                <span>  <</span>/p<span>></span>
+                <span><</span>/dialog<span>></span>
+            </pre>
+        </div>
+        <p>
+            TAMBIEN PODEMOS USAR JS PARA MOSTRAR EL ELEMENTO dialog
+        </p>
+        <p>EJEMPLO DEL USO DE DIALOG USANDO BOTONES PARA ABRIRLO Y CERRARLO DESDE JS</p>
+        <dialog id="modal">
+            <a href="#"id="close-modal">cerrar</a>
+            <h2>dialog CON JS</h2>
+            <p>HOLA</p>
+            <p>DISTE CLICK EN EL BOTON</p>
+        </dialog>
+        <button id="btn-modal">Mostrar</button>
+        <div>
+            <p>CÓDIGO FUENTE DEL USO DE DIALOG USANDO BOTONES PARA ABRIRLO Y CERRARLO DESDE JS</p>
+            <pre>
+                <span><</span>dialog<span>></span>                
+                <span>  <</span>h2<span>>Curso HTML5</span><span><</span>/h2<span>></span>
+                <span>  <</span>p<span>></span>
+                    Precio $30
+                <span>  <</span>/p<span>></span>
+                <span>  <</span>p<span>></span>
+                    Profesor Samuel
+                <span>  <</span>/p<span>></span>
+                <span><</span>/dialog<span>></span>
+            </pre>
+            <p>CÓDIGO FUENTE DE JS</p>
+            <code>
+                <pre>
+                    <span><</span>script<span>></span>
+                        const MODAL = document.getElementById('modal');
+                        const BTNMODAL = document.getElementById('btn-modal');
+                        const CLOSEMODAL = document.getElementById('close-modal');
+                        BTNMODAL.addEventListener('click', () => {
+                            MODAL.setAttribute('open', 'true');
+                        });
+                        CLOSEMODAL.addEventListener('click', () => {
+                            MODAL.removeAttribute('open');
+                        });
+                    <span><</span>/script<span>></span>
+                </pre>
+            </code>
+        </div>
+    </section>
+    <section>
+        <h1>Contenido embebido</h1>
+        <p>
+            EL CONTENIDO EMBEBIDO ES AQUEL QUE TRAEMOS DE OTRO SITIO Y LO INCRUSTAMOS EN NUESTRA PÁGINA WEB, EJEMPLO INSERTAR UN VIDEO DE YOUTUBE.
+            <br>
+            PARA HACERLO SE USA LA ETIQUETA iframe, ESTA REPRESENTA UN CONTEXTO DE NAVEGACIÓN ANIDADA, ES UN DOCUMENTO ANIDADO EN EL DOCUMENTO ACTUAL ENTRE LAS 
+            PROPIEDADES MÁS USADAS DE ESTA ESTÁN:
+            <br>
+            <b>src:</b> INDICA EL EL URL DEL CONTENIDO QUE SE ESTÁ INSERTANDO.
+            <br>
+            <b>width:</b> INDICA EL ANCHO EN PIXELES DEL FRAME O CONTENEDOR.
+            <br>
+            <b>height:</b> INDICA EL ALTO EN PIXELES DEL FRAME O CONTENEDOR.
+            <br>
+            <b>allow:</b> INDICA UNA LISTA DE POLITICAS DE DIRECTIVAS SEPARADAS POR COMA, DONDE CADA ELEMENTO ESPECIFICA UN CONJUNTO DE ORIGENES QUE ESTARÁN PERMITIDOS, LOS
+            VALORES DE ESTA LISTA PUEDEN SER:
+            <ul>
+                <li>accelerometer</li>
+                <li>autoplay</li>
+                <li>encrypted-media</li>
+                <li>gyroscope</li>
+                <li>picture-in-picture</li>
+            </ul>
+            <b>allowfullscreen:</b> INDICA QUE SE PERMITIRÁ LA VISTA A PANTALLA COMPLETA DEL VIDEO.
+            <br>
+            <b>sandbox:</b> PERMITE DESHABILITAR CARACTERISTICAS POTENCIALMENTE PERJUDICIALES O MOLESTAS COMO FOMULARIOS O PROGRAMAS.
+        </p>
+        <p>EJEMPLO DEL USO DE iframe, INSERTANDO UN VIDEO DESDE YOUTUBE</p>
+        <iframe 
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/ed-OyXDxNjM"
+            frameborder="0" 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+        <div>
+            <p>CÓDIGO FUENTE DEL USO DE iframe, INSERTANDO UN VIDEO DESDE YOUTUBE</p>
+            <pre>
+                <span><</span>iframe 
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/ed-OyXDxNjM"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                <span><</span>/iframe<span>></span>
+            </pre>
+        </div>
+        <span>INSERTANDO UN MAPA DE GOOGLE MAPS CON iframe</span>
+        <br>
+        <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15275.81766681264!2d-99.85770186603338!3d16.828617303482407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ca59b188a16df1%3A0x4e591833d31f54c3!2sCumbres+de+Llano+Largo%2C+Parque+el+Veladero%2C+Acapulco%2C+Gro.!5e0!3m2!1ses-419!2smx!4v1548257139494" 
+            width="600" 
+            height="450" 
+            frameborder="0" 
+            style="border:0" 
+            allowfullscreen>
+        </iframe>
+    </section>
+    <script>
+        const MODAL = document.getElementById('modal');
+        const BTNMODAL = document.getElementById('btn-modal');
+        const CLOSEMODAL = document.getElementById('close-modal');
+        BTNMODAL.addEventListener('click', () => {
+            MODAL.setAttribute('open', 'true');
+        });
+        CLOSEMODAL.addEventListener('click', () => {
+            MODAL.removeAttribute('open');
+        });
+    </script>
+</body>
+</html>

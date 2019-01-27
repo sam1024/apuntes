@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Imágenes, Viewport y device pixel ratio y Atributo srcset</title>
+    <link rel="stylesheet" href="./css/imagenes.css">
+</head>
+<body>
+    <h1>IMÁGENES</h1>
+    <section>
+        <p>
+            EXISTEN BASICAMENTE DOS TIPOS DE IMAGENES, DE MAPA DE BITS (BITMAP) Y VECTORIALES (VECTOR). 
+            <br><br>
+            <strong>BITMAP:</strong> LAS IMAGENES DE MAPA DE BITS ESTAN FORMADAS POR PUNTOS DE COLORES, CADA PUNTO ES UN PIXEL, Y AL JUNTAR TODOS ESOS PIXELES FORMAMOS LA 
+            IMAGEN, ESTA ESTÁ COMPUESTA POR UNA CANTIDAD DE PIXELS DE ALTO Y DE ANCHO, CUANDO VEMOS LA IMAGEN DENTRO DE ESTOS LIMITES LA MISMA SE VERA BIEN, PERO UNA VEZ QUE 
+            LA VEAMOS FUERA DE ESOS LIMITES LA IMAGEN SE PIXELARA (LOS PIXELES SE ESTIRAN) Y YA NO SE VE DE UNA MANERA NITIDA. EN ESTAS LOS PRINCIPALES FORMATOS SON jpg Y png.
+            <br>
+            <b>jpg:</b> ESTE TIPO DE BITMAP NO SOPORTA TRANSPARENCIA, POR ESO ES EL FORMATO MÁS USADO EN FOTOGRAFIAS.
+            <br>
+            <b>png:</b> ESTE TIPO DE BITMAP SOPORTA TRANSPARENCIA, ESTOS SE COMPONEN POR COLORES PLANOS (UNA PARTE DE LA IMAGEN DE UN SOLO COLOR, NO HAY SOMBRAS NI LUCES).
+            <br>
+            EXISTE TAMBIEN EL FORMATO WebP, ESTE FUE DESARROLLADO POR GOOGLE PARA REEMPLAZAR AL jpg Y AL png, OCUPA MENOS ESPACIO QUE ESTOS DOS ULTIMOS, AUNQUE ESTE NO ESTÁ
+            SOPORTADO POR TODOS LOS NAVEGADORES.
+            <br>
+            <strong>NOTA:</strong><em>EL BITMAP ES EXCELENTE PARA USARSE EN FOTOGRAFIAS.</em>
+            <br><br>
+            <strong>VECTOR:</strong> LAS IMAGENES VECTORIALES ESTÁN COMPUESTAS POR "FORMULAS" MATEMATICAS QUE "DIBUJAN" ALGO (LA IMAGEN), DE ESTA MANERA PODEMOS ESTIRAR LA
+            IMAGEN SIN TEMOR A QUE LA MISMA PIERDA LA NITIDEZ. EL VECTOR ES EXCELENTE PARA USARSE EN ICONOS, LOGOS, ETC.
+        </p>
+        <h2>Insertar una imagen en la pagina</h2>
+        <p>
+            Para hacer esto se usa la etiqueta img, con los atributos src y alt.
+            Atributo src: Este indica la ruta donde se encuentra la imagen.
+            Atributo alt: Este sirve para ponerle un pequeña descripción o comentario a la imagen, este es usado por los lectores de pantalla que usan las personas que tienen
+            problemas visuales.
+        </p>
+        <div>
+            <img src="./pics/montaña-y-ovejas.jpg" alt="foto1" class="foto">
+            <img src="./pics/costa.jpg" alt="foto2"  class="foto">
+        </div>        
+    </section>
+    <section>
+            <h1>VIEWPORT Y DEVICE PIXEL RATIO</h1>
+            <p>
+                <b>VIEWPORT: </b>ES LA CANTIDAD DE ESPACIO EN PANTALLA DEL DISPOSITIVO QUE TENEMOS PARA DISEÑAR LA APP O PÁGINA WEB, ES IMPORTANTE ENTENDER EL TAMAÑO DEL 
+                Viewport PARA ASÍ TOMAR UNA BUENA DECISIÓN EN CUANTO AL TAMAÑO DE LOS ELEMENTOS QUE USAREMOS EN EL DISEÑO DE LA APP O WEB.
+                <br>
+                <b>DEVICE PIXEL RATIO: </b>ES LA RELACIÓN QUE HAY ENTRE PIXELES REALES Y PIXELES DE VIEWPORT.
+                <br>
+                EJEMPLO: SI TENEMOS UN SMARTPHONE DE 1920px X 1080px REALES, ENTONCES TENDREMOS UN VIEWPORT DE 3, ESTO SE DEBE A QUE POR CADA PIXEL DEL VIEWPORT REALMENTE
+                TENEMOS 3 PIXELES REALES (UN PIXEL DEL VIEWPORT EQUIVALE A 3 PIXELES REALES), ENTONCES SI TENEMOS UN DISPOSITIVO DE 375px X 812px DE VIEWPORT, CON UN DEVICE
+                PIXEL RATIO DE 3 Y QUEREMOS QUE UNA IMAGEN SE VEA NITIDA EN ESE DISPOSITIVO, ENTOCES ESTA DE TENER 3 VECES EL TAMAÑO EN PIXELES CON RELACION AL DE EL VIEWPORT.
+        
+            </p>
+    </section>
+    <section>
+        <h1>ATRIBUTO SRCSET</h1>
+        <p>
+            <b>SRCSET: </b>ES UN CONJUNTO DE RUTAS U ORIGENES DE IMAGENES, ESTO ES UTIL PARA EL RESPONSIVE DESIGN PORQUE DE ESTA MANERA PODEMOS MOSTRAR UNA IMAGEN U OTRA CUANDO
+            LA PANTALLA DE UN DISPOSITIVO CAMBIE DE TAMAÑO, SU SINTAXIS ES: srcset="ruta/imagen1 1.5x, ruta/imagen2 2x", LAS RUTAS VAN SEPARADAS POR UNA COMA (,), EL 1.5x Y 2x
+            QUE PROSIGUEN DE LA RUTA HACE REFERENCIA AL DEVICE PIXEL RATIO DEL DISPOSITIVO, ESTA PROPIEDAD TAMBIEN SE PUEDE USAR CON EL TAMAÑO DEL ANCHO EN PIXELES DE LA 
+            PANTLLA DEL DISPOSITIVO (srcset="ruta/imagen1 578w, ruta/imagen2 768w") CABE HACER MENCION QUE ES OBLIGATORIO EL USO DE LA PROPIEDAD src, YA QUE ESTA 
+            ESTABLECE LA IMAGEN QUE SE MOSTRARÁ POR DEFECTO.
+            CON ESTO LE ESTAMOS DICIENDO, VAS A MOSTRAR LA IMAGEN imagen1 CUANDO EL DISPOSITIVO TENGA UN DEVICE PIXEL RATIO DE 1.5 (1.5x) Y VAS A MOSTRAR LA IMAGEN imagen2
+            CUANDO SEA DE 2 (2x).
+            <br><br>
+            <strong>NOTA: </strong><em>PARA LOGRAR LOS RESULTADOS DESEADOS ES MEJOR USAR LA ETIQUETA picture YA QUE ESTA OFRECE UNA MEJOR FLEXIBILIDAD AL MOMENTO DE USAR IMAGENES.
+            EN RESPONSIVE DESIGN, SU SINTAXIS ES:.</em>
+        </p>
+        <div>
+            <code>
+                <pre>
+                    <span><</span>picture<span>></span>                    
+                    <span>  <</span>source media="(min-width: 768px)" srcset="ruta/imgagen1.jpg"<span>></span>
+                    <span>  <</span>source media="(min-width: 576px)" srcset="ruta/imgagen2.jpg"<span>></span>
+                    <span>  <</span>img src="ruta/imagen0.jpg"<span>></span>
+                    <span><</span>/picture<span>></span>
+                </pre>                
+            </code>
+        </div>
+        <div>
+            <!-- <img src="./pics/1.jpg" alt="mami" srcset="./pics/1.5.jpg 1.5x, ./pics/2.jpg 2x" class="foto"> -->
+            <img src="./pics/1.jpg" alt="mamitas" srcset="./pics/1.5.jpg 576w, ./pics/2.jpg 768w" class="foto">
+
+            <!-- <picture><!-- EL ORDEN DE LAS IMAGENES TIENE QUE SER DE MENOR A MAYOR TAMAÑO, DE LO CONTRARIO NO FUNCIONARÁ --
+                <source media="(min-width: 768px)" srcset="./pics/2.jpg">
+                <source media="(min-width: 576px)" srcset="./pics/1.5.jpg">                
+                <img src="./pics/1.jpg" alt="mamitas" class="foto">-->
+            </picture>
+        </div>        
+    </section>
+</body>
+</html>

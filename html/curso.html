@@ -1,0 +1,185 @@
+<!DOCTYPE html><!-- DESCRIBE EL TIPO DE DOCUMENTO -->
+
+<!-- HTML (HyperText Markup Language) ES EL LENGUAJE QUE SE DEBE APRENDER PRIMERO PARA ENTRAR AL MUNDO DE LA WEB, ES EL LENGUAJE BASE PARA LA WEB, ES SOBRE EL CUAL ESTÁ 
+     CONSTRUIDA LA WEB, CON ESTE SE CREAR EL HIPERTEXTO, ES UN LENGUAJE DE ETIQUETAS, ESTAS SOLO SE USAN PARA MARCAR CUAL ES UN TITULO, CUAL ES UN PIE DE PAGINA, ETC., ES 
+     LENGUAJE INTERPRETADO, 
+
+    HTML5 ES REVOLUCIONARIO POR QUE INCLUYE:
+    1. WEB SEMANTICA: LAS ETIQUETAS TIENEN UN SIGNIFICADO, YA NO ES UN MARCADO VACIO, DEBIDO A QUE TIENE ELEMENTOS ESPECIFICOS COMO ARTICLE, HEADER, SECTION, ETC.
+    2. LOCAL STORAGE: PERMITE GUARDAR DATOS EN EL DISPOSITIVO, PERMITE EL ACCESO OFFLINE.
+    3. ACCESO AL DISPOSITIVO: SE PUEDE DESDE UN NAVEGAROD ACCEDER AL MICROFONO, CAMARA WEB, ETC.
+    4. WEB SOCKETS: COMUNICACIÓN BIDIRECCIONAL CON EL SERVIDOR, SE MANTIEN ABIERTA UN ACONEXIÓN SIEMPRE, LO QUE PASE EN LA APLICACIÓN SE PUEDE VER EN TIEMPO REAL SIN TENER
+       QUE RECARGAR LA PÁGINA.
+    5. MULTIMEDIA: AUDIO Y VIDEO NATIVO, ANTES SE USABA FLASH, PERO ESTE ES MUY INSEGURO, POR ESO ES QUE AHORA EN HTML5 TODO LO HACE EL NAVEGADOR.
+    6. GRÁFICOS (SVG, CANVAS, WEBGL): TENEMOS GRAFICOS AVANZADOS, EL WEBGL ES 3D CON JS Y TODO LO TENEMOS EN EL NAVEGADOR.
+    7. WEB WORKERS: PERMITE TENER TRABAJOS SIMULTANEOS EN JS SIN OCUPAR EL HILO PRINCIPAL
+    8. CSS3: PERMITE PONERLE ESTILOS AVANZADOS AL TEXTO BORDES REDONDEADOS, SOMBRAS, ANIMACIONE3D, ETC.
+
+    APARTIR DE HTML5 EL NAVEGADOR ES LA APLICACIÓN MÁS USADA
+
+     HIPERTEXTO ES EL QUE CONTIEN ENLACES, CON LOS CUALES PODEMOS PASAR DE UNA PARTE DE UN DOCUMENTO A OTRA O INCLUSO A OTRO DOCUMENTO EN OTRA PAGINA O SITIO
+
+     LA WEB ES LO QUE UNO NO SE PUEDE TOCAR, ES UN CONJUNTO DE ARCHIVOS HTML ENLAZADOS MEDIANTE HIPERTEXTO O ENLACES, ESTA COMPUESTA POR 3 CONCEPTOS URL (Uniform Resource
+     Locator), HTTP (HiperText Transfer Control Protocol) y HTML (HyperText Markup Language) 
+-->
+<html lang="es"><!-- ESTE ES EL ELEMENTO PRINCIPAL DE UNA PAGINA WEB, NO HAY ELEMENTO SUPERIOR A EL, ES EL PAPA DE TODO EL DOCUMENTO, EL ATRIBUTO LANG SIRVE PARA ESPECIFICAR
+                EL IDIOMA DE LA PAGINA, EJEMPLO SI NOSOTROS PONEMOS lang="en", PERO NUESTRA PAGINA ESTÁ EN ESPAÑOL, AL MOMENTO DE REALIZAR UNA BUSQUEDA QUE MUESTRE RESULTADOS
+                SOLO EN ESPAÑOL, LA PAGINA NO SE MOSTRARÁ DEBIDO A QUE EL BUSCADOR "VERÁ" QUE NUESTRA PÁGINA ESTÁ EN INGLES -->
+<head><!-- SE USA PARA PONER METADATA, LE DICE AL NAVEGADOR EL TITULO DEL DOCUMENTO, EL IDIOMA, LOS ARCHIVOS JS, LOS CSS, EL ICONO QUE TENDRÁ LA PÁGINA, ETC. -->
+    <meta charset="UTF-8"><!-- meta SE USA PARA MOSTRAR METADATOS, INFORMACIÓN EXTRA PARA EL NAVEGADOR -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- EL VIEWPORT ES LA PARTE VISIBLE DEL DISPOSITIVO QUE ESTEMOS USANDO PARA VER LA PÁGINA (LA PÁGINA
+                                                                          PUEDE SER MÁS GRANDE, ENTONCES EL META CON ATRIBUTO content="width=device-width, initial-scale=1.0"
+                                                                          LE DICE AL NAVEGADOR QUE IGUALE EL TAMAÑO DEL VIEWPORT AL DEL DISPOSITIVO (width=device-width) Y QUE 
+                                                                          NO COMIENZE CON ZOOM IN O CON ZOOM OUT, SINO QUE SIEMPRE LO HAGA CON EL TAMAÑO ORIGINAL 
+                                                                          (initial-scale=1.0). ESTA ETIQUETA SIEMPRE DEBE ESTAR EN UN DOCUMENTO HTML -->
+    <meta name="description" content="Pagina del curso HTML edteam"><!-- SOLO MUESTRA UNA DESCRIPCIÓN DEL PÁGINA -->
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"><!-- VISTA DE COMPATIBILIDAD, SIRVE PARA QUE EL NAVEGADOR ESTABLEZCA UN MODO DE COMPATIBILIDAD, ESTA ES USADA MAS EN IE
+                                                         POR SI ALGUNA PAGINA NO CUMPLE CON LOS ESTANDARES ESTA SERÁ INTERPRETADA COMO SI SE ESTUVIERA VIENDO EN UNA VERSION
+                                                         ANTERIOR A IE 8. LA VISTA DE COMPATIBILIDAD SE IDENTIFICA POR MEDIO DE LA VERSION DEL NAVEGADOR QUE ESTE ESTABLECIDA EN
+                                                         EN EL USER AGENT-->
+
+    <title>Primera página web</title><!-- MUESTRA EL TITULO DE LA PAGINA -->
+
+    <link rel="stylesheet" href="css/styles.css"><!-- ENLAZA UN ARCHIVO .CSS CON LA PAGINA WEB, EL ATRIBUTO REL ESPECIFICA EL TIPO DE RELACIÓN Y HREF INDICA LA RUTA RELATIVA
+                                              DEL ARCHIVO CSS -->
+
+    <link rel="shortcut icon" href="pics/krnl.png"><!-- EL FAVICON ES EL ICONO QUE SE MUESTRA EN LA PARTE DE ARRIBA DE LA PAGINA -->
+</head>
+<body><!-- CONTIENE TODO EL CONTENIDO QUE EL NAVEGADOR MOSTRARÁ EN PANTALLA, COMO SU NOMBRE LO INDICA ES EL CUERPO DE LA PAGINA WEB -->
+
+    <h1 id="titulo">HTML desde 0</h1><!-- ES UN ELEMENTO QUE MOSTRA LA PAGINA -->
+
+    <header><img src="pics/krnl.png" alt="logo"></header><!-- ES PARA ENCABEZADOS, NORMALMENTE SE PONE EL LOGO, SLOGAN Y NOMBRE DE LA EMPRESA -->
+
+    <nav><!-- ES UNA BARRA DE NAVEGACION, EN ESTE PONEMOS LAS SECCIONES DEL SITIO -->
+        <a href="#">Inicio</a>
+        <a href="#">Contacto</a>
+    </nav>
+
+    <article><!-- ES UN ELEMENTO DE CONTENIDO UNICO, UN ARTICULO DE UN BLOCK, UN TUTORIAL -->
+        <h1>Bienvenido</h1>
+        <p>Estoy muy contento pro mmi primera pagina web</p>
+
+        <section><!-- SON LAS DIVISIONES DE CUALQUIER PARTE DE LA PAGINA -->
+            <h2>Subtitulo</h2><!-- ES PARA SUBTITULOS -->
+            <P>Contenido bajo Subtitulo</P>
+            <h3>Subtitulo de menor importancia</h3><!-- h3 TAMBIEN ES PARA SUBTITULOS, PERO MENOS IMPORTANTE -->
+            <p>Contenido bajo subtitulo menos importante</p>
+        </section>
+    </article>
+
+    <!-- ****AGRUPACIÓN DE CONTENIDO**** -->
+
+    <ul><!-- ESTA ES UNA ETIQUETA DE AGRUPACIÓN DE CONTENIDO, EN ESTE CASO UNA LISTA DESORDENADA -->
+        <li></li>
+        <li></li>
+
+        <ol><!-- ESTA ES UNA ETIQUETA DE AGRUPACIÓN DE CONTENIDO, EN ESTE CASO UNA LISTA ORDENADA -->
+            <li></li>
+            <li></li>
+        </ol>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <dl><!-- ESTA ES UNA LISTA DE DEFINICIÓN (DEFINITION LIST), SIRVEN PARA INDICAR UN TERMINO Y UNA DEFINICION, ESTAS NO SON MUY USADAS -->
+        <dt>Mexico</dt><!-- ESTA ES UNA LISTA DE DEFINICION DE TERMINOS (DEFINITION TERM) -->
+        <dd>CDMx</dd><!-- ESTA ES UNA LISTA DE DEFINICION DE DESCRIPCION (DEFINITION DESCRIPTION) -->
+        <dt>Colombia</dt>
+        <dd>Bogota</dd>
+    </dl>
+    <figure><!-- PERMITE PONER UN CONTENIDO RELACIONADO PERO QUE ESTE ROMPA EL CONTENIDO DEL FLUJO, EJEMPLO ESTAMOS VIENDO TEXTO Y DE PRONTO APARECE UNA IMAGEN, TAMBIEN ES
+            FUNCIONAL EN CASO DE ESTAR ESCRIBIENDO UN BLOG DE PROGRMACION Y QUEREMOS PONER UN TROZO DE CODIGO FUENTE EN LA PAGINA, ABAJO SE PONE UN EJEMPLO, AL MOMENTO DE VER
+            LA PAGINA SE VERÍA EL CODIGO JS DE ABAJO -->
+        <pre>
+            <code>
+                function hola() {
+                    return "Hola";
+                }
+            </code>
+        </pre>
+        <figcaption>
+            Declaracion de una funcion JS
+        </figcaption>
+    </figure>
+
+    <!-- **** ELEMENTOS INLINE Y DE BLOQUE **** 
+    UN ELEMENTO DE BLOQUE VISUALMENTE OCUPA TODO EL ESPACIO DISPONIBLE EN PANTALLA, DEBIDO A ESTO EL SIGUIENTE ELEMENTO APARECERÁ O SE MOSTRARÁ DEBAJO DEL PRIMERO.
+    UN ELEMENTO DE LINEA SE MOSTRARÁ UNO AL LADO DEL OTRO EN UNA SOLA LINEA, ESTOS SIEMPRE DEBEN ESTAR SIEMPRE DENTRO DE UN ELEMENTO DE BLOQUE, NO PUEDEN ESTAR HUERFANOS. -->
+
+    <p>Las etiquetas p, ul, li, article, figure, figcaption, div, section, header, form son elementos de bloque</p>
+    <p>Las siguientes etiquetas son elementos de linea
+        span: Su uso es parecido al del div, se puede usar para darle estilo a algún elemento, tambien se puede usar como contenedor de textos, no tiene valor semantico.
+        small: Se usa para mostrar un texto en pequeño, como si fuera menos importante <small>este texto no es importante</small>.
+        strong: Se usa para resaltar una parte de un texto, indica que esa parte es muy o talvez las más importante <strong>este texto es importante</strong>.
+        em: Se usa para poner un texto o parte de el en cursiva y de esta manera resaltarlo, es para darle enfasis <em>este texto es con enfasis</em>.
+        cite: Se usa para hacer citas, como revistas o libros <cite>Romm, J. (2008, February 27). The cold truth about climate change. Salon.com. 
+        Recuperado de http://www.salon.com</cite>.
+        dfn: Se usa para definir o explicar algo, como podrían ser talvez algunas siglas FIFA (<dfn>Federacion de Futbol Asociacion</dfn>).
+        code: Se usa paa poner fragmentos de código, aunque si ponemos código HTML dentro de el no funciona, pero si lo hace bien con código JS 
+        <code>() => { return a + b; }</code>.
+        data: Se usa para poner datos de algún programa o talvez de un resultado estadistico.
+        br: Se usa para poner un salto de linea.
+        q: Se usa tambien para citas.
+        abbr: Se usa para abreviar
+        del: Se usa para indicar que algo (un texto) se ha borrado, como cuando se pone algo en oferta, aparece el precio anterio con un diagonal (tachado) y enseguida el 
+        nuevo.
+        wbr: Se usa cuando una palabra es muy larga, entonces esta etiqueta se pone en medio de la palabra para indicar que en caso de no haber espacio suficiente en pantalla,
+        esta se corte y se muestre en la siguiente linea.
+        i: Este elemento se creo pensando en usarse para diseño, su fin es que algún texto o palabra sea italica <i>texto italica</i>.
+        b: Este elemento se creo pensando en usarse para diseño, su fin es que algún texto o palabra sea en negrita <b>texto en negrita</b>.
+        u: Este elemento se creo pensando en usarse para diseño, su fin es que algún texto o palabra sea subrayada <u>texto subrayado</u>.
+        sup: Se usa para poner un superindice, ejemplo se puede usar para poner una potencia 4<sup>2</sup>
+        sub: Se usa para poner un subindice, ejemplo se puede poner para poner la formula quimica del agua h<sub>2</sub>o
+        time: Se usa para poner fechas u horas, pero solo cuando el uso de estas sean muy importante para la app o sitio web.
+        mark: Se usa para marcar o resaltar un texto <mark>texto resaltado</mark>
+        a: Se usa para los enlaces, estos son la base de toda la web.
+    </p>
+
+    <!-- **** ENLACES ****
+    LOS ENLACES EN HTML SE CREAN CON LA ETIQUETA a, ESTOS FUNCIONAN CONN RUTAS, HAY DOS TIPOS DE RUTAS RELATIVAS Y ABSOLUTAS 
+    ABSOLUTAS: ESTAS SON RUTAS UNICAS, NO SE REPITEN NUNCA Y SIEMPRE COMIENZAN CON UN PROTOCOLO (HTTP, HTTPS, FTP, ETC.) 
+    RELATIVAS: ESTAS SON LAS QUE COMIENZAN CON EL NOMBRE DE UNA CARPETA, DE UN ARCHIVO O CON UN PUNTO (.) Y NO CON EL PROTOCOLO, SI QUEREMOS IR A UNA CARPETA O ARCHIVO QUE
+    ESTE EN LA MISMA UBICACION DE LA PAGINA ACTUAL BASTA CON SOLO ESCRIBIR SU NOMBRE O ESCRIBIR ./NOMBRE, ESTA ULTIMA ES LA RECOMENDADA,  -->
+    <h1>ENLACES (RUTAS RELATIVAS Y ABSOLUTAS)</h1>
+    <div>
+        <p>Esta es una ruta absoluta <a href="https://ed.team">https://ed.team</a></p>
+
+        <p>Esta es una ruta relativa, el <a href="practica-agrupacion-contenido.html">archivo de prácticas</a> está en la misma carpeta que esta página, y como ruta solo se 
+           está usando el nombre del archivo (href="practica-agrupacion-contenido.html"), en caso de que el archivo estuviese dentro de una carpeta la ruta sería: 
+           carpeta/archivo, y si de ese archivo queremos volver a este en la ruta del enlace escribiriamos lo siguiente href="../curso.html, con los ".." le estamos diciendo
+           que vamos a subir un nivel, debemos acordarnos que si usamos solo un "." entonces estamos haciendo referencia a la carpeta donde estemos en ese momento.
+           Ejemplos:
+           href="./archivo" - Ruta relativa a un archivo que está en la misma pagina.
+           href="../archivo" - Ruta relativa a la carpeta superior.
+           href="../../carpeta/archivo" - Ruta relativa dos carpetas arriba y dentro de una subcarpeta.
+           href="/archivo" - Ruta relativa a la raiz del proyecto, usando esta nos podemos ahorrar el uso de los puntos (.) en las rutas.
+        </p>
+        <p>Esta es una ruta relativa, el <a href="./practica-agrupacion-contenido.html">archivo de prácticas</a> está en la misma carpeta que esta página, pero en esta ruta se
+        está usando el ./ antes del nombre del archivo (href="./practica-agrupacion-contenido.html"), en caso de que el archivo estuviese dentro de una carpeta la ruta sería: 
+        ./carpeta/archivo.</p>        
+    </div>
+
+    <!-- **** MARCADORES **** 
+    LOS MARCADORES SON LOS ENLACES QUE POR LO GENERAL INICIAN CON UN HASH (#) SEGUIDO DE UN TEXTO, ESE TEXTO DEBE SER IGUAL AL ID DE ALGÚN ELEMENTO HTML, SI EL MARCADOR SE 
+    ENCUENTRA EN LA MISMA PAGINA EL ENLACE COMENZARÁ CON EL #, EN CASO DE QUE EL MARCADOR ESTE EN UNA PÁGINA EXTERNA EL MARCADOR COMENZARA CON LA RUTA RELATIVA A LA PÁGINA
+    href="./pagina.html#marcador" -->
+    <p>
+        Este enlace funciona como un marcador <a href="#titulo">titulo</a>, el href quedo así href="#titulo", el elemento con el id titulo es el texto que se encuentra en 
+        la parte superior de esta página y dice HTML desde 0
+    </p>
+    <p>
+        Este enlace es un marcador pero a una pagina externa <a href="./practica-agrupacion-contenido.html#">ejemplo de codigo</a>
+    </p>
+    <p>
+        <span><strong>NOTA: </strong>Si deseamos que un enlace se abra en una nueva ventana o pestaña debemos usar el atributo target con el valor de _blank</span>
+        <a href="https://www.w3schools.com/tags/att_a_target.asp" target="_blank">Ejemplo del uso de target</a>
+    </p>
+
+    <aside>Esto es publicidad</aside><!-- ES PARA CONTENIDO NO RELACIONADO CON EL TEMA PRINCIPAL DE LA PAGINA, PODRÍA USARSE PARA PONER PUBLICIDAD -->
+    <footer>Samuel Abn</footer><!-- ESPARA PONER NOTAS, CREDITOS, CONTACTOS POR REDES SOLICALES, ETC. AL PIE DE LA PAGINA -->
+    <script src="js/scripts.js"></script><!-- CON JS SE LE DA VIDA A LA PÁGINA, SE SUELE PONE EN LA PARTE FINAL DE LA PAGINA A FIN DE QUE ESTE SE EJECUTE SIN ERRORES -->
+</body>
+</html>

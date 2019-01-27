@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tablas</title>
+</head>
+<body>
+    <h1>TABLAS</h1>
+    <p>
+        LAS TABLAS EN HTML SE USAN PARA MOSTRAR DATOS DE MANERA TABULAR, ESTO QUIERE DECIR QUE MOSTRARÁ CONTENIDO ESTRUCTURADO SEMEJANTE A UNA HOJA DE CALCULO, SE USA CUANDO
+        SE QUIERE MOSTRAR IFORMACION COMO CALIFICACIONES O PRODUCTOS EN UN INVENTARIO.
+        <br>
+        LA SINTAXIS PARA PINTAR UNA TABLA ES:        
+    </p>
+    <div>
+        <pre>
+            <span><</span>table<span>></span>
+            <span>  <</span>caption<span>>Titulo de la tabla</span><span><</span>/caption<span>></span>
+            <span>  <</span>thead<span>></span>
+            <span>    <</span>tr<span>></span>
+            <span>      <</span>td<span>></span>Nombre<span><</span>/td<span>></span>
+            <span>      <</span>td<span>></span>Edad<span><</span>/td<span>></span>
+            <span>      <</span>td<span>></span>Telefono<span><</span>/td<span>></span>
+            <span>    <</span>/tr<span>></span>
+            <span>  <</span>/thead<span>></span>
+            <span>  <</span>tbody<span>></span>
+            <span>    <</span>tr<span>></span>
+            <span>      <</span>td<span>></span>Sam<span><</span>/td<span>></span>
+            <span>      <</span>td<span>></span>36<span><</span>/td<span>></span>
+            <span>      <</span>td<span>></span>4350421<span><</span>/td<span>></span>
+            <span>    <</span>/tr<span>></span>
+            <span>  <</span>/tbody<span>></span>
+            <span><</span>/table<span>></span>
+        </pre>
+    </div>
+    <p>EN CASO DE QUE NECESITEMOS PONER TALVEZ RESULTADOS DE OPERACIONES EN LA TABLA PODEMOS USAR LA ETIEUTA tfoot</p>
+    <pre>
+        <span>  <</span>tfoot<span>></span>            
+        <span>    <</span>tr<span>></span>
+        <span>      <</span>td<span>></span>Rsultado 1<span><</span>/td<span>></span>
+        <span>      <</span>td<span>></span>Resultado 2<span><</span>/td<span>></span>
+        <span>      <</span>td<span>></span>Resultado 3<span><</span>/td<span>></span>
+        <span>    <</span>/tr<span>></span>
+        <span>  <</span>/tfoot<span>></span>
+    </pre>
+    <p>EJEMPLO DE UNA TABLA:</p>
+    <table border="1">
+        <caption>Horario de clases</caption>
+        <thead>
+            <tbody>
+                <tr>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                </tr>
+            </tbody>
+        </thead>        
+        <tr>
+            <td>HTML</td>
+            <td>PHP</td>
+            <td>JavaScript</td>
+            <td>Python</td>
+            <td>Css</td>            
+        </tr>        
+        <tr>
+            <td>Java</td>
+            <td>SQL</td>
+            <td>Algortimos</td>
+            <td>Angular</td>
+            <td>PWA</td>            
+        </tr>
+    </table>
+    <section>
+        <h1>Agrupar celdas</h1>
+        <p>
+            PARA AGRUPAR CELDAS SE USAN LOS ATRIBUTOS COLSPAN Y ROWSPAN, 0COLSPAN FUNCIONA CON LAS COLUMNAS DE UNA TABLA Y ROWSPAN CON LAS FILAS.
+            <!--
+                SI QUEREMOS USAR UN COLOR DE FONDO PARA SOLO UNA COLUNMA DE UNA TABLA PODEMOS USAR LA ETIQUETA colgroup DE LA SIG. MANERA:
+                <colgroup>
+                    <col >
+                    <col >
+                    <col >
+                    <col >
+                    <col style="background: yellow"> CON ESTO SOLO LA ULTIMA COLUMNA TENDRA UN FONDO AMARILLO
+                </colgroup>
+                ESTE DEBE CONTENER TANTOS ELEMENTOS <col> COMO COLUMNAS TENGAMOS EN LA TABLA, YA QUE CADA ELEMENTO col REPRESENTA UNA COLUMNA DE LA TABLA, ENTONCES SI QUEREMOS
+                PONER UN COLOR DE FONDO A SOLO LA ULTIMA COLUNMA BASTA CON AGREGAR LA PROPIEDAD style A LA COLUMNA DESEADA.
+                PERO SI EN CASO TENEMOS 10 COLUMNAS HACER ESTO SERÍA MUY TEDIOSO, ENTONCES PODEMOS USAR LA PROPIEDAD COLSPAN EN LOS ELEMENTOS <col> QUEDANDO ASÍ:
+                <col colspan="4">NOTA: SI EN LA TABLA YA ESTAMOS USANDO EL ATRIBUTO colspan ENTONCES AQUÍ SOLO USAR span="4", EN CASO DE QUE FUERAN 10 COLUMNAS SOLO REEMPLAZAR
+                EL 4 POR EL 9
+                <col style="background: yellow"> CON ESTO SOLO LA ULTIMA COLUMNA TENDRA UN FONDO AMARILLO
+            -->
+        </p>
+        <div>
+            <pre>
+                <span><</span>table<span>></span>
+                <span>  <</span>caption<span>>Horario de clases</span><span><</span>/caption<span>></span>
+                <span>  <</span>thead<span>></span>            
+                <span>    <</span>tr<span>></span>
+                <span>      <</span>td<span>></span>Lunes<span><</span>/td<span>></span>
+                <span>      <</span>td<span>></span>Martes<span><</span>/td<span>></span>
+                <span>      <</span>td<span>></span>Miercoles<span><</span>/td<span>></span>
+                <span>      <</span>td<span>></span>Jueves<span><</span>/td<span>></span>
+                <span>      <</span>td<span>></span>Viernes<span><</span>/td<span>></span>
+                <span>    <</span>/tr<span>></span>
+                <span>  <</span>/thead<span>></span>
+                <span>  <</span>tbody<span>></span>
+                <span>    <</span>tr<span>></span>
+                <span>      <</span>td<span>></span>HTML<span><</span>/td<span>></span>
+                <span>      <</span>td rowspan="2"<span>></span>PHP<span><</span>/td<span>></span>
+                <span>      <</span>td rowspan="2"<span>></span>JavaScript<span><</span>/td<span>></span>
+                <span>      <</span>td rowspan="2"<span>></span>Python<span><</span>/td<span>></span>
+                <span>      <</span>td<span>></span>CSS<span><</span>/td<span>></span>
+                <span>    <</span>/tr<span>></span>
+                <span>    <</span>tr<span>></span>
+                <span>      <</span>td colspan="5"<span>></span>RECESO<span><</span>/td<span>></span>
+                <span>    <</span>/tr<span>></span>
+                <span>    <</span>tr<span>></span>
+                <span>      <</span>td<span>></span>Java<span><</span>/td<span>></span>
+                <span>      <</span>td<span>></span>SQL<span><</span>/td<span>></span>
+                <span>      <</span>td<span>></span>Algortimos<span><</span>/td<span>></span>
+                <span>      <</span>td<span>></span>Angular<span><</span>/td<span>></span>
+                <span>      <</span>td<span>></span>PWA<span><</span>/td<span>></span>
+                <span>    <</span>/tr<span>></span>
+                <span>  <</span>/tbody<span>></span>
+                <span><</span>/table<span>></span>
+            </pre>
+        </div>
+        <p>EJEMPLO DE TABLA CON CELDAS AGRUPADAS:</p>
+        <table border="1">
+            <caption>Horario de clases</caption>
+            <thead>
+                <tr>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                </tr>            
+            </thead>
+            <tbody>
+                <tr>
+                    <td>HTML</td>
+                    <td rowspan="2">PHP</td>
+                    <td rowspan="2">JavaScript</td>
+                    <td rowspan="2">Python</td>
+                    <td>Css</td>            
+                </tr>
+                <tr>
+                    <td>Matematicas</td>
+                    <td>DG</td>        
+                </tr>
+                <tr>
+                    <td colspan="5">RECESO</td>
+                </tr>
+                <tr>
+                    <td>Java</td>
+                    <td>SQL</td>
+                    <td>Algortimos</td>
+                    <td>Angular</td>
+                    <td>PWA</td>            
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
