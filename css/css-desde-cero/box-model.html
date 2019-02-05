@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/box-model.css">
+    <title>Box Model</title>
+</head>
+<body>
+    <section>
+        <header>
+                <h1 class="textCenter">Box Model</h1>
+        </header>
+    </section>
+
+                                                                                <!-- LAYOUT -->
+    <section>
+        <h2 class="">Layout</h2>
+        <p>
+            Cuando hacemos CSS no solo buscamos que la página se vea bonita con colores y diseños llamativos, sino tambien el layout que es talvez la parte más compleja e importante,
+            ya que con esto debemos lograr que todos los elementos convivan armonicamente dentro de la página, ahora bien, que es el layout??.
+            <br>
+            Podemos definir el layout como la geometría, es decir cuanto mide cada elemento, su alto, su ancho, si se va a dibujar arriba, abajo, en medio, en un costado, talvez 10px 
+            abajo de un elemento, 50 pixesl arriba de otro, etc. Entonces sumando la geometría (tamaño, posición, separación de un elemento respecto a los demás) de cada elemento 
+            obtenemos la pagina. Entonces al momento de hacer CSS siempre debemos comenzar por el layout.
+            <br>
+            El momento de renderizar la página el navegador en base a los algoritmos que maneja se encarga de leer el CSS y de esta manera entiende donde debe poner cada uno de los
+            elementos.
+        </p>
+    </section>
+
+                                                                        <!-- ELEMENTOS INLINE Y DE BLOQUE -->
+    <section>
+        <h2 class="">Elementos inline y de bloque</h2>
+        <p>
+            Debemos saber diferenciar los elementos inline y de bloque, aunque estos son así por definición, nosotros podemos con CSS forzar a que un elemento de linea se comporte
+            como uno de bloque y viceversa.
+            <br>
+            Aunque podemos cambiar su presentación no podemos cambiar su naturaleza, por ejemplo
+            <em>
+                no es correcto que un elemento de bloque sea hijo de un elemento inline
+            </em>.
+            <br>
+            Algunas carecterisiticas de los elementos inline y de bloque son:
+            <br>
+        </p>
+        <ul>
+            <li>
+                Inline
+                <ul>
+                    <li>No crean nuevas lineas para cada elemento, entonces cuando creamos mas de uno, se pondrán uno al lado del otro.</li>                    
+                    <li>
+                        Se ajustan al contenido, el tamaño que tienen solo es el de su contenido, no ocupara mas de ese espacio en pantalla y no se le pueden definir o establecer un 
+                        alto o un ancho usando las propiedades height y width, en caso de que necesitemos cambiarlas podríamos hacerlo usando la propiedad padding.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Bloque
+                <ul>
+                    <li>Crean una nueva linea para cada elemento, cuando se crea uno el siguiente elemento se pondrá en la parte de abajo.</li>
+                    <li>
+                        Ocupan todo el espacio horizontal disponible, aquí cabe hacer la aclaración siguiente, si son hijos del body ocuparan todo el espacio disponible en
+                        pantalla, pero si son hijos de otro elemento ocupara todo el espacio que su padre ocupa, en resumen, ocuparán todo el espacio que puedan o este disponible
+                        de manera horizontal.
+                    </li>
+                    <li>Tienen ancho y alto, podemos con CSS establecer o definir un ancho y alto.</li>
+                </ul>
+            </li>
+        </ul>
+        <div>
+            <p>El siguiente código HTML se usa para ejemplos de los elementos inline y de bloque</p>
+            <pre>
+                <span><</span>h1 class="h1"<span>></span>SOY UN TITULO<span><</span>/h1<span>></span>
+                <span><</span>p class="p"<span>></span>Soy<span><</span>span class="span"<span>></span>un<span><</span>/span<span>></span>parrafo<span><</span>/p<span>></span>
+            </pre>
+        </div>
+        <div>
+            <p>El siguiente es el código CSS que se usa para el ejemplo, definimos un color de fondo para el h1 (bloque) y otro para el span (inline)</p>
+            <code>
+                <pre>                    
+                    .h1 {
+                        background-color: yellow;
+                        height: 3em;
+                    }
+                    
+                    .span {
+                        background-color: green;
+                        height: 3em;
+                    }
+                </pre>
+            </code>
+        </div>
+        <div>
+            <p>
+                Como podemos ver el h1 que es elemento de bloque y al ser hijo de body ocupa todo el espacio disponible en pantalla, crea una nueva linea y el siguiente elemento se
+                posiciona en la parte de abajo, mientras que el span ocupa solo el espacio que ocupa su contenido y no crea una nueva linea, por eso puede estar entre las palabras soy
+                y parrafo.
+                <br>
+                Tambien podemos ver que a pesar que ambos elementos tienen la propiedad height establecida en un tamaño de 3em, solo el h1 ha cambiando su alto mientras el span no.
+                <br> 
+                Podemos cambiar la propiedad display a cada uno de ellos, ponerle display: inline al h1 y display: block al span y ver los resultados.
+                <br>
+                Podríamos tambien crear un div, darle un valor de ancho, entonces poner dentro el h1 y veremos que el mismo ya no ocupara todo el ancho de la pantalla, sino solo el
+                ancho de el div que en este caso sería su elemento padre.
+            </p>
+            <h1 class="h1">SOY UN TÍTULO</h1>
+            <p class="p">Soy <span class="span">un</span> parrafo</p>
+        </div>
+        <div>
+            <h3>Valor inline-block</h3>
+            <p>
+                El valor inline-block es un estado intermedio que combina los valores inline y block, esto nos sirve en caso de que necesitemos que un elemento inline tenga las
+                propiedades de height y width.
+            </p>
+            <div>
+                <p>Podemos usar el código HTML del ejemplo anterior para ilustrar el uso del valor inline-block y usar el siguiente código CSS con el elemento span</p>
+                <code>
+                    <pre>
+                        .span {
+                            display: inline-block;
+                            background-color: green;
+                            height: 3em;
+                            width: 3em;
+                        }
+                    </pre>
+                </code>                
+            </div>
+            <div>
+                <p>
+                    Como podemos ver el resultado arriba, el span continua comportandose como un elemento inline pero ahora tiene las propiedades height y width
+                    <br>
+                    <strong>NOTA: </strong><em>Existe el valor none para la propiedad display, este nos permite ocultar un elemento.</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+                                                                            <!-- BOX MODEL -->
+    <section>
+        <h2>Box model</h2>
+        <p>
+            El box model (modelo de caja) es el algoritmo atraves del cual el navegador dibuja las cajas en pantalla, este se aplica solo a los elementos de bloque, ya que los de
+            linea no tienen.
+            <br>
+            En este modelo tenemos tres "cajas" internas, la de el contenido, la de el padding, la de el border y un margin.
+        </p>
+        <div>
+            <span>Cajas del box model</span>
+            <ul>                
+                <li>Contenido (content box)</li>
+                <li>Padding (padding box). Separación entre el contenido y el borde.</li>
+                <li>Border (border box)</li>
+            </ul>
+            <p>
+                En el box model tambien encontramos el margin, que es la separación de la caja con las cajas adyacentes, se podría decir que es un especie de caja invisible y externa
+                a la que no se le puede establecer ninguna propiedad.
+            </p>
+        </div>
+        <div>
+            <p>El siguiente código se usa para el ejemplo de las cajas del model box</p>
+            <pre>
+                <span><</span>div class="box"<span>></span>Caja de contenido<span><</span>/div<span>></span>
+            </pre>
+        </div>
+        <div>
+            <p>El siguiente es el código CSS usado en el ejemplo</p>
+            <code>
+                <pre>
+                    .box {
+                        background-color: black;
+                        color: yellow;
+                        background-clip: content-box;
+                            
+                        /* PROPIEDADES DEL BOX MODEL */
+                        height: 300px;
+                        width: 300px;
+                        padding: 50px;
+                        border: 10px solid red;
+                        margin: 30px;
+                    }
+                </pre>
+            </code>
+        </div>
+        <div>
+            <p>
+                Resultado: podemos observar que la parte con fondo negro es la content box, la caja blanca incluyendo todo su contenido (en este caso el content box) es el padding 
+                box, la caja con el borde rojo incluyendo todo su contenido (content box y padding box) es la border box y el espacio en blanco (separación) que hay entre el borde y 
+                los demás elementos (este texto, el lado izquierdo de la pantalla, el derecho y la parte de abajo) es el margin.
+                <br>
+                En resumen , la parte negra es el content box, la parte roja es el border box y el espacio en blanco entre el conten box y el border box es el padding box.
+            </p>
+            <div class="box">Caja de contenido</div>
+            <p>
+                Para calcular el tamaño final de la caja, el navegador suma los valores de las propiedades height, width, padding y border, para este ejemplo, el tamaño final de la
+                caja será de: 420px por 420px, esto es así porque el conten box de alto tiene 300px, el padding box en la parte de arriba y abajo tiene 50px (sumados son 100px) y
+                el border box tiene por arriba y abajo 10px (sumados son 20px), entonces sumamos 300px + 100px + 20px = 420px. La misma operación se usa para sumar el ancho de la
+                caja.
+            </p>
+            <p>
+                <strong>NOTA: </strong>
+                <em>
+                    Si necesitamos o queremos "decirle" al navegador como calcular el tamaño de la caja tenemos que usar la propiedad <b>box-sizing</b>, esta por default tiene como
+                    valor el content-box (este toma los valores de 300px por 300px y los demás se suman), pero si queremos que el tamaño final de la caja sea 300px por 300px y no 420px
+                    por 420px debemos establecer el valor de box-sizing en border-box (box-sizing: border-box) y de esta manera ya no sumara todos los valores, sino que solo tomara
+                    los valores de height y width y se los asignará al border box y los demás valores (padding y border) se restarán y el tamaño sobrante será asignado al content box.
+                </em>                
+            </p>
+        </div>
+    </section>
+
+                                                                            <!-- PROPIEDAD MARGIN -->
+    <section>
+        <h2>Propiedad margin</h2>
+        <p>
+            Como ya sabemos margin es el espacio en blanco después del borde de un elemento, está dividido en 4 atributos y un shorthand, esto último se refiere a que podemos usar
+            esta propiedad para agrupar a varias, pero debemos tener cuidado al hacerlo, ya que no es muy recomendado que se use con mucha frecuencia.
+        </p>
+        <div>
+            <span>Atributos margin</span>
+            <ul>
+                <li>margin-top - Es la separación o espacio en blanco del elemento hacia la parte superior.</li>
+                <li>margin-right - Es la separación o espacio en blanco del elemento hacia el lado derecho.</li>
+                <li>margin-bottom - Es la separación o espacio en blanco del elemento hacia la parte inferior.</li>
+                <li>margin-left - Es la separación o espacio en blanco del elemento hacia el lado izquierdo.</li>
+            </ul>
+        </div>
+        <div>
+            <p>El siguiente código HTML será usado para poner un ejemplo del uso de la propiedad margin</p>
+            <pre>
+                <span><</span>div class="box-1"<span>></span>box 1<span><</span>/div<span>></span>
+                <span><</span>div class="box-1"<span>></span>box 2<span><</span>/div<span>></span>
+                <span><</span>p<span>></span>Parrafo<span><</span>/p<span>></span>
+            </pre>
+        </div>
+        <div>
+            <p>El siguiente código CSS será usado para el ejemplo del uso de la propiedad margin</p>
+            <code>
+                <pre>
+                    [class^="box-"] { /* Usamo un selector de atributos para poner estilos comunes a los div */
+                        background: black;
+                        color: yellow;
+                        width: 200px;
+                        height: 200px;
+                        float: left;
+                    }
+                        
+                    .box-1 {
+                        /* Ejemplo 1: Establecer los margenes usando la propiedad margin de manera individual (un margin para cada lado del elemento).
+                        El elemento con la clase box-1 tendrá de margen superior 30px, de derecho 20px, de inferior 35px y de izquierdo 10px*/
+                        /*margin-top: 30px;
+                        margin-right: 20px;
+                        margin-bottom: 35px;
+                        margin-left: 10px;*/
+
+                        /* Ejemplo 2: Establecer los margenes usando un shorthand pasando como argumento los 4 valores (top, right, bottom y left), estos deben ir
+                        separados por un espacio y se le aplican al elemento en el sentido de las manecillas del reloj comenzando siempre por arriba.*/
+                        /*margin: 30px 10px 35px 15px;*//* 30px de margen superior, 10px de margen derecho, 35px de margen inferior y 15px de margen izquierdo
+
+                        /* Ejemplo 3: Establecer los margenes usando un shorthand, pasandole como argumento 3 valores (top, right y bottom), en esta ocasión no estamos pasando el valor
+                        left, entonces de donde tomara ese valor??, lo tomaro de su opuesto (right), en handshort los opuestos se pueden igualar */
+                        /*margin: 30px 50px 30px;*//* 30px de margen superior, 50px de margen derecho, 30px de margen inferior y 50px de margen izquierdo */
+
+                        /* Ejemplo 3: Establecer los margenes usando un shorthand pasandole como argumento 2 valores (top y right), cabe aclarar que al usar esta forma del shorthand
+                        los valores para el top y el bottom serán los mismos (30px) al igual que para el right y el left (50px) */
+                        /*margin: 30px 50px;*/ /* 30px de margen superior, 50px de margen derecho, 30px de margen inferior y 50px de margen izquierdo */
+
+                        /* Ejemplo 4: Establecer los margenes usando un shorthand pasandole como argumento 1 valor, cuando solo pasamos un valor este será establecido para los 4 lados
+                        (top, right, bottom y left), tambien podemos usar este shorthand para centrar un elemento, pero para que esto funcione dicho elemento debe tener un ancho
+                        establecido y un display block, de lo contrario no funcionará.*/
+                        /*margin: 100px;*/ /* 100px de margen superior, 100px de margen derecho, 100px de margen inferior y 100px de margen izquierdo */
+                        /*margin: auto;*/ /* Esto centra el elemento en pantalla PERO NO ES RECOMENDABLE. */
+
+                    }
+                        
+                    .margin-p {
+                        clear: both;
+                        background-color: peru;
+                    }
+                </pre>
+            </code>
+        </div>
+        <div>
+            <p>Resultado: Podemos ver que usando las propiedades margin de manera individual o con el shorthand el resultado es el mismo</p>
+            <div class="box-1">box1 1</div>
+            <div class="box-2">box 2</div>
+            <p class="margin-p">Parrafo</p>
+        </div>
+        <div>
+            <p>
+                <strong>NOTA: </strong>
+                <em>
+                    Es muy comun encontrar el uso del shorthand margin para centrar elementos <b>(margin: auto;)</b>, pero esto no es una manera responsable
+                    de hacerlo y no se recomienda, en lugar de eso debemos usar las propiedades margin-left y margin-right de la siguiente manera: <b>(margin-left: auto; 
+                    margin-right: auto;)</b>
+                </em>
+            </p>
+        </div>
+        <div>
+            <h3>Usando tamaños en porcentajes.</h3>
+            <p>
+                En el ejemplo de arriba usamos tamaños en pixeles para poner los margenes, pero en este ejemplo se usarán tamaños en porcentajes, estos se calculan del elemento padre.
+                <br>
+                Cuando los usamos, en ocasiones vemos que no siempre obtenemos el resultado deseado, esto es en parte porque muchas veces el elemento al que le estamos estableciendo
+                los margenes tiene algun padding o border, entonces al momento que el navegador calcula el tamaño de la caja, esos se suman al porcentaje que nosotros estamos 
+                especificando y hacen que el elemento tenga un tamaño diferente, para solcionar esto, una práctica recomendada es establecer la propiedad box-sizing de todos los
+                elementos al valor de border-box <b>(* { box-sizing: border-box})</b> y de esta menera nos aseguramos que el border y el padding no aumentaran el tamaño a la caja.
+            </p>
+            <div>
+                <p>Este código será usado para el ejemplo de los margenes en parcentajes</p>
+                <span><</span>div class="box-3"<span>></span>box 3<span><</span>/div<span>></span>
+            </div>
+            <div>
+                <p>Este es el código CSS usado en el ejemplo</p>
+                <code>
+                    <pre>
+                        .medPorcentaje .box-3 {
+                            box-sizing: border-box;/*Establecemos el box-sizing en border-box*/    
+                            float: none;/*Le quitamos el float*/
+                            width: 50%;
+                            margin-left: 50%;
+                            margin-top: 2%;
+                        }
+                    </pre>
+                </code>
+            </div>
+            <div class="medPorcentaje">
+                <p>
+                    Resultado: Podemos ver que el elemento aparece a la derecha por que estamos aplicandole un margin-left del 50%, si le quitamos el width del 50% veremos que lo
+                    unico que cambia es el tamaño y el elemento continua situado justo a la mitad.
+                </p>
+                <div class="box-3">Box 3</div>
+            </div>
+        </div>
+        <div>
+            <h3>Usando margenes negativos</h3>
+            <p>Los margenes negativos nos permiten mover elementos, esto es util cuando deseamos poner un elemento en un lugar especifico, pero debemos tener en cuenta que si usamos
+                los margenes verticales (top y bottom), entonces el elemento que se encuentre abajo de el será atraido.
+                <br>
+                Se recomienda usar margenes negativos solamente si realmente sabemos que es lo que estamos haciendo
+            </p>
+        </div>
+    </section>
+    <section>
+        <h2>Colapsado de margenes verticales</h2>
+        <p>
+            El colapsado de margenes es cuando estos se juntan y solo ocurre de manera vertical (margin-top, margin-bottom), a continuación veremos dos ejemplos para  ilustrarlo.
+        </p>
+        <div>
+            <p>Este es el código HTML que se usara para el primer ejemplo.</p>
+            <pre>
+                <span><</span>div class="margin-collapse"<span>></span>
+                <span>  <</span>article class="article"<span>></span>
+                <span>    <</span>h1 class="title"<span>></span>Título<span><</span>/h1<span>></span>
+                <span>    <</span>p<span>></span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam labore tempore, distinctio qui velit deserunt<span><</span>/p<span>></span>
+                <span>  <</span>/article<span>></span>
+                <span><</span>/div<span>></span>
+            </pre>
+        </div>
+        <div>
+            <p>Este es el código CSS usado en este ejemplo</p>
+            <code>
+                <pre>
+                    .margin-collapse {
+                        border: 2px solid red;
+                    }
+
+                    .article {
+                        background-color: yellow;
+                    }
+                </pre>
+            </code>
+        </div>
+        <div>
+            <div class="margin-collapse">
+                <article class="article">
+                    <h1 class="title">Título</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam labore tempore, distinctio qui velit deserunt alias nostrum vero suscipit placeat.</p>
+                </article>                
+            </div>
+            <p>
+                Podemos ver que hay un espacio entre el article y el borde de su contenedor, esto se debe a que el h1 tiene un margin, pero si el h1 es hijo del article,
+                ¿no debería entonces ese margen "empujar" hacia arriba el fondo amarillo de su padre?, ¿como podemos solucionar esto?
+                <br>
+                Existen algunas posibles soluciones, una sería establecer el margin-top del h1 a cero <b>(.h1 { margin-top: 0 })</b>, otra manera de solucionarlo sería aplicar un
+                padding al article <b>(.article { padding: 1px })</b> y de esta manera evitamos el colapsado de margenes.
+            </p>
+        </div>
+        <div>
+            <p>Ejemplo 2 del colapso de margenes</p>
+        </div>
+        <div>
+            <p>Este es el código que usaremos para el segundo ejemplo</p>
+            <pre>
+                <span><</span>article class="article-1"<span>></span>
+                    article 1
+                <span><</span>/article<span>></span>
+                <span><</span>article class="article-2"<span>></span>
+                    article 2
+                <span><</span>/article<span>></span>
+            </pre>
+        </div>
+        <div>
+            <p>Este es el código CSS para el segundo ejemplo</p>
+            <code>
+                <pre>
+                    [class$="Dos"] {
+                        background-color: brown;
+                    }
+                    
+                    .uno {
+                        margin-bottom: 100px;
+                    }
+                    
+                    .dos {
+                        margin-top: 100px;
+                    }
+                </pre>
+            </code>
+        </div>
+        <div>
+            <p>
+                Resultado: Como podemos ver los 2 articles aparecen pegados uno debajo del otro, pero supongamos que queremos darle un espacio entre ambos, que pasa si le ponemos
+                al primero un margin-bottom de 100px y al segundo un margin-top de 100px?, talvez pensaríamos que como resultado tendriamos un espacio de 200px de separación, pero
+                en la práctica vemos que no es así, esto se debe al colapsado de margens y a que en los margenes verticales y positivos siempre gana el valor más grande, salvo que
+                estos sean negativos, pero como en este caso son iguales y positivos, solo se toma el valor uno de ellos y es por eso que la separación queda de 100px.
+                <br>
+            </p>
+            <article class="articleEjemDos uno">
+                article 1
+            </article>
+            <article class="articleEjemDos dos">
+                article 2
+            </article>
+        </div>
+        <div>
+            <p>
+                <strong>NOTA: </strong>
+                <em>
+                    No existe una forma de evitar el colapsado de margenes con CSS, pero si podemos evotarlo usando buenas prácticas, una de estas dice que siempre que usemos margenes
+                    estos sean en una sola dirección, lo mas recomendable es margin-bottom porque si usamos margin-top siempre tendremos comportamientos inesperados, como que el
+                    primer elemento aparezca separado de la parte superior.
+                </em>
+            </p>
+        </div>
+    </section>
+</body>
+</html>

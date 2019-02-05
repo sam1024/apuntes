@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Especificidad, herencia y cascada</title>
+    <link rel="stylesheet" href="./css/especificidad-herencia-y-cascada.css">
+</head>
+<body>
+    <section>
+        <h2>Arquitectura CSS</h2>
+        <p>
+            CUANDO SE HABLA DE ARQUITECTURA CSS SE REFIERE A LA FORMA DE ORGANIZAR TODOS LOS ARCHIVOS .CSS DENTRO DE UN PROYECTO, COMO SE ORGANIZÁN LOS COMPONENTES, LAS
+            TIPOGRAFÍAS, LOS COLORES, LOS BOTONES, LOS ESTADOS ETC., SI ES QUE DEBEMOS USAR VARIOS ARCHIVOS O SOLO UNO, AUNQUE HAY DIFERENTES METODOLOGÍAS DE TRABAJAR COMO
+            SMACSS, OOCSS, ITCSS POR SOLO CITAR ALGUNAS.
+            <br>
+            USAR ARQUITECTURA CSS ES INDISPENSABLE EN PROYECTOS GRANDES.
+        </p>
+    </section>
+    <section>
+        <h2>Especificidad</h2>
+        <p>
+            CADA NAVEGADOR TIENE SU PROPIO ESTILO CSS PARA LOS ELEMENTOS, ENTONCES AL MOMENTO DE CARGAR UNA PÁGINA LE APLICA ESTOS, PERO QUE SUCEDERIA SI EL NAVEGADOR TIENE
+            DEFINIDO UN COLOR PARA EL TEXTO DE UN ELEMENTO p, Y NOSOTROS EN NUESTRO ARCHIVO CSS DEFINIMOS OTRO COLOR DE TEXTO PARA ESE ELEMENTO EN LA LINEA 1, PERO DESPUÉS
+            POR ERROR A ESE MISMO ELEMENTO EN LA LINEA 200 LE DEFINIMOS OTRO COLOR DE TEXTO, POR SI ESTO FUERA POCO ESTAMOS USANDO UN FRAMEWORK O LIBRERIA CSS QUE TAMBIEN TIENE
+            DEFINIDO UN COLOR PARA EL MISMO ELEMENTO, EN VISTA DE QUE SON VARIOS ESTILOS DEFINIDOS PARA EL MISMO ELEMENTO, ¿CUAL SERÁ EL COLOR DEL TEXTO AL CARGAR LA PÁGINA?
+            ¿COMO RESUELVE EL NAVEGADOR ESOS CONFLICTOS?
+            <br>
+            LO HACE USANDO LA ESPECIFICIDAD, YA QUE ESTA ES LA QUE DICE QUE ESTILO O REGLA CSS ES LA MÁS ESPECIFICA, ESTA ES A NIVEL DE SELECTORES, YA QUE SON ESTOS LOS QUE 
+            USAMOS PARA DEFINIR A QUE ELEMENTOS SE LE APLICAN LOS ESTILOS.
+            <br>
+            SE PUEDE DECIR QUE LA ESPECIFICIDAD ES UNA SUMA, ESTA SE TOMA DE LOS VALORES DE LOS SELECTORES, SU VALOR ES EL SIGUIENTE:
+            <br>
+            <b>tags = 1</b>
+            <br>
+            <b>clases = 10</b>
+            <br>
+            <b>id = 100</b>
+            <br>
+            <b>inline = 1000</b>
+            <br>
+            <b>!important = superpoderoso</b> <em>DEBE EVITARSE SU USO A MENOS QUE NO SE TENGA OTRA OPCIÓN</em>
+            <br>
+            ENTONCES UNA VEZ QUE EL NAVEGADOR CALCULA LAS SUMAS LE APLICA AL ELEMENTO EL ESTILO QUE TENGA MÁS "PESO". ES DECIR EL QUE SEA MÁS ESPECIFICO.
+            <br>
+            <strong>NOTA: </strong>
+            <em>
+                NO es una buena práctica hacer uso excesivo de la especificidad, debemos hacer todo lo posible por evitarla y mejor acostumbrarnos
+                a usar siempre estilos de clases.
+            </em>
+        </p>
+        <div>
+            <p>EJEMPLO PARA ILUSTRAR EL USO DE LA ESPECIFICIDAD, TENEMOS EL SIGUIENTE CÓDIGO HTML</p>
+            <pre>
+                <span><</span>div id="main"<span>></span>
+                <span>  <</span>article class="post"<span>></span>
+                <span>    <</span>p<span>></span>Hola<span><</span>/p<span>></span>
+                <span>  <</span>/article<span>></span>
+                <span><</span>/div<span>></span>
+            </pre>
+            <p>
+                LE VAMOS A APLICAR UN COLOR DE TEXTO A LA ETIQUETA p, USANDO PARA ELLO 3 ESTILOS CSS DISTINTOS, Y VEREMOS CUAL DE ESTAS TIENE MÁS ESPECIFICIDAD Y POR
+                TANTO RESULTA "GANADOR".
+            </p>
+        </div>
+        <div>
+            <p>CÓDIGO CSS QUE USAREMOS EN EL EJEMPLO</p>
+            <code>
+                <pre>
+                    #main .post p { /* EL PESO DE ESTA REGLA ES 111 PORQUE TENEMOS UN SELECTOR DE ID (#main), UNO DE CLASE (.post) Y UNO DE ETIQUETA (p) */
+                        color: red;
+                    }
+                        
+                    p {
+                        color: green; /* EL PESO DE ESTA REGLA ES 1 PORQUE TENEMOS UN SELECTOR DE ETIQUETA (p) */
+                    }
+                        
+                    div#main .post p { /* EL PESO DE ESTA REGLA ES 112 PORQUE TENEMOS UN SELECTOR DE ETIQUETA (div), UNO DE ID (#main), UNO DE CLASE (.post) Y UNO DE ETIQUETA
+                                          (p) */
+                        color: blue;
+                    }
+                </pre>
+            </code>
+            <p>PARA COMPROBAR EL "PESO" DE LOS ESTILOS PODEMOS VISITAR ESTE SITIO <a href="https://specificity.keegan.st/" target="_blank">specificity</a></p>
+        </div>
+        <div id="main">
+            <p>COMO PODEMOS VER EL RESULTADO, EL ESTILO DE MAS PESO ES EL ULTIMO (div#main .post p)</p>
+            <article class="post">
+                <p>Hola</p>
+            </article>
+        </div>
+    </section>
+    <section>
+        <h2>Cascada</h2>
+        <p>
+            La cascada CSS se refiere a que lo que viene después sobreescribe a lo que está antes, esto es así porque el navegador siempre va a tomar el ultimo estilo que
+            encuentre.
+            <br>
+            Pero solo y solo si los estilos tengan la misma especificidad o peso.
+        </p>
+        <div>
+            <p>El siguiente código HTML se usa para poner un ejemplo de la cascada</p>
+            <pre>
+                <span><</span>p class="cascada"<span>></span>Cascada CSS<span><</span>/p<span>></span>
+            </pre>
+        </div>
+        <div>
+            <p>Código CSS del ejemplo de la cascada</p>
+            <code>
+                <pre>
+                    .cascada {
+                        color: red;
+                    }
+                        
+                    .cascada {
+                        color: blue; /* El texto toma este estilo porque es el ultimo y aunque tenemos dos, ambos tienen la misma especificidad o peso */
+                    }
+                </pre>
+            </code>
+        </div>
+        <div>
+            <p>Como podemos ver debido a la cascada CSS el texto toma el color azul que estamos defiendo en el ultimo estilo.</p>
+            <p class="cascada">Cascada CSS</p>
+        </div>
+        <p>
+            <strong>NOTA: </strong>
+            <em>
+                Muchas veces que usamos frameworks CSS algunos elementos debido a la cascada aparecen con un estilo que no queremos que tengan y debido a que estedioso o
+                por flojera no buscamos maneras de corregir el error y recurrimos al clasico !important, hacer esto no es para nada recomendable ya que se considera una
+                mala práctica, si bien es cierto que en algunas circunstancias no tendremos más alternativa, siempre tratemos de evtar su uso.
+            </em>
+        </p>
+    </section>
+    <section>
+        <h2>Herencia</h2>
+        <p>
+            La herencia hace referencia a que por defecto los elementos descendientes heredan algunas propiedades de los padres, pero no todas.            
+        </p>
+        <div>
+            <p>El siguiente código HTML se usa para ejemplificar la herencia en CSS</p>
+            <pre>
+                <span><</span>h1<span>></span>Hola<span><</span>span<span>></span>mundo!!!<span><</span>/span<span>></span><span><</span>/h1<span>></span>
+            </pre>
+        </div>
+        <div>
+            <p>El siguiente código CSS se usa para el ejemplo de la herencia en CSS</p>
+            <code>
+                <pre>
+                    h1 {
+                        color: teal;
+                        font-size: 2em;
+                    }
+                </pre>
+            </code>
+        </div>
+        <div>
+            <p>
+                Resultado, a pesar de que el texto mundo!! está dentro de un span esta tomando los mismos estilos del texto que está solo en el h1, esto es muy bueno, ya que
+                se vería mal si solo el h1 tuviera los estilos y el span no.
+                <h1>Hola <span>mundo!!!</span></h1>
+            </p>
+        </div>
+        <div>
+            <strong>NOTA: </strong>
+            <em>
+                En caso de querer que una propiedad o estilo de herede de algún elemento superior, podemos usar el valor: <b>inherit</b>
+            </em>
+        </div>
+    </section>
+    <section>
+        <h2>Initial inherit</h2>
+        <p>
+            El valor initial resetea al elemento a sus estilos iniciales (por default), este valor no debe confundirse con los estilos del navegador ya que estos son difrentes.
+             <br>
+            El valor inherit obliga a un elemento a heredar los estilos del elemento que sea su padre.
+        </p>
+        <div>
+            <p>
+                El siguiente código HTML será usado para ilustrar el uso del valor initial-inherit, al momento de escribir este código nos damos cuenta de que "p" está tomando como
+                valor para el color el que hereda del elemento body y "a" está tomando el color azul que hereda de los estilos del navegador para los enlaces.
+                <br>
+                Si nosotros establecemos el color del elemento "p" en rojo vemos que el elemento "a" a pesar de ser hijo de "p" sigue con el color azul, es entonces cuando usamos
+                este valor para obligarlo a que herede el color de su padre. 
+            </p>
+            <pre>
+                <span><</span>p class="p-initial-inherit"<span>></span>Hola visita mi<span><</span>a class="a-initial-inherit" href="pagina"<span>></span>página<span><</span>/a<span>></span><span><</span>/p<span>></span>
+            </pre>
+        </div>
+        <div>
+            <p>Este es el código CSS usado en el ejemplo</p>
+            <code>
+                <pre>
+                    .p-initial-inherit {
+                        color: red;
+                    }
+                        
+                    .a-initial-inherit {
+                        color: inherit;
+                    }
+                </pre>
+            </code>
+        </div>
+        <div>
+            <p>Este es el resultado de usar el valor inherit, como podemos ver al usarlo el elemento "a" hereda de su padre el color rojo</p>
+            <p class="p-initial-inherit">Hola visita mi <a class="a-initial-inherit" href="pagina">página</a></p>
+        </div>
+    </section>
+</body>
+</html>
