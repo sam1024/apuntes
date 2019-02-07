@@ -1,0 +1,14 @@
+@import url(./normalizecss.css);
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.header {
+    border-bottom: 3px solid #3d7e92;
+}
+
+.title {
+    font-size: 1.2em;
+    text-align: center;
+}
