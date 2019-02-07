@@ -1,11 +1,7 @@
-@import url(./normalizecss.css);
+@import url(./general-styles.css);
 
 *, *::before, *::after {
     box-sizing: border-box;
-}
-
-.header {
-    border-bottom: 3px solid #3d7e92;
 }
 
 .title {
