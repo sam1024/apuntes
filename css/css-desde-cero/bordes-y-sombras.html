@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/bordes-y-sombras.css">
+    <title>Bordes y sombras</title>
+</head>
+<body>
+    <header><h1 class="textCenter">BORDES Y SOMBRAS</h1></header>
+    <main class="generalContent">
+        <section>
+            <h2>Bordes</h2>
+            <p>
+                Para establecer un borde a un elemento HTML se usa la propiedad <b>border</b>.
+                <br>
+                Pero, ¿como se dibuja un borde respecto a la caja?, ¿esta por "encima" de la caja?, ¿está fuera de la caja? o ¿está la mitad dentro y la otra mitad fuera?, saber esto y
+                entenderlo nos ayudara a saber como funcionan las cajas y la maquetación.
+            </p>
+            <span class="textExample">Ejemplo</span>
+            <div>
+                <p>HTML: Estamos usando una etiqueta div con una clase box, a esta vamos establecerle un borde</p>
+                <pre class="htmlCode tagCode">
+                    &lt;div class="box"&gt;&lt;/div&gt;
+                </pre>
+            </div>
+            <div>
+                <p>
+                    CSS: Mediante un selector de clase <b>(.box)</b> establecemos las siguientes propiedades:
+                </p>
+                <code>
+                    <pre class="cssCode tagCode">
+                        .box {
+                            border: 20px dotted black; /*Borde negro punteado de 20 pixeles de grosor*/
+                            width: 400px; /*Ancho de 400 pixeles*/
+                            height: 300px; /*Alto de 300 pixeles*/
+                            background: red; /*Fondo color rojo*/
+                            margin-left: auto; /*Margen izquierdo automatico*/
+                            margin-right: auto; /*Margen derecho automatico*/
+                        }
+                    </pre>
+                </code>
+            </div>
+            <div class="resultado">
+                <p>
+                    Resultado: Como podemos ver con este ejemplo el borde se dibuja por dentro ya que este es una propiedad interna de la caja, la unica propiedad externa es
+                    el margin.
+                </p>
+                <div class="box"></div>
+            </div>
+            <div class="nota">
+                <strong>NOTA: </strong>
+                <em>
+                    Al establecer el margen parece que la caja se hace mas "grande", esto se debe al box-sizing, esto puede resultar en comportamientos no deseados y hacer que
+                    los demás elementos se "muevan", para evitar esto recordemos siempre establecer mediante el uso del selector universal el box-sizing a border-box de la
+                    siguiente manera: <b>(*, *::before, *::after { box-sizing: border-box; })</b>, haciendo esto nos evitaremos muchos problemas a la hora de la maquetación.
+                </em>
+            </div>
+        </section>
+    </main>        
+</body>
+</html>

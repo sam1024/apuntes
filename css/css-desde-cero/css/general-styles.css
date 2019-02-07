@@ -1,0 +1,59 @@
+@import url(/css/normalize.css);
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.generalContent {
+    /*border: 1px solid red;*/
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.textCenter {
+    text-align: center;
+}
+
+.textExample{
+    font-size: 1.3em;
+}
+
+.tagCode {
+    background-color: #34495e;
+    color: #eee;
+    border-radius: 5px;
+    padding-top: 15px;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+.resultado {
+    padding-top: 2px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    border: 3px solid #3d7e9a;
+    border-radius: 5px;
+}
+
+.htmlCode {
+    
+}
+
+.cssCode {
+    /*width: -moz-fit-content;
+    width: -webkit-fitcontent;
+    margin-left: -150px;*/
+}
+
+.nota {
+    border: 3px solid #cb4335;    
+    border-radius: 5px;
+    margin-top: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
