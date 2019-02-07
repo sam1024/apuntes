@@ -1,4 +1,4 @@
-@import url(/edteam/apuntes/css/normalizecss.css);
+@import url(.../css/normalizecss.css);
 
 *, *::before, *::after {
     box-sizing: border-box;
