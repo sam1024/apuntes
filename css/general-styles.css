@@ -1,7 +1,15 @@
 @import url(./normalizecss.css);
 
+html {
+    color: #eee;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
 }
 
 .header {
@@ -68,4 +76,8 @@
     padding-right: 5px;
     padding-bottom: 5px;
     padding-left: 5px;
+}
+
+.link {
+    color: inherit;
 }

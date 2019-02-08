@@ -42,3 +42,10 @@
 .box-4 {
     border-style: dotted dashed solid double;
 }
+
+/**** SHORTHAND BORDER ****/
+.border {
+    width: 120px;
+    height: 120px;
+    border: 10px solid #e91e63 
+  }
