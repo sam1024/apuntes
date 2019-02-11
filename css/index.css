@@ -1,9 +1,5 @@
 @import url(./general-styles.css);
 
-body {
-    background-color: #1c2833;
-}
-
 .header {
     width: 100vw;
     margin-bottom: 5px;

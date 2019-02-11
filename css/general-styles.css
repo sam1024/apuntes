@@ -8,20 +8,25 @@ html {
     box-sizing: border-box;
 }
 
+body {
+    background-color: #1c2833;
+}
+
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 .header {
     border-bottom: 3px solid #3d7e92;
-    width: 70%;
+    /*width: 70%;*/
     margin-left: auto;
     margin-right: auto;
 }
 
 .generalContent {
     /*border: 1px solid red;*/
-    width: 70%;
+    /*width: 70%;*/
     margin-left: auto;
     margin-right: auto;
 }
@@ -44,8 +49,9 @@ a {
     border-radius: 5px;
     padding-top: 15px;
     padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
+    padding-bottom: 15px;
+    padding-left: 5px;
+    white-space: pre-line;
 }
 
 .resultado {

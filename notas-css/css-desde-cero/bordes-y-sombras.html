@@ -81,9 +81,7 @@
                             margin-right: auto;
                         } -->
                     <pre class="cssCode tagCode">
-                        .box {
-                            border: 20px dotted black;
-                        }
+                        .box { border: 20px dotted black; }
                     </pre>
                 </code>
             </div>
@@ -158,8 +156,8 @@
                 <code>
                     <pre class="cssCode tagCode">
                         .box-1 {
-                            border-style: double;
-                            color: green;
+                            &nbsp;&nbsp;border-style: double;
+                            &nbsp;&nbsp;color: green;
                         }
 
                         .box-2 { border-style: dashed solid; }
@@ -217,9 +215,7 @@
                 <p>Código CSS usado para establecer el borde la caja.</p>
                 <code>
                     <pre class="cssCode tagCode">
-                        .border {
-                            border: 10px solid #e91e63 
-                        }
+                        .border { border: 10px solid #e91e63; }
                     </pre>
                 </code>
             </div>
@@ -231,6 +227,145 @@
                 <strong>NOTA: </strong>
                 <em>Al igual que el shorthand <b>border-style</b>, el unico valor requerido por este es el estilo, los otros dos son opcionales.</em>
             </div>
+        </section>
+        <section>
+            <h2>Border radius</h2>
+            <p>
+                La propiedad <b>border-radius</b> es un shorthand que se usa para establecer un redondeo a cada una de las esquinas de una caja.
+                <br>
+                Su sintaxis es: <b>border-radius: [valor] [valor] [valor] [valor]</b>, el valor puede ser en px, em o %, al igual que margin los redondeos se estableceran en el sentido
+                de las manecillas del reloj comenzando con la esquina superior izquierda.
+                <br>
+                Para establecer los redondeos se recomiendo que se usen las propiedades individuales que son las siguientes:
+                <br>
+                <b>border-top-left-radius</b>
+                <br>
+                <b>border-top-right-radius</b>
+                <br>
+                <b>border-bottom-right-radius</b>
+                <br>
+                <b>border-bottom-left-radius</b>
+                <br><br>
+                Su sintaxis es <b>border-top-left-radius: [valor] [valor]</b>, <b>border-top-right-radius: [valor] [valor]</b>, <b>border-bottom-right-radius: [valor] [valor]</b> y
+                <b>border-bottom-left-radius: [valor] [valor]</b>, si establecemos dos valores uno se usará para el eje horizontal y el otro  para el vertical, no es
+                forsozo establecer los dos, con que usemos uno basta.
+                <br><br>
+                Cuando establecemos el redondeo de una esquina, es como si en esta se formara un circulo, y el valor que le pasemos a la propiedad será el arco que tomará de dicho
+                circulo.
+                <div class="nota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Cuando usamos % como medida para el redondeado esta se calcula en relación a la figura del elemento, si es un rectangulo entonces el redondeado parecerá
+                        un elipsis, si es un cuadrado parecerá un circulo.
+                    </em>
+                </div>
+            </p>
+            <div>
+                <span class="textExample">Ejemplo:</span>
+                <span>Establecer un borde para cada esquina de la caja usando las propiedades individuales.</span>
+            </div>
+            <div>
+                <p>Código HTML usado para dibujar la caja</p>
+                <pre class="tagCode">
+                    &lt;div class="radius"&gt;&lt;/div&gt;
+                </pre>
+            </div>
+            <div>
+                <p>Código CSS usado para establecer los redondeados a la caja</p>
+                <code>
+                    <pre class="tagCode">
+                        .radius {
+                            &nbsp;&nbsp;border-top-left-radius: 10px;
+                            &nbsp;&nbsp;border-top-right-radius: 20px;
+                            &nbsp;&nbsp;border-bottom-right-radius: 30px;
+                            &nbsp;&nbsp;border-bottom-left-radius: 40px;
+                        }
+                    </pre>
+                </code>
+            </div>
+            <div class="resultado">
+                <p>Resultado: Como podemos ver podemos establecer diferentes valores para cada esquina de la caja.</p>
+                <div class="radius"></div>
+            </div>
+            <div class="nota">
+                <strong>NOTA: </strong>
+                <em>
+                    Vimos que podemos establecer dos valores, si lo hacemos, podemos de esta manera dibujar un elipse en la esquina de la caja y no un circulo.
+                    <br>
+                    Podemos tambien usar el shorthand para establecer dos valores de la siguiente manera: <b>border-radius: 10px 20px 30px 40px / 50px 60px 70px 80px</b>,
+                    del lado izquierdo del slash van los valores horizontales (x) y del lado derecho los valores verticales (y).
+                    <br>
+                    Algunos ejemplos <a href="https://codepen.io/k3rn3l/pen/omdwWE" target="_blank">aquí</a>
+                </em>
+            </div>
+        </section>
+        <section>
+            <h2>Outline</h2>
+            <p>
+                La propiedad outline es un shorthand parecido al border, pero no es parte del modelo de caja, sino que se encuentra fuera de la misma, podemos establecer un outline
+                a un elemento y este no chocará con el borde.
+                <br><br>
+                Su sintaxis es la misma que la de el shorthand border <b>outline: [ancho] [estilo] [color]</b>, el unico valor requerido es el estilo, los demas los toma por default.
+                <br><br>
+                Las propiedade individuales de este shorthand son: <b>outline-style</b>, <b>outline-width</b> y <b>outline-color</b>, su sintaxis es:
+                <br><br>
+                <b>outline-style: [estilo]</b> - (auto, none, solid, dotted, dashed, double, groove ridge, inset, outset, inherit, initial, unset)
+                <br><br>
+                <b>outline-width: [ancho]</b> - (px, em, thin, medium, thick, inherit)
+                <br><br>
+                <b>outline-color: [color]</b> - (red, #32a1ce, rgba(170, 30, 96, .5), hsla(50, 60%, 30%, .6), rgb(250, 31, 56))            
+                <br><br>
+                Su utilidad es poca, se usa más comunmente para hacer debug (ver en que lugar están los elementos) del layout.
+                
+            </p>
+            <div>
+                <span class="textExample">Ejemplo: </span>
+                <span>Establecer el outline a una caja usando las propiedades individuales</span>
+            </div>
+            <div>
+                <p>Código HTML usado en el ejemplo</p>
+                <pre class="tagCode">
+                    &lt;div class="outline"&gt;&lt;/div&gt;
+                </pre>
+            </div>
+            <div>
+                <p>Código CSS usado para establecer el outline a la caja</p>
+                <code>
+                    <pre class="tagCode">
+                        .outline {
+                            &nbsp;&nbsp;outline-style: dashed;
+                            &nbsp;&nbsp;outline-width: 5px;
+                            &nbsp;&nbsp;outline-color: red;
+                        }
+                    </pre>
+                </code>
+            </div>
+            <div>
+                <p>Resultado: Podemos ver que la caja tiene un borde verde y un outline rojo, los dos se muestran bien ya que estos no chocan.</p>
+                <div class="outline"></div>
+            </div>
+        </section>
+        <section>
+            <h2>Box shadow</h2>
+            <p>
+                La propiedad <b>box-shadow</b> permite establecer sombras a los elementos HTML.
+                <br>
+                Su sintaxis es:
+                <br>
+                <b>box-shadow: [h-offset] [v-offset] [blur] [spread] [color] | [inset]</b>
+                <br><br>
+                h-offset: Es el desplazamiento horizontal (que tanto se separa).
+                <br><br>
+                v-offset: Es el desplazamiento vertical (que tanto se separa).
+                <br><br>
+                blur: Es el difuminado.
+                <br><br>
+                spread: Es cuanto se expande.
+                <br><br>
+                color: El color de la sombra.
+                <br><br>
+                inset: Si la sombra será interior o exterior.
+            </p>
         </section>
     </main>        
 </body>

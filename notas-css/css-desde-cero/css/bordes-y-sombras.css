@@ -4,10 +4,14 @@
     margin-bottom: 10px;
 } */
 
+.textCenter {
+    font-size: 28px;
+}
+
 /**** BORDES ****/
 .box {
     border: 20px dotted black;
-    width: 400px;
+    width: 300px;
     height: 300px;
     background: red;
     margin-left: auto;
@@ -47,5 +51,38 @@
 .border {
     width: 120px;
     height: 120px;
-    border: 10px solid #e91e63 
+    border: 10px solid #e91e63;
   }
+
+/**** BORDER-RADIUS ****/
+.radius {
+    width: 200px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #e91e63;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 40px;
+}
+
+/**** OUTLINE ****/
+.outline {  
+    width: 200px;
+    height: 200px;
+    background-color: #e91e63;    
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 50px;
+    border: solid 6px green;
+    outline-style: dashed;
+    outline-width: 5px;
+    outline-color: red;
+}
+
+/**** BOX SHADOW ****/
+.boxShadow {
+    box-shadow: #e91e63;
+}

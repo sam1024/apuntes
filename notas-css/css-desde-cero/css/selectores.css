@@ -51,7 +51,7 @@ li > ul > li {
     margin: .5em;
 }
 
-/**** SELECTORES DE ATRIBUTO COMIENZO CON ****/
+/**** SELECTORES DE ATRIBUTO COMIENZA CON ****/
 a.external-link {
     background: url(../img/external_link.svg) no-repeat center right / 1rem;
     padding-right: 1.5rem;
