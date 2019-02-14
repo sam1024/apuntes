@@ -62,15 +62,18 @@
                 </div>
                 <div class="divResultado">
                     <p>Resultado: Para establecer el fondo de este elemento se uso el valor en hexadecimal del color.</p>
-                    <div class="backgroundColor"></div>
+                    <div class="backgroundColor centerElement"></div>
                 </div>
                 <div class="divNota">
                     <strong>NOTA: </strong>
-                    <em>Para quitar un color de fondo de un elemento podemos usar el valor transparent <span class="spanSyntax">(background-color: transparent;)</span>.</em>
+                    <em>
+                        La propiedad <span class="spanSyntax">background-color</span> no tiene dimensiones ni posición, este se extiende por todo el espacio que pueda.
+                        Para quitar un color de fondo de un elemento podemos usar el valor transparent <span class="spanSyntax">(background-color: transparent;)</span>.
+                    </em>
                 </div>
             </section>
             <section class="section">
-                <h2>Bakcgroun image y background repeat</h2>
+                <h2>Backgroun image</h2>
                 <p>La propiedad <span class="spanSyntax">background-image</span> establece una o más imagenes de fondo a un elemento HTML.</p>
                 <div class="divSyntax">
                     <h2>Sintaxis</h2>
@@ -87,8 +90,7 @@
                 <div class="divNota">
                     <strong>NOTA: </strong>
                     <em>
-                        En caso de establecer una imagen de fondo pequeña ó de que haya mucho espacio en el display del dispositivo, está se repetirá, este es su comportamiento
-                        por default.
+                        No es necesario el uso de comillas dobles o simples al momento de pasar la ruta a la función url, ya que en CSS no existe el concepto de strings.
                     </em>
                 </div>
                 <div class="divExample">
@@ -102,20 +104,323 @@
                     </pre>
                 </div>
                 <div>
-                    <p>Código CSS usado para establecer la imagend de fondo a la caja.</p>
+                    <p>Código CSS usado para establecer la imagen de fondo a la caja.</p>
                     <code>
                         <pre class="preCode">
                             .backgroundImage {
-                                &nbsp;&nbsp;width: 300px;
-                                &nbsp;&nbsp;height: 300px;
                                 &nbsp;&nbsp;background-image: url(../img/terminator1.jpg);
                             }
                         </pre>
                     </code>
                 </div>
                 <div class="divResultado">
-                    <p>Resultado: </p>
-                    <div class="backgroundImage"></div>
+                    <p>Resultado</p>
+                    <div class="backgroundImage centerElement"></div>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        En caso de establecer una imagen de fondo que sea más pequeña que el elemento contenedor ó de que haya mucho espacio en el display del dispositivo, 
+                        está se repetirá, este es su comportamiento por default.
+                    </em>
+                </div>                
+            </section>
+            <section class="section">
+                <h2>Background repeat</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">background-repeat</span> permite definir como se repetirá la imagen de fondo. Una imagen de fondo puede repetirse
+                    de manera horizontal y vertical, o no repetirse.
+                    <br>
+                    Como sabemos la imagen cuando es mas pequeña que el espacio disponible por default se repite.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">background-repeat: repeat; </span>
+                    <span>la imagen de fondo se repite (comportamiento por default).</span>
+                    <br>
+                    <span class="spanSyntax">background-repeat: repeat-x; </span>
+                    <span>la imagen de fondo se repite de manera horizontal.</span>
+                    <br>
+                    <span class="spanSyntax">background-repeat: repeat-y; </span>
+                    <span>la imagen de fondo se repite de manera vertical.</span>
+                    <br>
+                    <span class="spanSyntax">background-repeat: round; </span>
+                    <span>la imagen de fondo se repite y se estira o comprime para llenar el espacio disponible</span>
+                    <br>
+                    <span class="spanSyntax">background-repeat: space; </span>
+                    <span>
+                        La imagen de fondo se repite lo más posible sin recortar. La primera y la última imagen están
+                        fijadas a cada lado del elemento, y el espacio en blanco se distribuye uniformemente entre las imágenes.
+                    </span>
+                    <br>
+                    <span class="spanSyntax">background-repeat: no-repeat; </span>
+                    <span>la imagen de fondo no se repite.</span>
+                    <br>
+                    <span class="spanSyntax">background-repeat: repeat space; </span>
+                    <span>la imagen de fondo se repite de manera horizontal sin recortar y el espacio en blanco
+                        se distribuye, este comportamiento cambia dependiendo del orden en que se coloquen los valores.
+                    </span>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>
+                        Dibujar una caja, establecerle una imagen de fondo y usar la propiedad <span class="spanSyntax">background-repeat</span> para establecer el valor round. 
+                    </span>
+                    <div>
+                        <p>Código HTML usado para dibujar la caja</p>
+                        <pre class="preCode">
+                            &lt;div class"backgroundRepeat&gt;&lt;/div&gt;
+                        </pre>
+                    </div>
+                    <div>
+                        <p>Código CSS usado para establecer la propiedad <span class="spanSyntax">background-repeat</span>.</p>
+                        <code>
+                            <pre class="preCode">
+                                .backgroundRepeat { background-repeat: round; }
+                            </pre>
+                        </code>
+                    </div>
+                    <div class="divResultado">
+                        <p>Resultado: Usando el valor <span class="spanSyntax">round</span> la imagen de fondo se ajusta lo más posible al tamaño de su elemento contenedor.</p>
+                        <div class="backgroundRepeat centerElement"></div>
+                    </div>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Las propiedades <span class="spanSyntax">background-image</span> y <span class="spanSyntax">background-repeat</span> por lo general se usan juntas.
+                        <br>
+                        Encontrará ejemplos de su uso <a href="https://codepen.io/k3rn3l/pen/ZwRZQe" target="_blank">aquí</a>.
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Background clip</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">background-clip</span> define hasta dónde debe extenderse el fondo (color o imagen) dentro de un elemento. Puede ser
+                    content-box, padding-box, border-box o solo el texto del elemento.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">background-clip: content-box; </span>
+                    <span>el fondo se extendará solo por el content-box.</span>
+                    <br>
+                    <span class="spanSyntax">background-clip: padding-box; </span>
+                    <span>el fondo se extenderá por el content-box y el padding-box.</span>
+                    <br>
+                    <span class="spanSyntax">background-clip: border-box; </span>
+                    <span>el fondo se extenderá por el content-box, el padding-box y el border-box (valor por default).</span>
+                    <br>
+                    <span class="spanSyntax">background-clip: text; </span>
+                    <span>el fondo se extenderá solo en el texto del elemento.</span>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>
+                        Establecer un fondo a una caja usando el valor <span class="spanSyntax">content-box</span>.
+                    </span>
+                    <div>
+                        <p>Código HTML usado para dibujar la caja</p>
+                        <pre class="preCode">
+                            &lt;div class="bgClipCB"&gt;
+                                &nbsp;&nbsp;&lt;span class="textCB"&gt;content-box&lt;/span&gt;
+                            &lt;/div&gt;
+                        </pre>
+                    </div>
+                    <div>
+                        <p>Código CSS usado para establecer el fondo.</p>
+                        <code>
+                            <pre class="preCode">
+                                .bgClipCB { background-clip: content-box; }
+                            </pre>
+                        </code>
+                    </div>
+                    <div class="divResultado">
+                        <p>Resultado: El color de fondo solo se extiende por el <span class="spanSyntax">content-box</span>.</p>
+                        <div class="bgClipCB centerElement">
+                            <span class="textCB">content-box</span>
+                        </div>
+                        <p>Como ya sabemos el espacio que está entre el content-box y el border-box es el padding.</p>
+                        <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/MLBLYO" target="_blank">aquí</a></p>
+                    </div>
+                </div>
+                <!-- <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Podemos ver algunos ejemplos de l uso de la propiedad <span class="spanSyntax">background-clip</span>
+                        <a href="https://codepen.io/k3rn3l/pen/MLBLYO" target="_blank">aquí</a>.
+                    </em>
+                </div> -->
+            </section>
+            <section class="section">
+                <h2>Background origin</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">background-origin</span> establece la posición de origen de una imagen de fondo establecida con la propiedad
+                    background-image, en otras palabras desde donde comienza esta a dibujarse.
+                    <br>
+                    Está muy ligada a la propiedad background-clip.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">background-origin: content-box; </span>
+                    <span>la imagen de fondo comienza en la esquina superior izquierda del content-box.</span>
+                    <br>
+                    <span class="spanSyntax">background-origin: padding-box; </span>
+                    <span>la imagen de fondo comienza en la esquina superior izquierda del padding-box (valor por default).</span>
+                    <br>
+                    <span class="spanSyntax">background-origin: border-box; </span>
+                    <span>la imagen de fondo comienza en la esquina superior izquierda del border-box.</span>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Dibujar una caja y establecer la posición de la imagen de fondo con la propiedad <span class="spanSyntax">background-origin</span></span>
+                    <div>
+                        <p>Código HTML usado para dibujar la caja.</p>
+                        <pre class="preCode">
+                            &lt;div class="bgOriginCB"&gt;&lt;/div&gt;
+                        </pre>
+                    </div>
+                    <div>
+                        <p>Código CSS usado para establecer la posición de la imagen de fondo.</p>
+                        <code>
+                            <pre class="preCode">
+                                .bgOriginCB { background-origin: content-box; }
+                            </pre>
+                        </code>
+                    </div>
+                    <div class="divResultado">
+                        <p>Resultado: Podemos ver como la imagen de fondo comienza a pintarse desde la esquina superior izquierda del content-box.</p>
+                        <div class="bgOriginCB centerElement"></div>
+                        <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/MLBLYO" target="_blank">aquí</a></p>
+                    </div>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        La propiedad <span class="spanSyntax">background-origin</span> se usa solo cuando el fondo sea una imagen, porque si el fondo es un color
+                        esta es ignorada.
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Background size</h2>
+                <p>La propiedad <span class="spanSyntax">background-size</span> establece el tamaño de la imagen de fondo</p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">background-size: auto;</span>                    
+                    <br>
+                    <span class="spanSyntax">background-size: contain;</span>                    
+                    <br>
+                    <span class="spanSyntax">background-size: cover;</span>
+                    <br>
+                    <span class="spanSyntax">background-size: 30%;</span>
+                    <br>
+                    <span class="spanSyntax">background-size: 200px 100px;</span>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <span class="spanSyntax">auto: </span>
+                    <span>
+                        Es el valor por default, la imagen de fondo se mostrará en su tamaño original. Si el elemento contenedor es más pequeño, solo se mostrará la parte de la 
+                        imagen que quepa en el.
+                    </span>
+                    <br>
+                    <span class="spanSyntax">contain: </span>
+                    <span>Escala la imagen lo más grande posible sin recortar o estirar la imagen.</span>
+                    <br>
+                    <span class="spanSyntax">cover: </span>
+                    <span>
+                        Escala la imagen de fondo para que cubra todo el contenedor, incluso si tiene que estirar la imagen o cortar un poco uno de los bordes de tal manera
+                        que no queden espacios en blanco.
+                    </span>
+                    <br>
+                    <span class="spanSyntax">Porcentaje: </span>
+                    <span>
+                        Establece el ancho y el alto de la imagen de fondo en porcentaje del elemento padre. Si sólo se da un valor, el segundo se ajusta a "auto".                        
+                    </span>
+                    <br>
+                    <span class="spanSyntax">Pixeles: </span>
+                    <span>
+                        Establece el ancho y alto de la imagen de fondo, el primer valor fija la anchura y el segundo la altura. Si solo se establece un valor, el segundo se ajusta
+                        a auto.
+                    </span>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer el tamaño de una imagen de fondo de una caja usando dos valores en pixeles</span>
+                    <div>
+                        <p>Código HTML usado para dibujar la caja.</p>
+                        <pre class="preCode">
+                            &lt;div class="bgSizePixels"&gt;&lt;/div&gt;
+                        </pre>
+                    </div>
+                    <div>
+                        <p>Código CSS usado para establecer el tamaño de la imagen de fondo de la caja.</p>
+                        <code>
+                            <pre class="preCode">
+                                .bgSizePixels { background-size: 150px 150px; }
+                            </pre>
+                        </code>
+                    </div>
+                    <div class="divResultado">
+                        <p>Resultado: </p>
+                        <div class="bgSizePixels  centerElement"></div>
+                        <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/mvGYze?editors=1100" target="_blank">aquí</a></p>
+                    </div>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>Los espacios no cubiertos por la imagen de fondo serán llenados con el color de fondo del elemento.</em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Background position</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">background-position</span> establece la posición de inicio de la imagen de fondo.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">background-position: top;</span>
+                    <br>
+                    <span class="spanSyntax">background-position: right;</span>
+                    <br>
+                    <span class="spanSyntax">background-position: bottom;</span>
+                    <br>
+                    <span class="spanSyntax">background-position: left;</span>
+                    <br>
+                    <span class="spanSyntax">background-position: center;</span>
+                    <br>
+                    <span class="spanSyntax">background-position: 25% 68%;</span>
+                    <br>
+                    <span class="spanSyntax">background-position: bottom 10px right 20px;</span>
+                    <br>
+                    <span class="spanSyntax">background-position: right 35% bottom 83%;</span>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <spna class="spanSyntax">top: </spna>
+                    <span>La imagen de fondo se posicionará arriba y centrada.</span>
+                    <br>
+                    <spna class="spanSyntax">right</spna>
+                    <span>La imagen de fondo se posicionará a la derecha y centrada.</span>
+                    <br>
+                    <spna class="spanSyntax">bottom</spna>
+                    <span>La imagen de fondo se posicionará abajo y centrada.</span>
+                    <br>
+                    <spna class="spanSyntax">left</spna>
+                    <span>La imagen de fondo se posicionará a la izquierda y centrada.</span>
+                    <br>
+                    <spna class="spanSyntax"></spna>
+                    <span>La imagen de fondo se posicionará arriba y centrada.</span>
+                    <br>
+                    <spna class="spanSyntax"></spna>
+                    <span>La imagen de fondo se posicionará arriba y centrada.</span>
+                    <br>
+                    <spna class="spanSyntax"></spna>
+                    <span>La imagen de fondo se posicionará arriba y centrada.</span>
+                    <br>
+                    <spna class="spanSyntax"></spna>
+                    <span>La imagen de fondo se posicionará arriba y centrada.</span>                    
                 </div>
             </section>
         </main>

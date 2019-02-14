@@ -1,5 +1,9 @@
 @import url(./normalizecss.css);
 
+:root {
+    --_marginBottom: 15px;
+}
+
 html {
     color: #eee;
 }
@@ -38,7 +42,7 @@ a {
 
 .divSyntax {
     border-top-style: solid;
-    margin-bottom: 15px;
+    margin-bottom: var(--_marginBottom);
 }
 
 .spanSyntax {
@@ -46,14 +50,23 @@ a {
     color: floralwhite;
 }
 
+.divValues {
+    margin-bottom: var(--_marginBottom);
+}
+
 .divExample {
-    border-top: solid;
-    margin-bottom: 15px;
+    border-top-style: solid;
+    margin-bottom: var(--_marginBottom);
     padding-top: 10px;
 }
 
 .textExample{
     font-size: 1.3em;
+}
+
+.centerElement {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .preCode {
@@ -74,14 +87,14 @@ a {
     padding-left: 5px;
     border: 3px solid #3d7e9a;
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: var(--_marginBottom);
 }
 
 .divNota {
     border: 3px solid #cb4335;    
     border-radius: 5px;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: var(--_marginBottom);
     padding-top: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
