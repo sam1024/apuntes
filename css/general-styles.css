@@ -18,7 +18,8 @@ a {
 }
 
 .container {
-    background-color: #1c2833;
+    /*background-color: #1c2833;*/
+    background-color: #212121;
     padding-top: 1px;
     padding-right: 2px;
     padding-bottom: 1px;

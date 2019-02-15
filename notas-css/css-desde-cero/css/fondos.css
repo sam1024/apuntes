@@ -80,3 +80,16 @@
     background-repeat: no-repeat;
     background-color:  #3e2723;
 }
+
+/**** BAKCGROUND POSITION ****/
+.bgSizeRpctBpct {
+    width: 300px;
+    height: 200px;    
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    background-image: url(../img/flower.jpeg);
+    background-position: right 35% bottom 50%;
+    background-repeat: no-repeat;
+  }

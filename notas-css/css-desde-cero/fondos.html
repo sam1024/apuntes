@@ -376,7 +376,8 @@
             <section class="section">
                 <h2>Background position</h2>
                 <p>
-                    La propiedad <span class="spanSyntax">background-position</span> establece la posición de inicio de la imagen de fondo.
+                    La propiedad <span class="spanSyntax">background-position</span> establece la posición de inicio de la imagen de fondo. Por default la imagen de fondo comienza a
+                    dibujarse en la esquina superior izquierda (0, 0).
                 </p>
                 <div class="divSyntax">
                     <h2>Sintaxis</h2>
@@ -392,6 +393,8 @@
                     <br>
                     <span class="spanSyntax">background-position: 25% 68%;</span>
                     <br>
+                    <span class="spanSyntax">background-position: 25px 68px;</span>
+                    <br>
                     <span class="spanSyntax">background-position: bottom 10px right 20px;</span>
                     <br>
                     <span class="spanSyntax">background-position: right 35% bottom 83%;</span>
@@ -401,26 +404,104 @@
                     <spna class="spanSyntax">top: </spna>
                     <span>La imagen de fondo se posicionará arriba y centrada.</span>
                     <br>
-                    <spna class="spanSyntax">right</spna>
+                    <spna class="spanSyntax">right: </spna>
                     <span>La imagen de fondo se posicionará a la derecha y centrada.</span>
                     <br>
-                    <spna class="spanSyntax">bottom</spna>
+                    <spna class="spanSyntax">bottom: </spna>
                     <span>La imagen de fondo se posicionará abajo y centrada.</span>
                     <br>
-                    <spna class="spanSyntax">left</spna>
+                    <spna class="spanSyntax">left: </spna>
                     <span>La imagen de fondo se posicionará a la izquierda y centrada.</span>
                     <br>
-                    <spna class="spanSyntax"></spna>
-                    <span>La imagen de fondo se posicionará arriba y centrada.</span>
+                    <spna class="spanSyntax">porcentajes</spna>
+                    <span>
+                        El primer valor es la posición horizontal y el segundo para la vertical. La esquina superior izquierda es 0%, 0%. La esquina inferior derecha es el 100%, 100%.
+                        Si solo se especifica un valor el segundo será el 50%. El valor por default es 0%, 0%.
+                    </span>
                     <br>
-                    <spna class="spanSyntax"></spna>
-                    <span>La imagen de fondo se posicionará arriba y centrada.</span>
+                    <span class="spanSyntax">unidades</span>
+                    <span>
+                        El primer valor es la posición horizontal y el segundo para la vertical. La esquina superior izquierda es 0, 0. 
+                        Las <a href="https://www.w3schools.com/CSSref/css_units.asp" target="_blank">unidades</a> pueden ser px, cm, mm, pt, in, pc, em, etc.
+                        Si solo se especifica un valor el segundo será el 50%. El valor por default es 0%, 0%. Se pueden mezclar los porcentajes y las unidades.
+                    </span>
                     <br>
-                    <spna class="spanSyntax"></spna>
-                    <span>La imagen de fondo se posicionará arriba y centrada.</span>
+                    <span class="spanSyntax">bottom 10px right 20px</span>
+                    <span>
+                        La imagen de fondo se posicionará a 10 pixeles de la parte inferior y a 20 pixeles del lado derecho del contenedor.
+                    </span>
                     <br>
-                    <spna class="spanSyntax"></spna>
-                    <span>La imagen de fondo se posicionará arriba y centrada.</span>                    
+                    <span class="spanSyntax">right 35% bottom 83%</span>
+                    <span>
+                        La imagen de fondo se posicionará a 35% de la parte derecha y a 83% de la parte inferior del contenedor.
+                    </span>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Los valores en unidades o porcentajes. Si el otro valor es left o right, entonces este valor define Y, en relación con el borde superior. Si el otro 
+                        valor es top o bottom, entonces este valor define X, relativo al borde izquierdo. Si ambos valores son <longitud> o <percentaje>, entonces el primero
+                        define X y el segundo Y.
+                    </em>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Cambiar la posición de la imagen de fondo de una caja, usando 4 valores, dos para los ejes (x, y) (right y bottom) y otros dos en porcentajes.</span>
+                    <div>
+                        <p>Código HTML usado para dibujar la caja.</p>
+                        <pre class="preCode">
+                            &lt;div class="bgSizeRpctBpct"&gt;
+                                &nbsp;&nbsp;bottom % right %
+                            &lt;/div&gt;
+                        </pre>
+                    </div>
+                    <div>
+                        <p>Codigo CSS usado para establecer la posición de la imagen de fondo.</p>
+                        <code>
+                            <pre class="preCode">
+                                .bgSizeRpctBpct { background-position: right 35% bottom 50%; }
+                            </pre>
+                        </code>
+                    </div>
+                    <div class="divResultado">
+                        <p>
+                            Resultado: La imagen de fondo se coloca dejando un 35% de espacio libre del lado derecho (eje x) y con el valor bottom 50% se centra manera vertical
+                            (eje y).
+                        </p>
+                        <div class="bgSizeRpctBpct centerElement"></div>
+                        <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/PVyPgR" target="_blank"></a>aquí</p>                        
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Background attachment</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">background-attachment</span> establece como se dibuja el fondo respecto al viewport. Si se desplaza al momento de hacer
+                    scroll o se queda fija.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">background-attachment: scroll; </span>
+                    <span class="spanSyntax">background-attachment: fixed; </span>
+                    <span class="spanSyntax">background-attachment: local; </span>
+                    <span class="spanSyntax">background-attachment: inherit; </span>
+                    <span class="spanSyntax">background-attachment: initial; </span>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <p><span class="spanSyntax">scroll </span>La imagen de fondo se desplazará con el resto de la página. Es el valor por default.</p>
+                    <p><span class="spanSyntax">fixed </span>La imagen de fondo se quedará fija.</p>
+                    <p>
+                        <span class="spanSyntax">local </span>La imagen de fondo se fija en relación al contenido, si el elemento tiene scroll, se desplazará junto al contenido del
+                        elemento.
+                    </p>
+                    <p><span class="spanSyntax">inherit </span>Hereda los valores del elemento padre.</p>
+                    <p><span class="spanSyntax">initial </span>Establece el valor por default de la propiedad.</p>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer una imagen de fondo al body y usar cada uno de los valores permitidos para <span class="spanSyntax">background-attachment</span>.</span>
+                    
                 </div>
             </section>
         </main>
