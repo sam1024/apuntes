@@ -1,7 +1,6 @@
-@import url(./normalizecss.css);
-
 :root {
     --_marginBottom: 15px;
+    box-sizing: border-box;
 }
 
 html {
@@ -9,7 +8,7 @@ html {
 }
 
 *, *::before, *::after {
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
 a {
