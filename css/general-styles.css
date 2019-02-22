@@ -13,7 +13,7 @@ html {
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: #00a8b5;
 }
 
 .container {
@@ -27,6 +27,14 @@ a {
 
 .header {
     border-bottom: 3px solid #3d7e92;    
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    display: block;
+    width: 120px;
+    height: 120px;
     margin-left: auto;
     margin-right: auto;
 }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/general-styles.css">
+    <title>Notas de PHP y Oracle</title>
+</head>
+<body>
+    <main>
+        <header><h1>PHP</h1></header>
+        <section>
+            <h2>Solucion al error “Warning: oci_connect(): OCIEnvNlsCreate() failed” and “Warning: oci_connect(): Error while trying to retrieve text for error ORA-01804”</h2>            
+            <p>Para solucionar el error y poder conectar conectar PHP con Oracle, realice los siguientes pasos usando la distro linux manjaro 18 openbox.</p>
+            <ol>
+                <li>Loguearse como <span class="spanSyntax">root</span> o usar el comando <span class="spanSyntax">sudo</span></li>
+                <!-- <li>
+                    Instalar Apache, PHP, y PHP-Apache.
+                    <pre class="preCode">
+                        pacman -S apache php php-apache
+                    </pre>
+                </li> -->
+                <li>
+                    Descargar instantclient-basic e instantclient-sdk de la página de 
+                    <a href="https://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html" target="_blank">oracle</a>
+                </li>
+                <li>
+                    Descomprimir los archivos descargados instantclient-sdk-linux.x64-x.x.x.x.0dbru.zip e instantclient-basic-linux.x64-x.x.x.x.0dbru.zip
+                    <pre class="preCode">
+                        unzip instantclient-basic-linux.x64-x.x.x.x.0dbru.zip
+                        unzip instantclient-sdk-linux.x64-x.x.x.x.0dbru.zip
+                    </pre>
+                    Ambos archivos se descomprimiran en la carpeta instantclient_x_x.
+                </li>
+                <li>
+                    Entrar a la carpeta y crear enlaces simbolicos a los archivos <span class="spanSyntax">libclntsh.so.x.x y libocci.so.x.x</span>
+                    <pre class="preCode">
+                        cd instantclient_x_x
+                        ln -s libclntsh.so.x.x libclntsh.so
+                        ln -s libocci.so.x.x libocci.so
+                    </pre>
+                </li>
+                <li>
+                    Crear las carpetas anidadas client/lib en la ruta /usr/lib/oracle/product/11.2.0/, copiar todo el contenido de instantclient_x_x a la carpeta lib recien creada,
+                    copiar el archivo tnsnames.ora (/usr/lib/oracle/product/11.2.0/xe/network/admin/) a /usr/lib/oracle/product/11.2.0/client/lib y cambiar el usuario y el grupo
+                    propietario.
+                    <pre class="preCode">
+                        mkdir -p /usr/lib/oracle/product/11.2.0/client/lib
+                        cp -r instantclient_x_x/* /usr/lib/oracle/product/11.2.0/client/lib
+                        cp /usr/lib/oracle/product/11.2.0/xe/network/admin/tnsnames.ora /usr/lib/oracle/product/11.2.0/client/lib/
+                        chown -R oracle:dba /usr/lib/oracle/product/11.2.0/client/lib
+                    </pre>
+                </li>
+                <li>
+                    Instalar el paquete libaio.
+                    <pre class="preCode">
+                        pacman -S libaio
+                    </pre>
+                </li>
+                <li>
+                    Descargar <a href="http://pecl.php.net/package/oci8" target="_blank">oci</a> descomprimirlo e instalarlo de la siguiente manera.
+                    <pre class="preCode">
+                        tar xvf oci8-x.x.x.tgz
+                        cd oci8-x.x.x
+                        phpize
+                        ./configure --with-oci8=instantclient,/usr/lib/oracle/product/11.2.0/client/lib
+                        make install
+                    </pre>
+                </li>
+                <li>
+                    Agregar la variable de entorno LD_LIBRARY_PATH al final del archivo <span class="spanSyntax">/etc/profile</span>
+                    <pre class="preCode">
+                        vim /etc/profile
+                        export LD_LIBRARY_PATH="/usr/lib/oracle/product/11.2.0/client/lib"
+                    </pre>
+                </li>
+                <li>
+                    Cargar la variable de entorno que se agrego.
+                    <pre class="preCode">
+                        source /etc/profile
+                    </pre>
+                </li>
+                <li>
+                    Activar la extension oci8 en el archivo <span class="spanSyntax">/etc/php/php.ini</span> agregando la linea <span class="spanSyntax">extension=oci8</span>.
+                    <pre class="preCode">
+                        vim /etc/php/php.ini
+                        extension=oci8
+                    </pre>
+                </li>
+                <li>
+                    Iniciar o reiniciar los servicios de oracle y apache.
+                    <code>
+                        <pre class="preCode">
+                            /etc/rc.d/oracle-xe start o restart
+                            systemctl start o restart httpd
+                        </pre>
+                    </code>
+                </li>
+            </ol>
+            <div class="divNota">
+                <strong>NOTA: </strong>
+                <em>
+                    Al momento de realizar esta pequeña guia se usarón las versiones 18.3.0.0 de instantclient-basic e instantclient-sdk y la versión 2.2.0 de oci8.
+                </em>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
