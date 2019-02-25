@@ -114,6 +114,13 @@ a {
     padding-bottom: 20px;
 }
 
+.four-border-solid {
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+}
+
 @media(min-width: 768px) {
     
     body {

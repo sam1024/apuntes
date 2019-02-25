@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/normalizecss.css">
+    <link rel="stylesheet" href="../../css/general-styles.css">
+    <link rel="stylesheet" href="./css/textos.css">
+    <title>Textos</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="textCenter">TEXTOS</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>Unidades em y rem</h2>
+                <p>
+                    La unidad <span class="spanSyntax">em</span> es el tamaño de fuente del contexto. Es variable y depende del contexto, si el elemento es hijo directo de body
+                    un <span class="spanSyntax">em</span> equivale a <span class="spanSyntax">16 pixeles</span>, pero si el elemento es hijo de algún otro elemento diferenta a 
+                    body, la medida para el <span class="spanSyntax">em</span> se tomara de acuerdo al tamaño de la propiedad <span class="spanSyntax">font-size</span> de su padre.
+                    <br><br>
+                    Y <span class="spanSyntax">rem</span> es el tamaño de fuente de root. No importa el contexto porque la raíz siempre es la misma (no es variable).
+                </p>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Usar la unidad <span class="spanSyntax">em</span> para establecer el tamaño de fuente de un elemento.</span>
+                    <p>Código HTML usado para el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;h1 class="h1"&gt;Titulo 
+                            &nbsp;&nbsp;&lt;span class="span"&gt;de nivel 1&lt;/span&gt;
+                        &lt;/h1&gt;
+                    </pre>
+                    <p>Código CSS usado para el ejemplo.</p>
+                    <code></code>
+                    <pre class="preCode">
+                        .h1 { font-size: 3em; }
+                              
+                        .span {
+                            &nbsp;&nbsp;font-size: 1em;
+                            &nbsp;&nbsp;color: green;
+                        }
+                    </pre>
+                </div>
+                <div class="divResultado">
+                    <p>
+                        Resultado: El tamaño de fuente del h1 es de <span class="spanSyntax">3em (48 pixeles)</span> debido a que el contexto de esta no ha cambiado, sigue siendo de
+                        16 pixeles.
+                        <br>
+                        Pero el tamaño de fuente del span a pesar de ser de <span class="spanSyntax">1em</span> tiene el tamaño de 48 pixeles porque su padre
+                        (el h1) ya cambio el contexto del tamaño de la fuente, entonces ahora 1em equivale a 48 pixeles.
+                    </p>
+                    <h1 class="h1">
+                        Titulo
+                        <span class="span">de nivel 1</span>
+                    </h1>
+                    <p>
+                        En el caso de <span class="spanSyntax">rem</span> que depende de la raiz (html), nada mas necesitamos establecer un tamaño de fuente al elemento html para que
+                        cuando se use <span class="spanSyntax">rem</span> como unidad de medida, esta sea relativa al root y ya no varie.
+                        <br>
+                        Ejemplo: supongamos que establecemos el tamaño de fuente de html a 18 pixeles, entonces si al elemento h1 le establecemos el font-size en 2rem este tendrá
+                        un tamaño de 32 pixeles, y si al elemento span le establecemos el font-size en 4rem, este tendrá un tamaño de fuente de 72 pixeles.
+                        <br>
+                        Más ejemplos <a href="https://codepen.io/k3rn3l/pen/wOwLdq" target="_blank">aquí</a>
+                    </p>
+                </div>
+                <div class="divNota">
+                    <Strong>NOTA: </Strong>
+                    <em>
+                        Se recomienda que se use la unidad <span class="spanSyntax">em</span> en el font-size de un elemento cuando querramos que el padding de este sea proporcional
+                        al texto, asi cuando se cambie el tamaño de fuente el padding se ajustara de manera automatica.
+                        <br><br>
+                        La medida <span class="spanSyntax">rem</span> se recomienda en los margenes o bordes redondeados a fin de que estos sean más consistentes y no cambien debido
+                        al contexto.
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Direction</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">direction</span> permite cambiar la dirección del texto.
+                    <br>
+                    Cabe aclarar que esta propiedad no es muy usada salvo que en alguna ocasion tengamos algún cliente de medio oriente o de china.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">direction: ltr;<br> direction: rtl;<br> direction: inherit;<br> direction: initial;<br> direction: unset;</span>                    
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <span class="spanSyntax">ltr (left to right)</span> <span>El texto se mostrará con orientación de izquierda a derecha.</span>
+                    <br>
+                    <span class="spanSyntax">rtl (right to left)</span> <span>El texto se mostrará con orientación de derecha a izquierda.</span>
+                    <br>
+                    <span class="spanSyntax">inherit</span> <span>Hereda los valores del elemento padre.</span>
+                    <br>
+                    <span class="spanSyntax">initial</span> <span>Establece el valor por default de la propiedad.</span>
+                    <br>
+                    <span class="spanSyntax">unset</span> <span>Quita los valores establecidos.</span>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Cambiar la dirección del texto de un párrafo</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="texto-rtl"&gt;Es un simple texto de ejemplo&lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer la dirección del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .texto-rtl { direction: rtl; }
+                        </pre>
+                    </code>
+                </div>
+                <divResultado>
+                    <p>Resultado: El texto se alinea de derecha a izquierda.</p>
+                    <p class="texto-rtl four-border-solid">Es un simple texto de ejemplo</p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/OqJMjo" target="_blank">aquí</a></p>
+                </divResultado>
+            </section>
+            <section class="section">
+                <h2>Text indent</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">text-indent</span> permite identar la primera linea de un párrafo. Establece el tamaño de los espacios vacios que se
+                    dejaran antes del inicio de la primera linea.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">text-indent: 3mm;</span>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <p>
+                        <span class="spanSyntax">mm</span> Es la unidad de medida, esta puede ser cualquiera aceptada por CSS (em, px, in, pt).
+                        <br>
+                        Esta propiedad tambien admite valores negativos.
+                    </p>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer una identacion a un texto.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="texto-indent"&gt;
+                            &nbsp;&nbsp;Este es un texto que tiene mas lineas a fin
+                            &nbsp;&nbsp;de que se note el indentado del mismo.
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer el indentado al texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .texto-indent { text-indent: 3em; }
+                        </pre>
+                    </code>                    
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: Podemos ver el indentado al inicio del texto, este es de 3em (48 pixeles).</p>
+                    <p class="texto-indent four-border-solid">
+                        Este es un texto que tiene mas lineas a fin
+                        de que se note el indentado del mismo
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/LaYWjW?editors=1100" target="_blank">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Text align</h2>
+                <p>La propiedad <span class="spanSyntax">text-align</span> establece la alineación horizontal del texto.</p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">text-align: center;</span>
+                    <br>
+                    <span class="spanSyntax">text-align: left;</span>
+                    <br>
+                    <span class="spanSyntax">text-align: right;</span>
+                    <br>
+                    <span class="spanSyntax">text-align: justify;</span>
+                    <br>
+                    <span class="spanSyntax">text-align: initial;</span>
+                    <br>
+                    <span class="spanSyntax">text-align: inherit;</span>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <span class="spanSyntax">center</span>
+                    <span>Alinea el texto en el centro del elemento.</span>
+                    <br>
+                    <span class="spanSyntax">left</span>
+                    <span>Alinea el texto a la izquierda del elemento (valor por default).</span>
+                    <br>
+                    <span class="spanSyntax">right</span>
+                    <span>Alinea el texto a la derecha del elemento.</span>
+                    <br>
+                    <span class="spanSyntax">justify</span>
+                    <span>Estira el texto a fin de que cada linea tenga el mismo ancho, excepto la última linea.</span>
+                    <br>
+                    <span class="spanSyntax">initial</span>
+                    <span>Alinea el texto con el valor por default.</span>
+                    <br>
+                    <span class="spanSyntax">inherit</span>
+                    <span>Hereda el estilo del elemento padre para alinear el texto.</span>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer la alineacion de un texto usando cualquiera de los valores permitidos.</span>
+                    <p>Código HTML usado para el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="texto-align"&gt;
+                            &nbsp;&nbsp;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos reprehenderit quis porro necessitatibus iure dolores aliquam facilis optio                             
+                            &nbsp;&nbsp;veritatis, quaerat voluptas. Praesentium fuga dolorem quidem facilis aperiam, ab necessitatibus.Similique ullam magni ipsa aperiam ad ut
+                            &nbsp;&nbsp; error, voluptatum tempora sapie
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer la alineación del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .texto-align { text-align: center; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: Texto alineado al centro del elemento.</p>
+                    <p class="texto-align four-border-solid">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed quibusdam dolorem dolorum enim eum eaque? Sint neque nesciunt                        
+                        a fuga porro expedita animi magnam aperiam! A, repellat tenetur.</span><span>Alias, deserunt! Nam dolorem laudantium, perspiciatis fuga aperiam, ducimus
+                        quaerat unde accusamus cum atque qui asperiores sint cumque iste pariatur corporis ipsam debitis error ad consequuntur quidem officia. Eos, deserunt.
+                    </p>
+                    <p>Más ejemplos<a href="https://codepen.io/k3rn3l/pen/MxWmwj" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Usar el valor <span class="spanSyntax">justify</span> para alinear un texto, se considera una mala práctica, ya que el navegador forzará el justificado de este
+                        y cuando se vea en dispositivos con una pantalla pequeña quedarán muchos hecos entre las palabras.
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Line height</h2>
+                <p>La propiedad <span class="spanSyntax">line-height</span> especifica la altura de una linea.</p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">line-height: 3.5;</span>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>                    
+                    <p>
+                        <span class="spanSyntax">3.5</span>
+                        Si al valor no se le especifia una unidad de medida esta tomará el valor y lo multiplicará por el valor del font-size del
+                        elemento padre.
+                        <br>
+                        Las unidades de medida pueden ser todas las admitidas por CSS.
+                        <br>
+                        Tambien se admite los valores <span class="spanSyntax">inherit, initial y unset</span>.
+                    </p>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

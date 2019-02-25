@@ -1,0 +1,28 @@
+/**** UNIDADES em Y rem ****/
+.h1 {
+    font-size: 3em;
+}
+  
+.span {
+    font-size: 1em;
+    color: green;
+}
+
+/**** DIRECTION ****/
+.texto-rtl {
+    direction: rtl;
+    font-size: 1.1em;
+    padding: .5em;
+}
+
+/**** TEXT-IDENT ****/
+.texto-indent {
+    font-size: 1em;
+    padding: 1em;
+    text-indent: 3em;
+}
+
+/**** TEXT-ALIGN ****/
+.texto-align {
+    text-align: center;
+}

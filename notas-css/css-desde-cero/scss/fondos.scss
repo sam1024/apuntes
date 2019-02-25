@@ -1,0 +1,117 @@
+/** IMPORTO EL ARCHIVO USANDO SASS **/
+@import './variables';
+
+/**** BACKGROUND COLOR ****/
+.backgroundColor {
+    width: $_doscientosPX;
+    height: $_doscientosPX;
+    background-color: #215254;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/**** BACKGROUND IMAGE ****/
+.backgroundImage {
+    width: 300px;
+    height: 300px;    
+    background-image: url(../img/terminator1.jpg);
+}
+
+/**** BACKGROUND REPEAT ****/
+
+.backgroundRepeat {
+    width: $_doscientosPX;
+    height: $_doscientosPX;
+    border-style: solid;
+    background-image: url(../img/ultron.jpg);
+    background-repeat: round;
+}
+
+/**** BACKGROUND CLIP ****/
+.bgClipCB {
+    width: $_doscientosPX;
+    height: $_doscientosPX;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    background-color: red;
+    background-clip: content-box;
+}
+
+.textCB {
+    margin-top: 80px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: -moz-fit-content;
+}
+
+/**** BACKGROUND ORIGIN ****/
+.bgOriginCB {
+    width: 200px;
+    height: 140px;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    background-image: url(../img/flower.jpeg);
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
+
+/**** BAKCGROUND SIZE ****/
+.bgSizePixels {
+    width: $_doscientosPX;
+    height: $_doscientosPX;
+    background-image: url(../img/flower.jpeg);
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+    background-color:  #3e2723;
+}
+
+/**** BAKCGROUND POSITION ****/
+.bgSizeRpctBpct {
+    width: 300px;
+    height: 200px;    
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    background-image: url(../img/flower.jpeg);
+    background-position: right 35% bottom 50%;
+    background-repeat: no-repeat;
+  }
+
+/**** BACKGROUND MULTIPLES ****/
+.bgMultiples {
+    width: $_doscientosPX;
+    height: $_doscientosPX;
+    border: 2px solid;
+    background-image: url(../img/flower.jpeg), url(../img/terminator1.jpg),url(../img/ultron.jpg);    
+    background-repeat: no-repeat;
+    background-size: 40%, 50%, 20%;
+    background-position: bottom left, center, top right;
+  }
+
+  /**** SHORTHAND BACKGROUND ****/
+.background {
+    width: $_doscientosPX;
+    height: $_doscientosPX;
+    border: solid;
+    background: url(../img/flower.jpeg) 1% 1% / 80% content-box content-box local, 
+    #5e0606 url(../img/flor-en-agua.jpeg) 100% 98% / 150px 87px;
+    background-repeat: no-repeat;
+}
