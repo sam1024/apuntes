@@ -21,3 +21,30 @@
 /**** TEXT-ALIGN ****/
 .texto-align {
   text-align: center; }
+
+/**** LINE-HEIGHT ****/
+.line-height {
+  padding: 4px;
+  line-height: 2; }
+
+/**** VERTICAL ALIGN ****/
+.div-vertical-align {
+  height: 150px;
+  font-size: 3em;
+  text-align: center; }
+
+.vertical-align {
+  vertical-align: sub;
+  font-size: .3em; }
+
+/**** LETTER SPACING ****/
+.letter-spacing {
+  letter-spacing: .4rem; }
+
+/**** WORD SPACING ****/
+.word-spacing {
+  word-spacing: .6rem; }
+
+/**** TEXT DECORATION LINE ****/
+.line-through {
+  text-decoration-line: line-through; }

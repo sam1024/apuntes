@@ -114,11 +114,11 @@
                         </pre>
                     </code>
                 </div>
-                <divResultado>
+                <div class="divResultado">
                     <p>Resultado: El texto se alinea de derecha a izquierda.</p>
                     <p class="texto-rtl four-border-solid">Es un simple texto de ejemplo</p>
                     <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/OqJMjo" target="_blank">aquí</a></p>
-                </divResultado>
+                </div>
             </section>
             <section class="section">
                 <h2>Text indent</h2>
@@ -232,6 +232,8 @@
                     <em>
                         Usar el valor <span class="spanSyntax">justify</span> para alinear un texto, se considera una mala práctica, ya que el navegador forzará el justificado de este
                         y cuando se vea en dispositivos con una pantalla pequeña quedarán muchos hecos entre las palabras.
+                        <br>
+                        Existe tambien la propiedad <span class="spanSyntax">text-align-last</span> que sirve para alinear unicamente la última linea de un texto.
                     </em>
                 </div>
             </section>
@@ -247,12 +249,342 @@
                     <p>
                         <span class="spanSyntax">3.5</span>
                         Si al valor no se le especifia una unidad de medida esta tomará el valor y lo multiplicará por el valor del font-size del
-                        elemento padre.
+                        elemento padre, lo mismo sucede si se usa el % como unidad de medida.
                         <br>
                         Las unidades de medida pueden ser todas las admitidas por CSS.
                         <br>
                         Tambien se admite los valores <span class="spanSyntax">inherit, initial y unset</span>.
                     </p>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer el alto de una linea a un texto.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="line-height"&gt;
+                            &nbsp;&nbsp;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi possimus dolorem sunt mollitia dicta laudantium quod aperiam numquam vero aut 
+                            &nbsp;&nbsp;explicabo iste deserunt, eius aliquid consectetur velit adipisci ad! Vero?
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer el alto de linea.</p>
+                    <code>
+                        <pre class="preCode">
+                            .line-height { line-height: 2; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: </p>
+                    <p class="line-height four-border-solid">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi possimus dolorem sunt mollitia dicta laudantium quod aperiam numquam vero aut explicabo iste
+                        deserunt, eius aliquid consectetur velit adipisci ad! Vero?
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/ZPEyxm" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        No es recomendable usar medidas exactas (px, pt, in, mm, %), es mejor usar el valor sin especificar unidad, de esta manera se evitan resultados inesperados
+                        debido a la herencia.
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Vertical align</h2>
+                <p>La propiedad <span class="spanSyntax">vertical-align</span> permite alinear un elemento de manera vertical.</p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">vertical-align: baseline;</span>
+                    <br>
+                    <span class="spanSyntax">vertical-align: sub;</span>
+                    <br>
+                    <span class="spanSyntax">vertical-align: super;</span>
+                    <br>
+                    <span class="spanSyntax">vertical-align: text-top;</span>
+                    <br>
+                    <span class="spanSyntax">vertical-align: text-bottom;</span>
+                    <br>
+                    <span class="spanSyntax">vertical-align: middle;</span>
+                    <br>
+                    <span class="spanSyntax">vertical-align: top;</span>
+                    <br>
+                    <span class="spanSyntax">vertical-align: bottom;</span>
+                    <br>
+                    <span class="spanSyntax">vertical-align: 3em;</span>                    
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">baseline</span>
+                        <dd>El elemento es alineado con la linea de base del elemento padre. Es el valor por default.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">sub</span>
+                        <dd>El elemento está alineado con la línea de base del subíndice del elemento padre.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">super</span>
+                        <dd>El elemento está alineado con la linea de base del superindice del elemento padre.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-top</span>
+                        <dd>Alinea la parte superior del elemento con la parte superior de la fuente del elemento padre.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-bottom</span>
+                        <dd>Alinea la parte inferior del elemento con la parte inferior de la fuente del elemento padre.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">middle</span>
+                        <dd>El elemento se coloca en el centro del elemento padre.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">top</span>
+                        <dd>Alinea la parte superior del elemento y sus descendientes con la parte superior de toda la línea.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">bottom</span>
+                        <dd>Alinea el fondo del elemento y sus descendientes con el fondo de toda la línea.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">3em</span>
+                        <dd>Sube o baja un elemento por la longitud especificada. Se permiten valores negativos. Asi como todas las unidades de medida soportadas por CSS.</dd>
+                    </dt>
+                    <p>Tambien soporta los valores <span class="spanSyntax">initial, inherit y unset</span>.</p>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Alinear una imagen de manera vertical.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;div class="div-vertical-align"&gt;
+                            &nbsp;&nbsp;Hola &lt;span class="vertical-align"&gt;alineando&lt;/span&gt;
+                        &lt;/div&gt;
+                    </pre>
+                    <p>Código CSS usado para alinear la imagen de manera vertical.</p>
+                    <code>
+                        <pre class="preCode">
+                            .img-vertical-align { vertical-align: sub; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: El elemento span se alinea con el subíndice del elemento padre.</p>
+                    <div class="div-vertical-align centerElement four-border-solid">
+                        Alineado <span class="vertical-align">sub</span>
+                    </div>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/BbyLoJ" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        El termino <span class="spanSyntax">linea base</span> hacer referencia a la linea donde se apoyan el texto.
+                        <br>
+                        Tambien se puede alinear una imagen con un texto.
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Letter spacing</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">letter-spacing</span> aumenta o disminuye el espacio entre los caracteres de un texto.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">letter-spacing: normal;</span>
+                    <br>
+                    <span class="spanSyntax">letter-spacing: .2rem;</span>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">normal</span>
+                        <dd>
+                            No hay espacio extra entre los caracteres. A diferencia de un valor de 0, esta palabra clave permite al user agent (navegador) alterar el espacio entre 
+                            caracteres para justificar el texto. Este es el valor por default.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">unidad</span>
+                        <dd>
+                            Define un espacio extra entre los caracteres además del predeterminado. Los valores negativos están permitidos, pero puede haber limites especificos de
+                            implementación. El navegador no puede aumentar o disminuir el espacion entre caracteres para justificar el texto. La unidad puede ser
+                            <span class="spanSyntax">em, rem, cm, mm, in, pt, px</span>.
+                        </dd>
+                    </dt>
+                    <p>Tambien soporta los valores <span class="spanSyntax">initial, inherit y unset</span>.</p>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Cambiar el espacio entre los caracteres de un texto.</span>
+                    <p>Códig HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="letter-spacing"&gt;
+                            &nbsp;&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus accusamus quis, omnis molestiae praesentium quod quisquam eligendi
+                            &nbsp;&nbsp;incidunt ad cupiditate aperiam obcaecati excepturi laudantium corrupti architecto sit fuga minus magnam?
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer el espacio entre los caracteres.</p>
+                    <code>
+                        <pre class="preCode">
+                            .letter-spacing { letter-spacing: .4rem; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: El espacio entre los caracteres ahora es de .4rem (6.pixeles)</p>
+                    <p class="letter-spacing four-border-solid">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Possimus ut facere nam dolorum ratione quos voluptatibus praesentium
+                        quis odio saepe neque, obcaecati perspiciatis aliquid temporibus consequuntur porro assumenda ex quam?
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/KEwXyV" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Word spacing</h2>
+                <p>La propiedad <span class="spanSyntax">word-spacing</span> aumenta o disminuye el espacio entre las palabras y entre las etiquetas.</p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">word-spacing: normal;</span>
+                    <br>
+                    <span class="spanSyntax">word-spacing: -.02rem</span>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">normal</span>
+                        <dd>El espaciado normal entre palabras, definido por la fuente actual y/o el navegador. Este es el valor por default.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">unidad</span>
+                        <dd>
+                            Especifica un espacio extra además del espacio por default entre palabras definido por la fuente. Los valores negativos tambien son permitidos.
+                            La unidad puede ser cualquiera soportada por CSS.
+                        </dd>
+                    </dt>
+                    <p>Tambien soporta los valores <span class="spanSyntax">initial, inherit y unset</span>.</p>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer el estacio entre las palabras de un texto.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="word-spacing"&gt;
+                            &nbsp;&nbsp;Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus accusamus quis, omnis molestiae praesentium quod quisquam eligendi
+                            &nbsp;&nbsp;incidunt ad cupiditate aperiam obcaecati excepturi laudantium corrupti architecto sit fuga minus magnam?
+                        &lt;/p&gt;                        
+                    </pre>
+                    <p></p>
+                    <code>
+                        <pre class="preCode">
+                            .word-spacing { letter-spacing: .6rem; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: </p>
+                    <p class="word-spacing four-border-solid">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ut tempora aperiam autem minima sapiente quae voluptas exercitationem repellat veritatis unde
+                        expedita molestiae ex amet vero fuga, laboriosam obcaecati laborum.
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/JzovBK?editors=1100" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Text decoration line</h2>
+                <p>
+                    la propiedad <span class="spanSyntax">text-decoration-line</span> establece el tipo de decoración de texto que se va a utilizar
+                    (como subrayado, línea sobre el texto, línea en el centro del texto).
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">text-decoration: none;</span>
+                    <br>
+                    <span class="spanSyntax">text-decoration: overline;</span>
+                    <br>
+                    <span class="spanSyntax">text-decoration: underline;</span>
+                    <br>
+                    <span class="spanSyntax">text-decoration: line-through;</span>
+                    <br>
+                    <span class="spanSyntax">text-decoration: overline underline;</span>
+                    <br>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">none</span>
+                        <dd>El texto no tendrá ninguna decoracion. Es el valor por default, excepto para la etiqueta a.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">overline</span>
+                        <dd>Especifica que una linea será mostrada sobre el texto.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">underline</span>
+                        <dd>Especifica que una linea será mostrada debajo el texto.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">line-through</span>
+                        <dd>Especifica que se mostrará una línea al centro del texto.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">overline underline</span>
+                        <dd>
+                            Es pecifica que se mostrará una linea sobre el texto y otra debajo del texto. 
+                            <br>
+                            Cuando se use mas de un valor es más conveniente usar el shorthand
+                            <span class="spanSyntax">text-decoration</span>.
+                        </dd>
+                    </dt>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer el text-decoration-line a un texto.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="line-through"&gt;
+                            &nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum possimus expedita maiores quas accusamus, voluptate obcaecati ea eligendi
+                            &nbsp;&nbsp;officiis deleniti tempora voluptatibus excepturi quos.
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer ls decoración del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .line-through { text-decoration-line: line-through; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: Texto decorado con una linea en el centro. Esto no es lo mas bonito.</p>
+                    <p class="line-through four-border-solid">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum possimus expedita maiores quas accusamus, voluptate obcaecati ea eligendi officiis deleniti
+                        tempora voluptatibus excepturi quos.
+                    </p>
+                    <p>Más ejemplos <a href="" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Text decoration color</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">text-decoration-color</span> especifia el color de la decoración del texto (subrayado, linea sobre el texto y
+                    linea al centro del texto.
+                </p>
+                <div class="divSyntax">
+                    <span class="spanSyntax">text-decoration-color: red;</span>
+                    <br>
+                    <span class="spanSyntax">text-decoration-color: currentcolor;</span>
+                    <br>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">red</span>
+                        <dd></dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">currentcolor</span>
+                        <dd></dd>
+                    </dt>
                 </div>
             </section>
         </main>
