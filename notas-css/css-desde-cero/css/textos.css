@@ -48,3 +48,27 @@
 /**** TEXT DECORATION LINE ****/
 .line-through {
   text-decoration-line: line-through; }
+
+/**** TEXT DECORATION COLOR ****/
+.underline {
+  text-decoration-line: underline;
+  text-decoration-color: #aa23bb; }
+
+/**** TEXT DECORATION STYLE ****/
+.style {
+  text-decoration-line: underline;
+  text-decoration-color: #aa23bb;
+  text-decoration-style: wavy; }
+
+/**** TEXT DECORATION ****/
+.decoration {
+  text-decoration: line-through dashed red; }
+
+/**** TEXT SHADOW ****/
+.shadow {
+  font-size: 2em;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em green; }
+
+/**** WHITE SPACE ****/
+.white-space {
+  white-space: pre; }

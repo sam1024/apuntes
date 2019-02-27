@@ -579,11 +579,361 @@
                     <h2>Valores</h2>
                     <dt>
                         <span class="spanSyntax">red</span>
-                        <dd></dd>
+                        <dd>Especifica el color de la decoración del texto. El valor puede ser por nombre de color, código hexadecima, rgb, rgba, hsl, hsla.</dd>
                     </dt>
                     <dt>
                         <span class="spanSyntax">currentcolor</span>
-                        <dd></dd>
+                        <dd>Especifica que el color de la decoracion del texto será el color de frente del elemento padre.</dd>
+                    </dt>    
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer el color de la decoración del texto a un párrafo.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="underline"&gt;
+                            &nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum possimus expedita maiores quas accusamus, voluptate obcaecati ea eligendi 
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer el color de la decoración del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .underline {
+                                &nbsp;&nbsp;text-decoration-line: underline;
+                                &nbsp;&nbsp;text-decoration-color: #aa23bb;
+                            }
+                        </pre>
+                    </code>                    
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: La decoración del texto ahora es de color violeta.</p>
+                    <p class="underline four-border-solid">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde, modi. Modi laboriosam repellendus neque. Odio at accusamus vel. Dignissimos
+                        dicta quaerat laboriosam quae modi explicabo totam ab, odit dolorum vitae?
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/Wmbgvz" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h>Text decoration style</h>
+                <p>La propiedad <span class="spanSyntax">text-decoration-style</span> especifia el estilo de la decoración del texto. El estilo puede ser
+                <span class="spanSyntax">solid, double, dotted, dashed y wavy</span></p>.
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">text-decoration-style: [valor];</span>
+                </div>
+                <div class="divValues">
+                    <h2>Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">solid</span>
+                        <dd>Dibuja una linea solida. Es el valor por default.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">double</span>
+                        <dd>Dibuja una linea doble</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">dotted</span>
+                        <dd>Dibuja una linea punteada.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">dashed</span>
+                        <dd>Dibuja una linea segmentada.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">wavy</span>
+                        <dd>Dibuja una linea en forma de onda.</dd>
+                    </dt>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer un estilo a la linea de decoración de un texto.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="style"&gt;
+                            &nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum possimus expedita maiores quas accusamus, voluptate obcaecati ea eligendi
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer el estilo a la decoración del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .style {
+                                &nbsp;&nbsp;text-decoration-line: underline;
+                                &nbsp;&nbsp;text-decoration-color: #aa23bb;
+                                &nbsp;&nbsp;text-decoration-style: wavy;
+                            }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: La decoración es en forma de ondas.</p>
+                    <p class="style four-border-solid">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum possimus expedita maiores quas accusamus, voluptate obcaecati ea eligendi
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/XGbZwg" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Text decoration</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">text-decoration</span> es un shorthand de las propiedades text-decoration-line, text-decoration-color y 
+                    text-decoration-style que especifica la apariencia de las lineas que decoran un texto.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis</h2>
+                    <span class="spanSyntax">text-decoration: underline;</span>
+                    <br>
+                    <span class="spanSyntax">text-decoration: overline dotted;</span>
+                    <br>
+                    <span class="spanSyntax">text-decoration: line-through dashed red;</span>
+                    <br>
+                    <span class="spanSyntax">text-decoration: underline overline line-through;</span>
+                    <h2>Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">text-decoration-line</span>
+                        <dd>Para el primer caso (underline) solo recibe un valor, el tipo de linea. Este es el único valor requerido.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-decoration-style</span>
+                        <dd>Para el segundo caso (dotted) recibe dos valores, el tipo de linea y el estilo de la misma.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-decoration-color</span>
+                        <dd>Para el tercer caso recibe tres valores, el tipo de linea, el estilo y el color de la misma.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-decoration-line text-decoration-line text-decoration-line</span>
+                        <dd>Para el cuarto caso recibe tres tipos de linea como valor. Esto también es válido.</dd>
+                    </dt>
+                    <p>Los valores por default son <span class="spanSyntax">none currentcolor solid</span></p>
+                </div>
+                <!-- <div class="divValues">
+                    <h2>Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">text-decoration-line</span>
+                        <dd>Para el primer caso (underline) solo recibe un valor, el tipo de linea. Este es el único valor requerido.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-decoration-style</span>
+                        <dd>Para el segundo caso (dotted) recibe dos valores, el tipo de linea y el estilo de la misma.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-decoration-color</span>
+                        <dd>Para el tercer caso recibe tres valores, el tipo de linea, el estilo y el color de la misma.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-decoration-line text-decoration-line text-decoration-line</span>
+                        <dd>Para el cuarto caso recibe tres tipos de linea como valor. Esto también es válido.</dd>
+                    </dt>
+                    <p>Los valores por default son <span class="spanSyntax">none currentcolor solid</span></p>
+                </div> -->
+                <div class="divExample">
+                    <span class="textExample">Ejemplo</span>
+                    <span>Establecer la decoracion de un texto.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="decoration"&gt;
+                            &nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum possimus expedita maiores quas accusamus, voluptate obcaecati ea eligendi.
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer la decoracion del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .decoration { text-decoration: line-through dashed red; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: Aplicada la decoración del texto.</p>
+                    <p class="decoration four-border-solid">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum possimus expedita maiores quas accusamus, voluptate obcaecati ea eligendi
+                    </p>
+                    <p>Más ejemplos <a href="http://" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Las decoraciones de texto se dibujan a través de los elementos de texto de los descendientes. Esto significa que si un elemento especifica una decoración de
+                        texto, entonces un elemento hijo no puede eliminar la decoración. Por ejemplo, en la marca de revisión Este texto tiene algunas palabras acentuadas
+                        en él. La regla de estilo p { texto-decoración: underline; } haría que el párrafo entero fuera subrayado. La regla de estilo em { text-decoration: none; }
+                        no causaría ningún cambio; todo el párrafo seguiría subrayado. Sin embargo, la regla em { text-decoration: overline; } haría que una segunda decoración
+                        apareciera en "algunas palabras acentuadas".
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Text shadow</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">text-shadow</span> especifica la sombra de un texto.
+                    <br>
+                    Acepta una coma como separador para una lista de sombras que serán aplicadas a un texto.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis y Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">text-shadow: 1px 1px 2px black;</span>
+                        <dd>
+                            Establece los valores: 1 pixel de desplazamiento en el eje x (horizontal), 1 pixel de desplazamiento en el eje y (vertical), 
+                            2 pixeles de difuminado (borroso) y el color.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-shadow: #fc0 1px 0 10px;</span>
+                        <dd>
+                            La sombra del texto tendrá los valores: color  1 pixel de desplazamiento en el eje x (horizontal), 2 pixeles de desplazamiento en el eje y (vertical) y un
+                            difuminado de 10 pixeles.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-shadow: 5px 5px #558abb;</span>
+                        <dd>
+                            La sombra del texto tendrá los valores: 5 pixeles de desplazamiento en el eje x (horizontal), 5 pixeles de desplazamiento en el eje y (vertical), el color
+                            y no tendrá difuminado.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-shadow: blue 5px 5px;</span>
+                        <dd>
+                            La sombra del texto tendrá los valores: color 5 pixeles de desplazamiento en el eje x (horizontal), 5 pixeles de desplazamiento en el eje y (vertical) y no
+                            tendrá difuminado.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-shadow: 5px 5px;</span>
+                        <dd>
+                            La sombra del texto tendrá los valores: 5 pixeles de desplazamiento en el eje x (horizontal), 5 pixeles de desplazamiento en el eje y (vertical), el color
+                            de la sombra será el mismo que tnga el elemento padre como color de frente y no tendrá difuminado.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em verde;</span>
+                        <dd>
+                            La primera sombra del texto tendrá los valores: 1 pixel de desplazamiento en el eje x (horizontal), 1 pixel de desplazamiento en el eje y (vertical), 
+                            2 pixeles de difuminado y color rojo, la segunda sombra tendra 0 de desplazamiento en el eje x (horizontal), 0 de desplazamiento en el eje y (vertical)
+                            1em de difuminado y color azul y la tercera sombra tendrá 0 de desplazamiento en el eje x (horizontal), 0 de desplazamiento en el eje y (vertical)
+                            0.2em de difuminado y color verde.
+                        </dd>
+                    </dt>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer la sombra de un texto.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="shadow"&gt;
+                            &nbsp;&nbsp;Texto con tres sombras.
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer la sombra del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .shadow { text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em green; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: Se le establecierón tres sombras al texto.</p>
+                    <p class="shadow four-border-solid">Texto con tres sombras.</p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/WmvKLj?editors=1100" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h2>White space</h2>
+                <p>La propiedad <span class="spanSyntax">white-space</span> especifica el espacio en blanco dentro de un elemento.</p>
+                <div class="divValues">
+                    <h2>Sintaxis y Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">white-space: normal;</span>
+                        <dd>
+                            Las secuencias de espacios en blanco se colapsarán en un solo espacio en blanco. El texto se ajustará cuando sea necesario. Este es el valor por defecto.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">white-space: nowrap;</span>
+                        <dd>
+                            Las secuencias de espacios en blanco se colapsarán en un solo espacio en blanco. El texto nunca se ajustará a la siguiente línea. El texto continúa en la
+                            misma línea hasta que se encuentra una etiqueta &lt;br&gt;.
+                            <br>
+                            <span class="spanSyntax">No salta de linea.</span>
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">white-space: pre;</span>
+                        <dd>El espacio en blanco es preservado por el navegador. El texto sólo se ajustará a los saltos de línea. Actúa como la etiqueta &lt;pre&gt; en HTML.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">white-space: pre-wrap;</span>
+                        <dd>
+                            El espacio en blanco es preservado por el navegador. El texto se ajustará cuando sea necesario, y en los saltos de línea.
+                            <br>
+                            <span class="spanSyntax">Salta de linea y conserva espacios.</span>
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">white-space: pre-line;</span>
+                        <dd>
+                            Las secuencias de espacios en blanco se colapsarán en un solo espacio en blanco. El texto se ajustará cuando sea necesario, y en los saltos de línea.
+                            <span class="spanSyntax">Salta de linea y no conserva espacios.</span>
+                        </dd>
+                    </dt>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer el espacio en blanco a un texto.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="white-space"&gt;
+                            &nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum possimus expedita maiores quas accusamus, voluptate obcaecati ea eligendi.
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para establecer el espacio en blanco del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .white-space { text-shadow: pre; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: Al usar el valor pre el texto se verá tal cual está escrito, incluyendo los espacios en blanco que dejemos.</p>
+                    <p class="white-space four-border-solid">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum possimus expedita maiores quas accusamus, voluptate obcaecati ea eligendi.
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/gEpyJX?editors=1100" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Desbordamiento</h2>
+                <p>
+                    El desbordamiento es cuando las palabras de un texto se salen de su contenedor.
+                    <br>
+                    para controlar esto existe la propiedad <span class="spanSyntax">word-break</span>, esta establece si los saltos de línea aparecen dondequiera que el texto
+                    desborde su caja de contenido.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis y Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">word-break: normal;</span>
+                        <dd>Utiliza las reglas de salto de linea predetermindas. Es el valor por default.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">word-break: break-all;</span>
+                        <dd>Para evitar el desbordamiento, se deben insertar saltos de palabra entre dos caracteres cualesquiera.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">word-break: keep-all;</span>
+                        <dd>
+                            No se deben utilizar saltos de palabra para textos en chino, japonés o coreano (CJK). El comportamiento de texto sin CJK es el mismo que el de un texto
+                            normal.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">word-break: break-word;</span>
+                        <dd>
+                            Para evitar el desbordamiento, las palabras normalmente irrompibles pueden romperse en puntos arbitrarios si no hay puntos de interrupción aceptables en
+                            la línea.
+                            <br>
+                            <span class="spanSyntax">No estandarizada.</span>
+                        </dd>
                     </dt>
                 </div>
             </section>
