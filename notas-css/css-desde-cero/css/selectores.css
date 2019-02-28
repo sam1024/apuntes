@@ -1,0 +1,78 @@
+@import url(/css/normalize.css);
+/**** SELECTORES DESCENDIENTES ****/
+.list .list-item {
+  color: red; }
+
+/**** SELECTORES HIJO DIRECTO ****/
+li > ul > li {
+  color: blue; }
+
+/**** SELECTORES HERMANO SIGUIENTE ****/
+.title + .contenido {
+  color: aqua; }
+
+.subtitle + .contenido {
+  color: green; }
+
+/**** SELECTORES HERMANOS SIGUIENTES ****/
+.hermano-mayor ~ .hermano {
+  background-color: brown; }
+
+.check:checked ~ .enabled {
+  display: block; }
+
+.check:checked ~ .disabled {
+  display: none; }
+
+.enabled {
+  display: none; }
+
+/**** SELECTORES DE ATRIBUTO ****/
+[type="mail"] {
+  background-color: #fff; }
+
+[type='submit'] {
+  background-color: blue;
+  color: #fff; }
+
+[required] {
+  border: 2px solid red;
+  margin: .5em; }
+
+/**** SELECTORES DE ATRIBUTO COMIENZA CON ****/
+a.external-link {
+  background: url(../img/external_link.svg) no-repeat center right/1rem;
+  padding-right: 1.5rem; }
+
+[href^="/"], [href^="https://dominio.com"] {
+  color: red;
+  background: none; }
+
+/**** SELECTORES DE ATRIBUTO TERMINA CON ****/
+[href$="pdf"] {
+  background: url(../img/pdf-icon.svg) no-repeat right/1.3rem;
+  padding-right: 1.5rem; }
+
+/**** SELECTORES DE ATRIBUTO CONTIENE ****/
+[class*="btn-"] {
+  display: inline-block;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border: 1px solid grey;
+  width: 4em;
+  border-radius: .3em; }
+
+.btn-sign-in {
+  background-color: cornflowerblue; }
+
+.btn-sign-up {
+  background-color: green; }
+
+/**** SELECTORES DE ATRIBUTO CONTIENE (SEPARADO POR ESPACIOS) ****/
+[class~="btn"] {
+  background-color: red;
+  color: #fff; }
+
+/**** SELECTORES DE ATRIBUTO COMIENZA CON (MAS GUION) ****/
+[class|="texto"] {
+  font-size: 2em; }

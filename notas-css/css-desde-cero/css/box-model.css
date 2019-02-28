@@ -1,0 +1,85 @@
+@import url(/css/normalize.css);
+.textCenter {
+  text-align: center; }
+
+/**** ELEMENTOS INLINE Y DE BLOQUE ****/
+.h1 {
+  background-color: yellow;
+  height: 3em; }
+
+.span {
+  display: inline-block;
+  background-color: green;
+  height: 3em;
+  width: 3em; }
+
+/* .div {
+    background-color: red;
+    width: 500px;
+}
+
+.p {
+    background-color: blue;
+} */
+/**** BOX MODEL ****/
+.box {
+  background-color: black;
+  color: yellow;
+  background-clip: content-box;
+  /* PROPIEDADES DEL BOX MODEL */
+  height: 300px;
+  width: 300px;
+  padding: 50px;
+  border: 10px solid red;
+  margin: 30px; }
+
+/**** PROPIEDAD MARGIN ****/
+[class^="box-"] {
+  background: black;
+  color: yellow;
+  width: 200px;
+  height: 200px;
+  float: left; }
+
+.box-1 {
+  /* margin-top: 30px;
+    margin-right: 20px;
+    margin-bottom: 35px;
+    margin-left: 10px; */
+  margin: 30px 20px 35px 10px; }
+
+.margin-p {
+  clear: both;
+  background-color: peru; }
+
+/**** MARGENES EN PORCENTAJES ****/
+.medPorcentaje {
+  /*box-sizing: border-box;
+    border: 2px dotted aquamarine;
+    height: 300px;*/ }
+
+.medPorcentaje .box-3 {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /*Establecemos el box-sizing en border-box*/
+  float: none;
+  /*Le quitamos el float*/
+  width: 50%;
+  margin-left: 50%;
+  margin-top: 2%; }
+
+/**** COLAPSADO DE MARGENES VERTICALES ****/
+.margin-collapse {
+  border: 2px solid red; }
+
+.article {
+  background-color: yellow; }
+
+[class~="articleEjemDos"] {
+  background-color: brown; }
+
+.uno {
+  margin-bottom: 100px; }
+
+.dos {
+  margin-top: 100px; }

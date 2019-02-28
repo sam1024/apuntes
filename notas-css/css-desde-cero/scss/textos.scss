@@ -88,3 +88,34 @@
 .white-space {
     white-space: pre;
 }
+
+/**** DESBORDAMIENTO ****/
+.wordbreak {
+    width: 120px;
+    font-size: 2em;
+    word-break: break-all;
+}
+
+.wordwrap {
+    width: 150px;
+    word-wrap: anywhere;    
+}
+
+.textoverflow {
+    width: 180px;
+    white-space: nowrap;/* REQUERIDA */
+    overflow: auto;/* REQUERIDA */
+    text-overflow: "-continua...";
+}
+
+/**** TEXTO VERTICAL Y TEXT RENDERING ****/
+/** WRITING-MODE **/
+.texto-vertical {
+    writing-mode: vertical-lr;
+}
+
+/** TEXT-ORIENTATION **/
+.orientacion-texto {
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+}

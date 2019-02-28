@@ -1,0 +1,32 @@
+@import url(/css/normalize.css);
+/* body {
+    color: aquamarine;    
+} */
+/**** ESPECIFICIDAD ****/
+#main .post p {
+  color: red; }
+
+/*p {
+    color: green;
+}*/
+div#main .post p {
+  color: blue; }
+
+/**** CASCADA ****/
+.cascada {
+  color: red; }
+
+.cascada {
+  color: blue; }
+
+/*** HERENCIA ****/
+h1 {
+  color: teal;
+  font-size: 2em; }
+
+/**** INITIAL-INHERIT ****/
+.p-initial-inherit {
+  color: red; }
+
+.a-initial-inherit {
+  color: inherit; }

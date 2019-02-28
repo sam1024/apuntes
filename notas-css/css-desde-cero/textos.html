@@ -908,6 +908,8 @@
                     <br>
                     para controlar esto existe la propiedad <span class="spanSyntax">word-break</span>, esta establece si los saltos de línea aparecen dondequiera que el texto
                     desborde su caja de contenido.
+                    <br>
+                    En otras palabras, si una palabra cae justo donde termina su contenedor esta se romperá y la parte rota se mandará debajo.
                 </p>
                 <div class="divSyntax">
                     <h2>Sintaxis y Valores</h2>
@@ -936,6 +938,304 @@
                         </dd>
                     </dt>
                 </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Dibujar un contenedor con un texto y evitar que este se desborde.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="wordbreak"&gt;
+                            &nbsp;&nbsp;CSS IS AWESOME
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para evitar el desbordamiento del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .shadow { word-break: break-all; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: Sí no usaramos la propiedad <span class="spanSyntax">word-break</span> la mitad de la palabra AWESOME se desbordaría.</p>
+                    <p class="wordbreak four-border-solid centerElement">
+                        CSS IS AWESOME
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/qvOyax" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Word wrap (Overflow wrap)</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">word-wrap</span> se aplica a los elementos en línea, estableciendo si el navegador debe insertar saltos de línea dentro de
+                    una cadena que de otro modo sería irrompible para evitar que el texto desborde su cuadro de línea.
+                    <br>
+                    En otras palabras, permite que las palabras largas puedan romperse y pasar a la siguiente línea.
+                    <br>
+                    La diferencia entre esta prpiedad y <span class="spanSyntax">word-break</span> es que esta última ropme la palabra que caiga en el limite del contenedor, y la
+                    primera rompe la palabra siempre y cuando la palabra en si misma ocupe más tamaño que el tamaño del contenedor.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis y Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">word-wrap: normal;</span>
+                        <dd>Las lineas se romperan solo en los saltos de palabra normal (como un espacio entre dos palabras). Este es el valor por default.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">word-wrap: anywhere;</span>
+                        <dd>
+                            Para evitar el desbordamiento, una cadena de caracteres que de otro modo sería irrompible, como una palabra larga o una URL, puede romperse en cualquier
+                            punto si no hay puntos de ruptura aceptables en la línea. No se inserta ningún carácter de separación en el punto de ruptura.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">word-wrap: break-word;</span>
+                        <dd>
+                            Permite que palabras irrompibles se rompan en puntos arbitrarios si no hay puntos de ruptura aceptables en la línea. Es muy similar a el valor anywhere.
+                        </dd>
+                    </dt>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Romper un texto cualquiera a fin de evitar que este se desborde.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="wordwrap"&gt;
+                            &nbsp;&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum possimus expedita maiores quas accusamus, voluptate obcaecati ea eligendi.
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para romper el texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .shadow { word-wrap: anywhere; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: Al igual que la propiedad word-break la propiedad word-wrap nos ayuda para evitar el desbordamiento del texto.</p>
+                    <p class="wordwrap four-border-solid centerElement">
+                        Loremipsumdolorsitamet, consecteturadipisicingelit. Earumpossimus expeditamaioresquas accusamus, voluptateobcaecatieae ligendi.
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/KEdxyo" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+                <div class="divNota"><strong>NOTA: </strong>
+                    <em>Esta propiedad es la misma con <span class="spanSyntax">overflow-wrap</span></em>.
+                </div>
+            </section>
+            <section class="section">
+                <h2>Text overflow</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">text-overflow</span> determina como el contenido que se desborda y que no es mostrado, va a hacersele notar a los usuarios.
+                    Puede ser cortado, mostrar una elipsis ('…', U+2026 Horizontal Ellipsis), o mostrar una cadena de texto personalizada.
+                    <br>
+                    En otras palabras se usa cuando el texto no entra en el contenedor.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis y Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">text-overflow: clip;</span>
+                        <dd>
+                            Truncará el texto en el límite del área de contenido, por lo tanto el truncamiento puede ocurrir en el medio de un carácter y no es accesible. Este es el
+                            valor por default.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-overflow: ellipsis;</span>
+                        <dd>
+                            Mostrará una elipsis ('....', U+2026 Elipsis horizontal) para representar el texto recortado. La elipsis se muestra dentro del área de contenido,
+                            disminuyendo la cantidad de texto que se muestra. Si no hay suficiente espacio para mostrar la elipsis, ésta se recortará.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-overflow: "-";</span>
+                        <dd>
+                            El string que se utilizará para representar el texto recortado. La cadena se muestra dentro del área de contenido, acortando el tamaño del texto
+                            mostrado. Si no hay suficiente espacio para mostrar la cadena en sí, se corta.
+                        </dd>
+                    </dt>
+                    <div class="divNota">
+                        <strong>NOTA: </strong>
+                        <em>
+                            Las propiedades <span class="spanSyntax">white-space: y overflow:</span> son requeridas por 
+                            <span class="spanSyntax">text-overflow</span>.
+                            <br>
+                            La propiedad text-overflow se puede especificar utilizando uno o dos valores. Si se da un valor, especifica el comportamiento de desbordamiento para el
+                            final de la línea (el extremo derecho para el texto de izquierda a derecha, el extremo izquierdo para el texto de derecha a izquierda). Si se dan dos
+                            valores, el primero especifica el comportamiento de desbordamiento para el extremo izquierdo de la línea, y el segundo lo especifica para el extremo
+                            derecho de la línea.
+                        </em>
+                    </div>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Mostrar el contenido desbordado de una cadena de texto.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="textoverflow"&gt;
+                            &nbsp;&nbsp;Loremipsumdolorsitamet, consectetur adipisicingelitEarumpossimus expedita maioresquasaccusamus, voluptate obcaecatieaeligendi.
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para mostrar el contenido desbordado de la cadena de texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .textoverflow {
+                                &nbsp;&nbsp;width: 180px;
+                                &nbsp;&nbsp;white-space: nowrap;/* REQUERIDA */
+                                &nbsp;&nbsp;overflow: auto;/* REQUERIDA */
+                                &nbsp;&nbsp;text-overflow: "-continua...";
+                            }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: Al desbordar el texto en su lugar se muestra la cadena "-continua" que es la que se está signando como valor. </p>
+                    <p class="textoverflow four-border-solid centerElement">
+                        Loremipsumdolorsitamet, consectetur adipisicingelitEarumpossimus expedita maioresquasaccusamus, voluptate obcaecatieaeligendi.
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/PLPLaY" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Se recomienda que los valores de las propiedades white-space sea <span class="spanSyntax">nowrap</span> y para overflow sea 
+                        <span class="spanSyntax">hidden</span>
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Writing mode</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">writing-mode</span> define si los renglones de texto se disponen horizontal o verticalmente y la dirección en que avanzan
+                    los bloques.
+                    <br>
+                    La propiedad especifica la dirección de flujo de bloques, que es la dirección en que se apilan los contenedores a nivel de bloque y la dirección en que el
+                    contenido a nivel de línea fluye dentro de un contenedor de bloque. Por ende, la propiedad writing-mode también determina la ordenación del contenido a nivel
+                    de bloque.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis y Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">writing-mode: horizontal-tb;</span>
+                        <dd>
+                            El contenido fluye horizontalmente de izquierda a derecha y verticalmente de arriba hacia abajo. El próximo renglón horizontal se posiciona debajo del
+                            renglón anterior. Este es el valor por default.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">writing-mode: vertical-rl;</span>
+                        <dd>
+                            El contenido fluye verticalmente de arriba hacia abajo y horizontalmente de derecha a izquierda. El próximo renglón vertical se posiciona a la izquierda
+                            del renglón anterior.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">writing-mode: vertical-lr;</span>
+                        <dd>
+                            El contenido fluye verticalmente de arriba hacia abajo y horizontalmente de izquierda a derecha. El próximo renglón vertical se posiciona a la derecha del
+                            renglón anterior.
+                        </dd>
+                    </dt>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Cambiar el flujo del contenido de un texto a vertical.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="texto-vertical"&gt;
+                            &nbsp;&nbsp;Texto en vertical (eje y).
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para mostrar el contenido desbordado de la cadena de texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .texto-vertical { writing-mode: vertical-lr; }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: </p>
+                    <p class="texto-vertical four-border-solid centerElement">
+                        Texto en vertical (eje y).
+                    </p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/NJGQeX" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Text orientation</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">text-orientation</span> define la orientación del texto en una línea de escritura. Ésta propiedad sólo tiene efecto en modo
+                    vertical, ésto es, cuando writing-mode no está establecido cómo <span class="spanSyntax">horizontal-tb</span>. Ésta propiedad CSS es util para controlar la forma
+                    en que se muestran los lenguajes que utilizan escritura vertical, y tambien para construir encabezados verticales para tablas.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis y Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">text-orientation: mixed;</span>
+                        <dd>
+                            Rota los caracteres de escritura horizontal 90° en sentido de las manecillas del reloj. Establece los caracteres de escritura vertical de forma natural.
+                            Este es el valor por defecto.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-orientation: upright;</span>
+                        <dd>
+                            Establece los caracteres de escritura horizontal de forma natural (pero se presentan de arriba hacia abajo), de igual manera establece de forma natural
+                            los glifos para escritura vertical. Note que ésta palabra clave causa que todos los caracteres sean considerados de forma izquierda-a-derecha: el valor
+                            utilizado para direction es forzado a ser ltr (<span class="spanSyntax">writing-mode: vertical-lr;</span>).
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-orientation: sideways;</span>
+                        <dd>
+                            Causa que los caracteres sean presentados de la forma en que se presentarían de manera horizontal, pero con la línea de escritura rotada 90° en sentido de
+                            las manecillas del reloj.
+                        </dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-orientation: sideways-right;</span>
+                        <dd>Un alias para sideways que se mantiene para propositos de compatibilidad.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">text-orientation: use-glyph-orientation;</span>
+                        <dd>
+                            En elementos SVG, ésta palabra clave produce que sea utilizado el valor de las propiedades SVG desaprobadas glyph-orientation-vertical y
+                            glyph-orientation-horizontal.
+                        </dd>
+                    </dt>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo:</span>
+                    <span>Cambiar la orientación de un texto.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="orientacion-texto"&gt;
+                            &nbsp;&nbsp;Texto en vertical (eje y).
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para mostrar el contenido desbordado de la cadena de texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .orientacion-texto { 
+                                &nbsp;&nbsp;writing-mode: vertical-lr;
+                                &nbsp;&nbsp;text-orientation: upright;
+                            }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: </p>
+                    <p class="orientacion-texto four-border-solid centerElement">Texto en vertical (eje y).</p>
+                    <p>Más ejemplos <a href="https://codepen.io/k3rn3l/pen/JzGoqj" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Para que esta propiedad funcione debemos establecer el modo de escritura con la propiedad <span class="spanSyntax">writing-mode</span> con un valor que no sea
+                        <span class="spanSyntax">horizontal-tb</span>.
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Texto vertical y text rendering</h2>
+                <p></p>
             </section>
         </main>
     </div>
