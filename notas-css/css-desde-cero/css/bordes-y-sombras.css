@@ -78,7 +78,7 @@
   height: 100px;
   background-color: peru;
   -webkit-box-shadow: -10px 18px 30px 1px grey;
-  box-shadow: -10px 18px 30px 1px grey; }
+          box-shadow: -10px 18px 30px 1px grey; }
 
 .boxShadowCircle {
   width: 200px;
@@ -89,4 +89,6 @@
   border-radius: 50%;
   text-align: center;
   -webkit-box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8) inset;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8) inset; }
+          box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8) inset; }
+
+/*# sourceMappingURL=bordes-y-sombras.css.map */

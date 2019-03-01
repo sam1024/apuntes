@@ -47,22 +47,29 @@
 
 /**** TEXT DECORATION LINE ****/
 .line-through {
-  text-decoration-line: line-through; }
+  -webkit-text-decoration-line: line-through;
+          text-decoration-line: line-through; }
 
 /**** TEXT DECORATION COLOR ****/
 .underline {
-  text-decoration-line: underline;
-  text-decoration-color: #aa23bb; }
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  -webkit-text-decoration-color: #aa23bb;
+          text-decoration-color: #aa23bb; }
 
 /**** TEXT DECORATION STYLE ****/
 .style {
-  text-decoration-line: underline;
-  text-decoration-color: #aa23bb;
-  text-decoration-style: wavy; }
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  -webkit-text-decoration-color: #aa23bb;
+          text-decoration-color: #aa23bb;
+  -webkit-text-decoration-style: wavy;
+          text-decoration-style: wavy; }
 
 /**** TEXT DECORATION ****/
 .decoration {
-  text-decoration: line-through dashed red; }
+  -webkit-text-decoration: line-through dashed red;
+          text-decoration: line-through dashed red; }
 
 /**** TEXT SHADOW ****/
 .shadow {
@@ -94,9 +101,19 @@
 /**** TEXTO VERTICAL Y TEXT RENDERING ****/
 /** WRITING-MODE **/
 .texto-vertical {
-  writing-mode: vertical-lr; }
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr; }
 
 /** TEXT-ORIENTATION **/
 .orientacion-texto {
-  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
   text-orientation: upright; }
+
+/**** TEXT TRANSFORM ****/
+.capitalizado {
+  text-transform: capitalize; }
+
+/*# sourceMappingURL=textos.css.map */
