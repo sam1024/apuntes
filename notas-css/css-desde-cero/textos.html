@@ -20,7 +20,8 @@
                 <p>
                     La unidad <span class="spanSyntax">em</span> es el tamaño de fuente del contexto. Es variable y depende del contexto, si el elemento es hijo directo de body
                     un <span class="spanSyntax">em</span> equivale a <span class="spanSyntax">16 pixeles</span>, pero si el elemento es hijo de algún otro elemento diferenta a 
-                    body, la medida para el <span class="spanSyntax">em</span> se tomara de acuerdo al tamaño de la propiedad <span class="spanSyntax">font-size</span> de su padre.
+                    body, la medida para el <span class="spanSyntax">em</span> se tomara de acuerdo al tamaño de la propiedad <span class="spanSyntax">font-size</span> de su 
+                    elemento padre o elemento ancestro más cercano que haya modificado el tamaño de la fuente.
                     <br><br>
                     Y <span class="spanSyntax">rem</span> es el tamaño de fuente de root. No importa el contexto porque la raíz siempre es la misma (no es variable).
                 </p>
@@ -1200,7 +1201,172 @@
             </section>
             <section class="section">
                 <h2>Font family</h2>
-                <p>La propiedad <span class="spanSyntax">font-family</span></p>
+                <p>
+                    La propiedad <span class="spanSyntax">font-family</span> define una lista de fuentes o familias de fuentes, con un orden de prioridad, para utilizar en un
+                    elemento seleccionado. A diferencia de la mayoría de las propiedades CSS, los valores se separan con comas (",") para indicar que son valores alternativos.
+                    <br>
+                    En otras palabras es el tipo de letra que se mostrará en el navegador, se pueden especificar fuentes especificas o genericas.
+                </p>
+                <p>
+                    En caso de querer usar fuentes como por ejemplo de google fonts, podemos enlazar estas mediante la etiqueta link o podemos descar las fuentes (archivos .ttf)
+                    y copiarlos a la carpeta de nuestro proyecto para despúes enlazar la fuente que querramos.
+                    <br>
+                    .
+                </p>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Se recomienda usar fuentes de tipo sans-serif en una página donde el usuario leerá mucho.
+                        <br>
+                        Para titulos se recomiendo las fuentes de la familia display.
+                    </em>
+                </div>
+                <div class="divSyntax">
+                    <h>Sintaxis y Valores</h>
+                    <dt>
+                        <span class="spanSyntax">font-family: "Times New Roman", Times, serif, sans-serif, cursive, fantasy, monospace;</span>
+                        <dd>
+                            El nombre de la familia de la fuente. Por ejemplo, 'Times' y 'Helvética' son nombres de familia. Los nombres de familia que contengan espacios, deben
+                            escribirse entre comillas (por ejemplo: "Times New Roman").
+                            <br>
+                            Se han definido los siguientes nombres genéricos: serif, sans-serif, cursive, fantasy, monospace. Los nombres genéricos son palabras claves y no deben
+                            ponerse entre comillas.
+                        </dd>
+                    </dt>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Definir la fuente para un texto usando un archivo .ttf descargado desde google fonts.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="fuente"&gt;
+                            &nbsp;&nbsp;A este texto se le cambio la fuente.
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para definir la fuente del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            @font-face {
+                                &nbsp;&nbsp;font-family: "Lobster";
+                                &nbsp;&nbsp;src: url(../../../fonts/Lobster/Lobster-Regular.ttf);
+                            }
+                                
+                            .fuente {
+                                &nbsp;&nbsp;font-size: 1.2em;
+                                &nbsp;&nbsp;font-family: "Lobster";
+                            }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>
+                        Resultado: Como se ve en el código CSS primero se usa la propiedad <span class="spanSyntax">@font-face</span> para especificar la fuente.
+                        A este se le define un nombre <span class="spanSyntax">(font-family: "Lobster";)</span> y el origen o URL del archivo .ttf 
+                        <span class="spanSyntax">src: url(../../../fonts/Lobster/Lobster-Regular.ttf);</span>. Para seguidamente establecer al elemento el tipo de fuente.
+                    </p>
+                    <p class="fuente four-border-solid centerElement">
+                        A este texto se le cambió la fuente.
+                    </p>
+                    <p>Más ejemplos<a href="https://codepen.io/k3rn3l/pen/drpoOB" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Cuando se usa la propiedad <span class="spanSyntax">@font-face</span>, el nombre de la fuente que usemos en esta 
+                        <span class="spanSyntax">(font-family: "Lobster";)</span> debe ser el mismo que usemos en la propiedad <span class="spanSyntax">font-family</span> del
+                        elemento al cual le cambiemos la fuente.
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Font size</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">font-size</span> especifica la dimensión de la letra. Este tamaño puede, a su vez, alterar el aspecto de alguna otra cosa,
+                    ya que se usa para calcular la longitud de las unidades <span class="spanSyntax">em</span> y <span class="spanSyntax">ex</span>.
+                </p>
+                <div class="divSyntax">
+                    <h2>Sintaxis y Valores</h2>
+                    <dt>
+                        <span class="spanSyntax">font-size: medium;</span>
+                        <dd>Establece el tamaño de fuente como medio. Este es el valor por default.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">font-size: xx-small;</span>
+                        <dd>Establece el tamaño de la fuente en un tamaño extra extra pequeño.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">font-size: x-small;</span>
+                        <dd>Establece el tamaño de la fuente a un tamaño extra pequeño.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">font-size: small;</span>
+                        <dd>Establece el tamaño de la fuente a un tamaño pequeño.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">font-size: large;</span>
+                        <dd>Establece el tamaño de la fuente a un tamaño grande.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">font-size: x-large;</span>
+                        <dd>Establece el tamaño de la fuente a un tamaño extra grande</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">font-size: xx-large;</span>
+                        <dd>Establece el tamaño de la fuente a un tamaño extra extra grande</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">font-size: smaller;</span>
+                        <dd>Establece el tamaño de fuente a un tamaño más pequeño que el de su elemento padre.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">font-size: larger;</span>
+                        <dd>Establece el tamaño de fuente a un tamaño mayor que el de su elemento padre.</dd>
+                    </dt>
+                    <dt>
+                        <span class="spanSyntax">font-size: 34%;</span>
+                        <dd>
+                            Establece el tamaño de fuente en un porcentaje relativo al tamaño de fuente de su elemento padre. 
+                            Tambien acepta cualquier unidad de medida soportada por CSS.
+                        </dd>
+                    </dt>
+                    <div class="divNota">
+                        <strong>NOTA: </strong>
+                        <em>
+                            No es recomendable usar los valores <span class="spanSyntax">xx-small, x-small, small, large, x-large, xxlarge, smaller y larger</span>, es mejor usar
+                            las inidade de medida.
+                        </em>
+                    </div>
+                </div>
+                <div class="divExample">
+                    <span class="textExample">Ejemplo: </span>
+                    <span>Establecer el tamaño de fuente para un parrafo.</span>
+                    <p>Código HTML usado en el ejemplo.</p>
+                    <pre class="preCode">
+                        &lt;p class="size"&gt;
+                            &nbsp;&nbsp;A este texto se le cambio el tamaño de la fuente.
+                        &lt;/p&gt;
+                    </pre>
+                    <p>Código CSS usado para definir el tamaño de la fuente del texto.</p>
+                    <code>
+                        <pre class="preCode">
+                            .size {
+                                &nbsp;&nbsp;font-size: xx-large;                                
+                            }
+                        </pre>
+                    </code>
+                </div>
+                <div class="divResultado">
+                    <p>Resultado: </p>
+                    <p class="size four-border-solid centerElement">A este texto se le cambio el tamaño de la fuente.</p>
+                    <p>Más ejemplos <a href="" target="_blank" rel="noopener noreferrer">aquí</a></p>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Font weight</h2>
+                <p>
+                    La propiedad <span class="spanSyntax">font-weight</span> de CSS especifica el peso o grueso de la letra. Algunos tipos de letra sólo están disponibles en normal
+                    y bold.
+                </p>
             </section>
         </main>
     </div>

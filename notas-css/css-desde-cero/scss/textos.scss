@@ -122,3 +122,19 @@
 
 /**** TEXT TRANSFORM ****/
 .capitalizado { text-transform: capitalize; }
+
+/**** FONT FAMILY ****/
+@font-face {
+    font-family: Lobster;
+    src: url(../../../fonts/Lobster/Lobster-Regular.ttf);
+}
+
+.fuente {
+    font-size: 1.2em;
+    font-family: Lobster;
+}
+
+/**** FONT SIZE ****/
+.size {
+    font-size: xx-large;
+}
