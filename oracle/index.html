@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/normalizecss.css">
+    <link rel="stylesheet" href="../css/general-styles.css">    
+    <title>Apuntes de oracle</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="textCenter">Apuntes variados de Oracle</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2 id="user-hr">Desbloquear usuario hr</h2>
+                <p>Para desbloquear el usuario hr y de esta manera poder usar sus tablas para pruebas realizar los siguientes pasos, usando la consola.</p>
+                <ol>
+                    <li>
+                        Loguearse en oracle con el usuario <span class="spanSyntax">SYSTEM</span>
+                        <pre class="preCode">
+                            sqlplus /nolog
+                            SQL> connect system/password@SID
+                        </pre>
+                        <div class="divNota">
+                            <strong>NOTA: </strong>
+                            <em>
+                                El SID puede cambiar dependiendo de la version de oracle que tengamos instalada, si es 11g xpress generalmente el SID es XE.
+                                <br>
+                                Puedes saber el nombre del SID viendo el contenido de la variable de entorno <span class="spanSyntax">ORACLE_SID</span>
+                            </em>
+                        </div>
+                    </li>
+                    <li>
+                        Ejecutar la sentencia para desbloquear el usuario.
+                        <pre class="preCode">
+                            SQL> ALTER USER hr ACCOUNT UNLOCK;
+                        </pre>
+                        Si todo sale bien se mostrará un mensaje que dira <span class="spanSyntax">User altered</span>.
+                    </li>
+                    <li>
+                        Ejecutar la sentencia para establecer una contraseña al usuario.
+                        <pre class="preCode">
+                            SQL> ALTER USER hr IDENTIFIED BY password;
+                        </pre>
+                        Si todo sale bien se mostrará un mensaje que dira <span class="spanSyntax">User altered</span>.
+                    </li>
+                    <li>
+                        Salir de la consola.
+                        <pre class="preCode">
+                                SQL> exit;                            
+                        </pre>
+                    </li>
+                    <li>
+                        Loguearse con el usuario hr.
+                        <pre class="preCode">
+                            sqlplus /nolog
+                            SQL>connect hr/password@xe
+                        </pre>
+                    </li>
+                    <li>
+                        Para comprobar que la cuenta del usuario funciona podemos hacer un select de prueba a la tabla <span class="spanSyntax">employees</span>
+                        <pre class="preCode">
+                            SELECT * FROM employees;
+                        </pre>
+                        Si tdo sale bien nos mostrará los datos de la tabla.
+                    </li>
+                </ol>
+            </section>
+            <section class="section">
+                <h2 id="creating-ts">Crear tablespace</h2>
+                <p>Para crear un tablespace básico ejecutar la sentencia.</p>
+                <pre class="preCode">
+                    SQL> CREATE TABLESPACE nombredb
+                    DATAFILE 'nombredb.dbf' SIZE 1024M
+                    EXTENT MANAGEMENT LOCAL
+                    SEGMENT SPACE MANAGEMENT AUTO;
+                </pre>
+                <h2>Clausulas</h2>
+                <dt>
+                    <div class="span spanSyntax">DATAFILE</div>
+                    <dd>Especifica el archivo de datos para la DB. Archivos de datos y copias de archivos de datos.</dd>
+                </dt>
+                <dt>
+                    <div class="span spanSyntax">SIZE</div>
+                    <dd>
+                        Especifica un número de bytes, kilobytes (K), megabytes (M), gigabytes (G), terabytes (T), petabytes (P) o exabytes (E) en cualquier instrucción que le
+                        permita establecer cantidades de espacio en disco o memoria.
+                        <br>
+                        Si no especifica ninguna de las abreviaturas múltiples, el número entero se interpreta como bytes.
+                    </dd>
+                </dt>
+                <dt>
+                    <div class="span spanSyntax">EXTENT MANAGEMENT LOCAL</div>
+                    <dd>Especifica que el tablespace será gestionado de manera local.</dd>
+                </dt>                
+                <dt>
+                    <div class="span spanSyntax">SEGMENT SPACE MANAGEMENT AUTO</div>
+                    <dd>
+                        La gestión automática de espacio de segmento es el método más eficiente y es el predeterminado para todos los nuevos tablespaces permanentes y gestionados
+                        localmente.
+                        <br>
+                        La gestión automática del espacio de los segmentos ofrece una mejor utilización del espacio que la gestión manual de este. También es
+                        autoajustable, en el sentido de que se adapta a un número cada vez mayor de usuarios o instancias
+                    </dd>
+                </dt>                
+            </section>
+            <section class="section">
+                <h2 id="creating-user">Crear usuario</h2>
+                <p>Para crear un usuario ejecutar la sentencia</p>
+                <pre class="preCode">
+                    CREATE USER nombreuser
+                    IDENTIFIED BY password
+                    DEFAULT TABLESPACE "nombredb"
+                    TEMPORARY TABLESPACE TEMP
+                    QUOTA 500M
+                    ACCOUNT UNLOCK;
+                </pre>
+                <p>
+                    Si no se especifica el DEFAULT TABLESPACE al momento de crear la cuenta, el que se le asigna por default al usuario es el de SYSTEM, debido a esto se debe asignar
+                    un TABLESPACE al usuario ya que no se deben almacenar datos de usuarios en el TABLESPACE de SYSTEM.
+                    <br>
+                    Puede establecerse un TABLESPACE durante la creación del usuario y cambiarlo después con la sentencia <span class="spanSyntax">ALTER USER</span>.
+                    Por defecto, un usuario no tiene cuota en ningún tablespace de la base de datos. Si el usuario tiene el privilegio de crear un objeto de esquema, debe asignar una
+                    cuota para que el usuario pueda crear objetos.
+                    <br>
+                    La cuenta del suario se puede desbloquear al momento de crear la cuenta, o podemos hacerlo despúes ejecutando la sentencia 
+                    <span class="spanSyntax">ALTER USER hr ACCOUNT UNLOCK;</span>.
+                </p>
+            </section>
+            <section class="section">
+                <h2 id="loggin">Asignar permisos de logueo a un usuario</h2>
+                <p>Una vez que se creo el usuario este solo existe en la DB pero, no tiene permisos de logueo, para cambiar esto ejecutar la sentencia.</p>
+                <pre class="preCode">
+                    GRANT "CONNECT" TO nombreuser;
+                </pre>
+            </section>
+            <section class="section">
+                <h2 id="permisos">Asignar permisos para crear tablas</h2>
+                <p>Para que el usuario pueda realizar las operaciones más habituales en una DB se debe ejecutar la sentencia.</p>
+                <pre class="preCode">
+                    GRANT "RESOURCE" TO nombreuser;
+                </pre>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
