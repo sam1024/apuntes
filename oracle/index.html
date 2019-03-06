@@ -15,6 +15,22 @@
         </header>
         <main>
             <section class="section">
+                <h2>Conectarse o iniciar sesión por terminal</h2>
+                <p>Se puede iniciar sesión desde la terminal de las siguientes maneras.</p>
+                <pre class="preCode">
+                    sqlplus /nolog
+                    sqlplus user/password@SID
+                </pre>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        El SID puede cambiar dependiendo de la version de oracle que tengamos instalada, si es 11g xpress generalmente el SID es XE.
+                        <br>
+                        Puedes saber el nombre del SID viendo el contenido de la variable de entorno <span class="spanSyntax">ORACLE_SID</span>
+                    </em>
+                </div>
+            </section>
+            <section class="section">
                 <h2 id="user-hr">Desbloquear usuario hr</h2>
                 <p>Para desbloquear el usuario hr y de esta manera poder usar sus tablas para pruebas realizar los siguientes pasos, usando la consola.</p>
                 <ol>
@@ -23,15 +39,7 @@
                         <pre class="preCode">
                             sqlplus /nolog
                             SQL> connect system/password@SID
-                        </pre>
-                        <div class="divNota">
-                            <strong>NOTA: </strong>
-                            <em>
-                                El SID puede cambiar dependiendo de la version de oracle que tengamos instalada, si es 11g xpress generalmente el SID es XE.
-                                <br>
-                                Puedes saber el nombre del SID viendo el contenido de la variable de entorno <span class="spanSyntax">ORACLE_SID</span>
-                            </em>
-                        </div>
+                        </pre>                        
                     </li>
                     <li>
                         Ejecutar la sentencia para desbloquear el usuario.
@@ -71,7 +79,12 @@
             </section>
             <section class="section">
                 <h2 id="creating-ts">Crear tablespace</h2>
-                <p>Para crear un tablespace básico ejecutar la sentencia.</p>
+                <p>
+                    Un tablespace es una unidad de almacenamiento de base de datos que agrupa estructuras lógicas relacionadas. Los archivos de datos de la base de datos se almacenan
+                    en tablespaces.
+                    <br>
+                    Para crear un tablespace básico ejecutar la sentencia.
+                </p>
                 <pre class="preCode">
                     SQL> CREATE TABLESPACE nombredb
                     DATAFILE 'nombredb.dbf' SIZE 1024M
@@ -131,6 +144,33 @@
                 </p>
             </section>
             <section class="section">
+                <h2>Cambiar tablespace a un usuario</h2>
+                <p>Sí al momento de crear un usario no especificamos un tablespace, podemos después agregar uno a este con la sentencia <span class="spanSyntax">ALTER USER</span></p>
+                <span class="textExample">Ejemplo: </span>
+                <span>Cambiar el tablespace para el usuario sam.</span>
+                <pre class="preCode">
+                    SQL> ALTER USER sam DEFAULT TABLESPACE nombre_ts;
+                </pre>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>Al ejecutar esta sentencia,si el usuario ya tenia un tablespace este es cambiado, no se agrega un nuevo tablespace, se reemplaza.</em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Listar usuarios y su tablespace</h2>
+                <p>Para saber los nombres de los usuarios y su tablespace ejecutar la sentencia</p>
+                <pre class="preCode">SQL> SELECT USERNAME, DEFAULT_TABLESPACE FROM DBA_USERS;</pre>
+                <p>En caso de querer más informacion de los usuarios podemos ejecutar la sentencia.</p>
+                <pre class="preCode">SQL> SELECT * FROM DBA_USERS;</pre>                
+            </section>
+            <section class="section">
+                <h2>Listar tablas y tablespace de un usuario</h2>
+                <p>Si estamos logueados con un usuario diferente de SYSTEM y queremos saber cual es nuestro tablespace y las tablas que tenemos en este ejecutar la sentencia</p>
+                <pre class="preCode">SQL> SELECT TABLE_NAME, TABLESPACE_NAME FROM USER_TABLES;</pre>
+                <p>Si queremos más información solo ejecutar</p>
+                <pre class="preCode">SQL> SELECT * FROM USER_TABLES;</pre>
+            </section>
+            <section class="section">
                 <h2 id="loggin">Asignar permisos de logueo a un usuario</h2>
                 <p>Una vez que se creo el usuario este solo existe en la DB pero, no tiene permisos de logueo, para cambiar esto ejecutar la sentencia.</p>
                 <pre class="preCode">
@@ -142,6 +182,60 @@
                 <p>Para que el usuario pueda realizar las operaciones más habituales en una DB se debe ejecutar la sentencia.</p>
                 <pre class="preCode">
                     GRANT "RESOURCE" TO nombreuser;
+                </pre>
+            </section>
+            <section class="section">
+                <h2>Crear tablas</h2>
+                <p>Para crear una tabla se usa la sentencia <span class="spanSyntax">CREATE TABLE</span>.</p>
+                <span class="textExample">Ejemplo: </span>
+                <span>Crear una tabla llamada users que tendrá solo dos campos, el id y el nombre del usuario y esta estará en el tablespace sam_ts.</span>
+                <pre class="preCode">
+                    SQL> CREATE TABLE users(id number not null primary key, nombre varchar2(100)) TABLESPACE sam_ts;
+                </pre>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        Al momento de crear la tabla si no especificamos el tablespace, esta se creará en el tablespace por default del usuario.
+                        <br>
+                        Si nuestro usuario tiene mas de una tablespace en los que pueda crear tablas, y queremos especificar uno especifico entonces debemos usar esta clausula.
+                    </em>
+                </div>
+                <span class="textExample">Ejemplo 2: </span>
+                <span>Crear una tabla llamada compras que tendrá tres campos, id, compra y una llave foranea (id_a) a la tabla users.</span>
+                <pre class="preCode">
+                    SQL> CREATE TABLE compras(id number primary key, compra varchar2(100), id_a number, foreign key(id_a) references a(id)) TABLESPACE sam_ts;
+                </pre>
+                <div class="divNota">
+                    <strong>NOTA: </strong>
+                    <em>
+                        En oracle 11g NO EXISTEN los campos autonumericos o identity, asique si queremos que el campo id sea "autoincremental" se debe crear una secuencia (SEQUENCE).
+                    </em>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Secuencias (SEQUNCE)</h2>
+                <p>
+                    Para crear una SEQUENCE se usa la sentencia <span class="spanSyntax">CREATE SEQUENCE</span>. Esta se puede usar para generar de manera automatica valores
+                    para llaves primarias.
+                </p>
+                <p>
+                    Cuando se genera un número de secuencia, la secuencia se incrementa, independientemente de que la transacción se confirme o se deshaga. Si dos usuarios incrementan
+                    simultáneamente la misma secuencia, entonces los números de secuencia que cada usuario adquiere pueden tener espacios en blanco, porque los números de secuencia
+                    están siendo generados por el otro usuario. Un usuario nunca puede adquirir el número de secuencia generado por otro usuario. Después de que un usuario genera un
+                    valor de secuencia, ese usuario puede continuar accediendo a ese valor sin importar si la secuencia es incrementada por otro usuario. Los números de secuencia se
+                    generan independientemente de las tablas, por lo que se puede utilizar la misma secuencia para una o varias tablas. Es posible que los números de secuencia
+                    individuales parezcan haberse omitido, porque se generaron y se utilizaron en una operación que finalmente se redujo. Además, un solo usuario puede no darse cuenta
+                    de que otros usuarios están dibujando de la misma secuencia. Después de crear una secuencia, puede acceder a sus valores en sentencias SQL con la pseudocolumna
+                    CURRVAL, que devuelve el valor actual de la secuencia, o la pseudocolumna NEXTVAL, que incrementa la secuencia y devuelve el nuevo valor.
+                </p>
+                <span class="spanSyntax">Ejemplo: </span>
+                <span>Crear una secuencia para el tablespace sam_ts.</span>
+                <pre class="preCode">
+                    CREATE SEQUENCE sam_ts_seq
+                    START WITH 1000
+                    INCREMENT BY 1
+                    NOCACHE
+                    NOCYCLE;
                 </pre>
             </section>
         </main>
