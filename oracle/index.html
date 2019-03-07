@@ -82,12 +82,12 @@
                 <p>
                     Un tablespace es una unidad de almacenamiento de base de datos que agrupa estructuras lógicas relacionadas. Los archivos de datos de la base de datos se almacenan
                     en tablespaces.
-                    <br>
-                    Para crear un tablespace básico ejecutar la sentencia.
                 </p>
+                <span class="textExample">Ejemplo: </span>
+                <span>Crear un tablespace llamado ejemplo_ts.</span>
                 <pre class="preCode">
-                    SQL> CREATE TABLESPACE nombredb
-                    DATAFILE 'nombredb.dbf' SIZE 1024M
+                    SQL> CREATE TABLESPACE ejemplo_ts
+                    DATAFILE 'ejemplo_ts.dbf' SIZE 1024M
                     EXTENT MANAGEMENT LOCAL
                     SEGMENT SPACE MANAGEMENT AUTO;
                 </pre>
@@ -122,13 +122,15 @@
             </section>
             <section class="section">
                 <h2 id="creating-user">Crear usuario</h2>
-                <p>Para crear un usuario ejecutar la sentencia</p>
+                <p>Para crear un usuario se usa la sentencia <span class="spanSyntax">CREATE USER</span>.</p>
+                <span class="textExample">Ejemplo: </span>
+                <span>Crear un usuario llamado sam.</span>
                 <pre class="preCode">
-                    CREATE USER nombreuser
+                    CREATE USER sam
                     IDENTIFIED BY password
-                    DEFAULT TABLESPACE "nombredb"
+                    DEFAULT TABLESPACE ejemplo_ts
                     TEMPORARY TABLESPACE TEMP
-                    QUOTA 500M
+                    QUOTA 500M ON ejemplo_ts
                     ACCOUNT UNLOCK;
                 </pre>
                 <p>
