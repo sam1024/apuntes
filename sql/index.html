@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/normalizecss.css">
+    <link rel="stylesheet" href="../css/general-styles.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>Apuntes de SQL</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="textCenter">Apuntes de SQL</h1>
+        </header>
+        <main>
+            <section class="section">
+                <h2>JOIN SQL</h2>
+                <p>Una cláusula <span class="spanSyntax">JOIN</span> se utiliza para combinar filas de dos o más tablas, basándose en una columna relacionada entre ellas.</p>
+                <p>
+                    Se va a trartar de demostrar como hacer los INNER JOIN, LEFT JOIN, RIGHT JOIN y FULL JOIN.
+                    <br>
+                    Para los ejercicios se usará oracle 11g y dos tablas.
+                    <pre class="preCode">
+                        Tabla 1:
+                        <table class="table">
+                            <thead><th colspan="2">employees</th></thead>
+                            <tbody>
+                                <tr><td>lastname varchar2(30)</td><td>depto_id number</td></tr>
+                                <tr><td>Rafferty</td><td>31</td></tr>
+                                <tr><td>Jones</td><td>33</td></tr>
+                                <tr><td>Heisenberg</td><td>33</td></tr>
+                                <tr><td>Robinson</td><td>34</td></tr>
+                                <tr><td>Smith</td><td>34</td></tr>                                
+                                <tr><td>Williams</td><td>NULL</td></tr>
+                            </tbody>
+                        </table>
+                        Tabla 2:
+                        <table class="table">
+                                <thead><th colspan="2">departamento</th></thead>
+                                <tbody>
+                                    <tr><td>depto_id number</td><td>depto_name varchar2(30)</td></tr>
+                                    <tr><td>31</td><td>Sales</td></tr>
+                                    <tr><td>33</td><td>Engineering</td></tr>
+                                    <tr><td>34</td><td>Clerical</td></tr>
+                                    <tr><td>35</td><td>Marketing</td></tr>
+                                </tbody>
+                        </table>
+                    </pre>
+                </p>
+                <dt>
+                    <span class="spanSyntax">INNER JOIN</span>
+                    <dd>
+                        Para hacerlo se deben tener dos tablas que se van a "cruzar" de cierta forma, estas tablas deben tener una columna en comun que es el punto de comparación
+                        entre ambas tablas. Cuando hacemos INNER JOIN se comparan estas dos columnas para encontrar coincidencias, si no se encuentran una coincidencia para una de
+                        las dos tablas entonces la fila no será mostrada.
+                    </dd>
+                </dt>
+                <p>
+                    <span class="textExample">Ejemplo: </span> Hacer un INNER JOIN entre la tabla employees y departamento.
+                    <!-- <ul>
+                        <li> -->
+                            Ejecutar la sentencia.
+                            <pre class="preCode">
+                                SQL> SELECT * FROM employees e JOIN departamento d ON e.depto_id = d.depto_id;
+                            </pre>
+                            Viendo el resultado podemos darnos cuenta de que se ha relacionado el depto_id de la tabla employees con el depto_id de la tabla departamento. Pero si nos
+                            fijamos bien, veremos que no se están mostrando todos los departamentos ni todos los empleados, sino solo los que tienen coincidencia. Observemos que el
+                            departamento con id 35 no aparace en los resultados y tampoco aparece el empleado Williams, esto se debe a que en el departamento con id 35 no hay empleados
+                            y Williams no tiene asignado un departamento (No hay coincidencias para estos).
+                        <!-- </li>                        
+                    </ul> -->
+                </p>
+                <dt>
+                    <span class="spanSyntax">LEFT JOIN</span>
+                    <dd>
+                        En este join se muestran todos los elementos de la tabla A (izquierda). En este se parte de todos los elementos de la tabla A y se comparan con todos los de la
+                        tabla B (derecha), es decir siempre aparecen todas las filas de A como datos, pero no aparecen los de la tabla B que no tengan coincidencia.
+                    </dd>
+                </dt>
+                <p>
+                    <span class="textExample">Ejemplo: </span> Hacer un LEFT JOIN entre la tabla employees y departamento.
+                    Ejecutar la sentencia.
+                    <pre class="preCode">
+                        SQL> SELECT * FROM employees e LEFT JOIN departamento d ON e.depto_id = d.depto_id;
+                    </pre>
+                    Viendo el resultado podemos darnos cuenta de que se muestran todos los empleados porque estos están en la tabla A, incluso Williams que no tiene departamento
+                    asignado, pero no aparece el departamento con id 35. En conclusion, con este join aparecerán todos los datos de la tabla A tengan o no datos relacionados con la
+                    tabla B.
+                </p>
+                <dt>
+                    <span class="spanSyntax">RIGHT JOIN</span>
+                    <dd>
+                        En este join se muestran todos los elementos de la tabla B (derecha). En este se parte de todos los elementos de la tabla B y se comparan con todos los de la
+                        tabla A (izquierda), es decir siempre aparecen todas las filas de B como datos, pero no aparecen los de la tabla A que no tengan coincidencia.
+                    </dd>
+                </dt>
+                <p>
+                    <span class="textExample">Ejemplo: </span> Hacer un RIGHT JOIN entre la tabla employees y departamento.
+                    Ejecutar la sentencia.
+                    <pre class="preCode">
+                        SQL> SELECT * FROM employees e RIGHT JOIN departamento d ON e.depto_id = d.depto_id;
+                    </pre>
+                    Viendo el resultado podemos darnos cuenta de que se muestran todos los departamentos porque estos están en la tabla B, incluso el que tiene id 35 que no tiene
+                    empleados, pero no aparece Williams. En conclusion, con este join aparecerán todos los datos de la tabla B tengan o no datos relacionados con la tabla A.
+                </p>
+                <dt>
+                    <span class="spanSyntax">FULL JOIN</span>
+                    <dd>
+                        En este join se muestran todos los resultados posibles, departamentos que no tienen empleados y empleados que no tienen departamento asignado.                        
+                    </dd>
+                </dt>
+                <p>
+                    <span class="textExample">Ejemplo: </span> Hacer un FULL JOIN entre la tabla employees y departamento.
+                    Ejecutar la sentencia.
+                    <pre class="preCode">
+                        SQL> SELECT * FROM employees e FULL JOIN departamento d ON e.depto_id = d.depto_id;
+                    </pre>
+                    Viendo el resultado podemos darnos cuenta de que se muestran todos los datos de ambas tablas.
+                </p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
