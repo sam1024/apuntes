@@ -30,6 +30,9 @@ a {
   margin-left: auto;
   margin-right: auto; }
 
+.img {
+  width: 100%; }
+
 .logo {
   display: block;
   width: 120px;
@@ -114,17 +117,19 @@ a {
   border-left-style: solid;
   border-radius: var(--_borderRadius5px); }
 
+.parrafo {
+  line-height: 2rem; }
+
 @media (min-width: 768px) {
-  /*body {
-        background:  #0a0b0c;
-    }*/
   .container {
-    /*background: #1c2833;*/
     width: 70%;
     padding-top: 1px;
     padding-left: 10px;
     padding-right: 10px;
     margin-left: auto;
-    margin-right: auto; } }
+    margin-right: auto; }
+  .img {
+    display: block;
+    width: auto; } }
 
 /*# sourceMappingURL=general-styles.css.map */

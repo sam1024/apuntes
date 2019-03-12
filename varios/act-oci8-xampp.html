@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/normalizecss.css">
+    <link rel="stylesheet" href="../css/general-styles.css">
+    <link rel="stylesheet" href="./css/act-oci8-xampp.css">
+    <title>Apuntes variados</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="centerElement">Apuntes variados</h1>
+        </header>
+        <main class="main">
+            <h2>Activar oci8 en XAMPP</h2>
+            <p>Antes de todo crear un archivo al cual llamaremos <span class="spanSyntax">info.php</span>, éste tendrá el siguiente contenido:</p>
+            <pre class="preCode">
+                &lt;?php
+                    &nbsp;&nbsp;phpinfo();                
+            </pre>
+            <p>Ejecutarlo en el navegador y verificar la arquitectura de PHP.</p>
+            <img src="../img/info-apache.jpg" alt="info-apache" class="img">
+            <p><em>Si la arquitectura de PHP es x86 (32 bits) todo el software que se usará en esta guia tiene que ser a
+                    32 bits, no importando que el sistema operativo sea a 64 bits.</em></p>
+            <p>Verificar si oci8 está acitvado, en caso de ser así en la informaciòn que muestra el archivo tendremos
+                una sección que muestra la información de oci8.</p>
+            <img src="../img/oci8-act.jpg" alt="oci8" class="img">
+            <p>Pero en caso de no estar esta sección realizar lo siguiente.</p>
+            <p class="parrafo">
+                1. Instalar <a href="https://www.microsoft.com/es-mx/download/details.aspx?id=40784" target="_blank">Microsoft Visual C++ 2013 redistributable</a>.
+                <img src="../img/prog-insta.jpg" alt="prog-insta" class="img">
+                <br>
+                2. <a href="http://download.oracle.com/otn/nt/instantclient/122010/instantclient-basic-nt-12.2.0.1.0.zip" target="_blank">Descargar</a> y descomprimir
+                   instantclient-basic-nt-12.2.0.1.0.zip en la unidad C.
+                <br>
+                3. Asignar a la variable de entorno path el directorio donde se descomprimio el instanclient, para hacerlo copiar la ruta donde se instalo el instantclient
+                <img src="../img/ruta-instant.jpg" alt="ruta-instant" class="img">
+                Despues dar click derecho en equipo->propiedades->Configuracion avanzada del sistema, en la ventana que se abre dar click en el boton variables de entorno.
+                <img src="../img/config-avanzada.jpg" alt="config-avanzada" class="img centerElement">                
+                En la siguiente ventana, en el recuadro variables del sistema seleccionar Path y dar click en el boton editar.
+                <img src="../img/var-entorno.jpg" alt="var-entorno" class="img ">
+                En el siguiente cuadro de dialogo dar click en nuevo y pegar la ruta donde esta instalado el instantclient y dar enter.
+                <img src="../img/save-ruta-instant.jpg" alt="save-ruta-instant" class="img">
+                Despues mover la linea que acabamos de crear de modo que esta quede por encima de cualquier variable de entorno de oracle.
+                <img src="../img/up-ruta-instant.jpg" alt="up-ruta-instant" class="img">
+                Por ultimo dar click en aceptar en todas las ventanas que se abrieron.
+                <br>
+                4. Reiniciar la pc.
+                <br>
+                5. Abrir el archivo C:\xampp\php\php.ini buscar la linea ;extension=oci8_12c ; Use with Oracle Database 12c Instant Client y quitarle el punto y coma del inicio,
+                   guardar los cambios e iniciar o reiniciar apache y ejecutar de nuevo el archivo creado en el paso 1.
+            </p>
+            <p>
+                Si se realizaron los pasos de manera correcta debemos ver la extension activada, en caso de que asi sea verificar si podemos conectarnos con oracle desde PHP,
+                para hacerlo comentar la linea phpinfo(); del archivo <span class="spanSyntax">info.php</span> y escribir el siguiente codigo.
+            </p>
+            <code>
+                <pre class="preCode">
+                    try {
+                        &nbsp;&nbsp;$conn = oci_connect("usuario", "password", "localhost/XE");
+                        &nbsp;&nbsp;echo "CONEXION EXITOSA!!!";
+                    } catch(Exception $ex) {
+                        &nbsp;&nbsp;echo "ERROR: $ex";
+                    }
+                </pre>
+            </code>            
+            <p>Ejecutar el archivo y en caso de no tener errores debemos ver el mensaje CONEXION EXITOSA!!! en la pagina.</p>
+        </main>
+    </div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
