@@ -129,4 +129,13 @@
 .size {
   font-size: xx-large; }
 
+/**** SHORTHAND FONT ****/
+.personalizado {
+  font-family: mi-fuente; }
+
+@font-face {
+  font-family: mi-fuente;
+  src: url(../../../fonts/GermaniaOne-Regular.ttf);
+  font-weight: 600; }
+
 /*# sourceMappingURL=textos.css.map */
