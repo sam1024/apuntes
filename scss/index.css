@@ -1,0 +1,27 @@
+@import url(./general-styles.css);
+.header {
+  width: 100vw;
+  margin-bottom: 5px; }
+
+.title {
+  font-size: 1.2em;
+  text-align: center; }
+
+.card {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom: solid;
+  border-left-style: solid;
+  border-color: #d0d3d4;
+  /*#ecf0f1*/
+  text-align: center;
+  padding-bottom: 5px; }
+
+/* .css3Logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+} */
