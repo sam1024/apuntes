@@ -6,15 +6,132 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../../css/normalizecss.css">
     <link rel="stylesheet" href="../../css/general-styles.css">
+    <link rel="stylesheet" href="./css/pseudoclases.css">
     <title>Pseudoclases</title>
 </head>
 <body>
     <header class="header">
         <h1 class="textCenter">PSEUDOCLASES</h1>
+        <p>
+            Las pseudoclases son selectores especiales que dependen del contexto de los elementos HTML que podría ser su pocición, si es el primero, el segundo o el último, tambien 
+            podría ser en base a la respuesta de algún estado que pudiera ser activado por el usuario, por ejemplo cuando pasa el mouse, cuando da click, cuando la pagina tiene el
+            foco, cuando lo pierde, cuando en un formulario la información es válida o inválida. Entonces es dependiendo del contexto, la posición o el estado es que se van a estar
+            aplicando algunos estilos.
+        </p>
     </header>
     <div class="container">
         <section class="section">
             <h2>Pseudoclase :root</h2>
+            <p>
+                La pseudo-clase <code>:root</code> de CSS selecciona el elemento raíz de un árbol que representa el documento. En HTML, :root representa el elemento
+                &lt;html&gt; y es idéntico al selector html, excepto que su especificidad es mayor. Este selector es muy usado para declarar variables.
+            </p>
+            <div class="divSyntax">
+                <h2>Sintaxis y valores</h2>
+                <dt>
+                    <span class="spanSyntax">:root: [valor]</span>
+                    <dd>El valor puede ser prácticamente cualquiera, podemos definir color de texto, tamaño de fuente, variables, etc.</dd>
+                </dt>
+            </div>
+            <div class="Example">
+                <span class="textExample">Ejemplo: </span>
+                <span>Definir una variable y un tamaño de fuente para el documento HTML</span>
+                <pre class="preCode">
+                    :root {
+                        --main-color: #fff;
+                        font-size: 20px;
+                    }
+                </pre>
+                <p>Podrá ver un ejemplo <a href="https://codepen.io/k3rn3l/pen/qwEKvW" target="_blank">aquí</a></p>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Pseudoclase :hover</h2>
+            <p>
+                La pseudo-clase <code>:hover</code> de CSS coincide cuando el usuario interactúa con un elemento con un dispositivo señalador, pero no necesariamente lo activa.
+                Generalmente se activa cuando el usuario se desplaza sobre un elemento con el cursor (puntero del mouse).
+            </p>
+            <p>
+                Los estilos definidos por la pseudoclase :active serán anulados por cualquier pseudo-clase posterior relacionada con el enlace (:link, :visited, o :active) que tenga
+                al menos la misma especificidad. Para darle un estilo apropiado a los enlaces, coloque la regla :hover después de las reglas :link y :visited, pero antes de :active,
+                según lo definido por el orden LVHA: :link — :visited — :hover — :active.
+            </p>
+            <div class="divSyntax">
+                <h2>Sintaxis y valores</h2>
+                <dt>
+                    <dt>
+                        <code>[selector]:hover { [propiedad]: [valor]; }</code>
+                        <dd>El selector, la propiedad y el valor pueden ser cualquiera válidos en CSS</dd>
+                    </dt>
+                </dt>
+            </div>
+            <div class="divExample">
+                <span class="textExample">Ejemplo: </span>
+                <span>Cambiar el color de fondo de una caja cuando el puntero del mouse pase sobre ella.</span>
+                <p>Este es el código HTML usado para pintar la caja.</p>
+                <pre class="preCode">
+                    <code>
+                        &lt;div class="caja-1"&gt;&lt;/div&gt;
+                    </code>
+                </pre>
+                <p>Este es el código CSS usado para actibar la pseudoclase hover</p>
+                <pre class="preCode">
+                    <code>
+                        .caja-1:hover { background-color: red; }
+                    </code>
+                </pre>
+            </div>
+            <div class="divResultado">
+                <p>Resultado: Podemos ver como al pasar el puntero del mouse el color de fondo de la caja cambia.</p>
+                <div class="caja-1 cuadrado-200px four-border-solid"></div>
+                <p>
+                    Podemos ver un ejemplo <a href="https://codepen.io/k3rn3l/pen/MRYqeK" target="_blank" rel="noopener noreferrer">aquí</a> de como usar la pseudoclase :hover con
+                    :active
+                </p>
+            </div>
+            <div class="divNota">
+                <strong>NOTA: </strong>
+                <em>
+                    En un dispositivo movil el compartamiento de la pseudoclase hover se activa al momento de hacer touch sobre el elemento. Esto podría ser un problema si se tienen
+                    menús que se desplieguen al momento de hacer hover en el elemento, por eso se debe usar con cuidado esta pseudoclase sobre todo en moviles.
+                </em>
+            </div>
+        </section>
+        <section class="section">
+            <h2>Pseudoclase :active</h2>
+            <p>
+                La pseudo-clase <code>:active</code> de CSS  representa un elemento (como un botón) que el usuario está activando.  Cuando se usa un mouse, la "activación" generalmente
+                comienza cuando el usuario presiona el botón primario del mouse y termina cuando se suelta. La pseudo-clase :active se usa comúnmente en los elementos &lt;a&gt; y
+                &lt;button&gt;, pero también se puede usar en otros elementos.
+            </p>
+            <p>
+                Los estilos definidos por la pseudoclase :active serán anulados por cualquier pseudoclase posterior relacionada con el enlace (:link, :hover o :visited) que tenga al
+                menos la misma especificidad. Para darle un estilo apropiado a los enlaces, coloque la regla :active después de todas las demás reglas relacionadas con el enlace, tal
+                como lo define el orden LVHA: :link — :visited — :hover — :active.
+            </p>
+            <div class="divSyntax">
+                <h2>Sintaxis</h2>
+                <dt>
+                    <code>selector:active { [propiedad]: [valor]; }</code>
+                </dt>
+            </div>
+            <div class="divExample">
+                <span class="textExample">Ejemplo: </span>
+                <span>Cambiar los estilos width y background-color de un boton cuando este este activo.</span>
+                <p>Este es el código HTML usado en el ejemplo</p>
+                <pre class="preCode">
+                    <code>&lt;button class="btn"&gt;Dame click&lt;/button&gt;</code>
+                </pre>
+                <p>Este es el código CSS usado para establecer los estilos</p>
+                <pre class="preCode">
+                    <code>
+                        .btn:active {
+                            &nbsp;&nbsp;width: 200px;
+                            &nbsp;&nbsp;background-color: red;
+                        }
+                    </code>
+                </pre>
+            </div>
         </section>
     </div>    
 </body>

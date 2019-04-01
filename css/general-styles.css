@@ -120,6 +120,12 @@ a {
 .parrafo {
   line-height: 2rem; }
 
+.cuadrado-200px {
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto; }
+
 @media (min-width: 768px) {
   .container {
     width: 70%;
